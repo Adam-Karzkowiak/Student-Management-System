@@ -1,6 +1,6 @@
 package logic;
 
-public class ValidationService {
+final public class ValidationService {
 
 
     public static void isPasswordValid(String password) {

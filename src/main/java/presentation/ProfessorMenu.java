@@ -1,7 +1,7 @@
 package presentation;
 
 import logic.ProfessorService;
-import logic.SubjectService;
+//import logic.SubjectService;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class ProfessorMenu {
 
     public static void professorMenu() {
         do {
-            System.out.println("Professor panel ID ");  //problem ID-
+            System.out.println("Professor panel ID ");
             System.out.println("1. Show a list of subjects");
             System.out.println("2. Add subject");
             System.out.println("3. Show registered students to a subject");
@@ -23,27 +23,27 @@ public class ProfessorMenu {
             action = scanDecision.nextInt();
             switch (action) {
                 case 1:
-                    SubjectService.showListOfSubjects();
-                    break;
+//                    SubjectService.showListOfSubjects();
+//                    break;
                 case 2:
-                    System.out.println("Create subject.");
-                    System.out.println("Subject title: ");
-                    scanDecision.nextLine();
-                    String subjectName = scanDecision.nextLine();
-                    SubjectService newSubj = new SubjectService(subjectName);
-                    SubjectService.addToRepository(newSubj);
+//                    System.out.println("Create subject.");
+//                    System.out.println("Subject title: ");
+//                    scanDecision.nextLine();
+//                    String subjectName = scanDecision.nextLine();
+//                    SubjectService newSubj = new SubjectService(subjectName);
+//                    SubjectService.addToRepository(newSubj);
                     break;
                 case 3:
-                    //Show list of students registered to specific subject
+                    //TODO Show list of students registered to specific subject
                     break;
                 case 4:
-                    //Calculate avg grades from all students to specific subject
+                    //TODO Calculate avg grades from all students to specific subject
                     break;
                 case 5:
-                    //Show specific student grades from a subject
+                    //TODO Show specific student grades from a subject
                     break;
                 case 6:
-                    // Add grade (int) to grade array from specific subject to specific student
+                    //TODO Add grade (int) to grade arraylist from specific subject to specific student
                     break;
             }
 

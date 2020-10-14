@@ -2,7 +2,7 @@ package presentation;
 
 import logic.AdminService;
 import logic.ProfessorService;
-import logic.StudentService;
+//import logic.StudentService;
 
 import java.util.Scanner;
 
@@ -19,8 +19,8 @@ public class LoginMenu {
             AdminMenu.adminPanel();
         } else if (ProfessorService.checkPasswordAndLogin(provideLogin,providePassword)) {
             ProfessorMenu.professorMenu();
-        }else if (StudentService.checkPasswordAndLogin(provideLogin,providePassword)){
-            StudentMenu.studentMenu();
-        }
+        }//else if (StudentService.checkPasswordAndLogin(provideLogin,providePassword)){
+         //   StudentMenu.studentMenu();
+       // }
     }
 }

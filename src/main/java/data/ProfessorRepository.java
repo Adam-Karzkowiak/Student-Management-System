@@ -1,14 +1,12 @@
 package data;
 
-import lombok.Data;
+import lombok.ToString;
+import model.Professor;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
-@Data
+@ToString
 public class ProfessorRepository {
-    public static ArrayList<logic.ProfessorService> professorDatabase = new ArrayList<>();
-static final Scanner scan = new Scanner(System.in);
+    public static ArrayList<Professor> professorDatabase = new ArrayList<>();
 
 
 }
