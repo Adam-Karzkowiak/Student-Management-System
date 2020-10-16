@@ -3,6 +3,7 @@ package presentation;
 import data.ProfessorRepository;
 import logic.ProfessorService;
 import logic.ValidationService;
+
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -10,12 +11,14 @@ public class AdminMenu {
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
     private ProfessorService professorService;
-    public AdminMenu(ProfessorService professorService) {
-        this.professorService = professorService;
+    private LoginMenu loginMenu;
 
+    public AdminMenu(ProfessorService professorService, LoginMenu loginMenu) {
+        this.professorService = professorService;
+        this.loginMenu = loginMenu;
     }
 
-    public static void adminPanel()  {
+    public void adminPanel() {
         String login;
         String password;
         String name;
@@ -58,11 +61,11 @@ public class AdminMenu {
                     scanDecision.nextLine();
                     String peselToDelete = scanDecision.nextLine();
                     System.out.println("Do you want to delete ");
-                    ProfessorService.printNameAndSurname(peselToDelete);
+                    professorService.printNameAndSurname(peselToDelete);
                     System.out.println("Y/N?");
                     String decision = scanDecision.nextLine();
                     if (decision.equalsIgnoreCase("Y")) {
-                        ProfessorService.removeProfessorAccount(peselToDelete);
+                        professorService.removeProfessorAccount(peselToDelete);
                         System.out.println("Account has been deleted");
                     } else {
                         System.out.println("Procedure has been cancelled");
@@ -72,9 +75,8 @@ public class AdminMenu {
                     break;
             }
         } while (action != 5);
-        LoginMenu.login();
+        loginMenu.login();
     }
-
 
 
 }

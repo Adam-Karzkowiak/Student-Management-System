@@ -8,10 +8,12 @@ public class AdminService {
     final static String password = "admin";
 
     public static String getLogin() {
+
         return login;
     }
 
     public static String getPassword() {
+
         return password;
     }
 

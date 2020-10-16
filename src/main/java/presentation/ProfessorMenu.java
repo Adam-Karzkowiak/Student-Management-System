@@ -9,8 +9,13 @@ public class ProfessorMenu {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
+    private LoginMenu loginMenu;
 
-    public static void professorMenu() {
+    public ProfessorMenu(LoginMenu loginMenu) {
+        this.loginMenu = loginMenu;
+    }
+
+    public void professorMenu() {
         do {
             System.out.println("Professor panel ID ");
             System.out.println("1. Show a list of subjects");
@@ -48,7 +53,7 @@ public class ProfessorMenu {
             }
 
         } while (action != 7);
-        LoginMenu.login();
+        loginMenu.login();
     }
 
 
