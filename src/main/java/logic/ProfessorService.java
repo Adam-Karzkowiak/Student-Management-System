@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @Data
 public class ProfessorService  {
     private IdentifierProvider identifierProvider;
-    ProfessorRepository professorRepository;
+    private ProfessorRepository professorRepository;
 
     public ProfessorService(IdentifierProvider identifierProvider, ProfessorRepository professorRepository) {
         this.identifierProvider = identifierProvider;

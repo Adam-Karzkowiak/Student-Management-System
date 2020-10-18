@@ -1,6 +1,7 @@
 package presentation;
 
 import logic.ProfessorService;
+import logic.SubjectService;
 //import logic.SubjectService;
 
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class ProfessorMenu {
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
     private LoginMenu loginMenu;
+    private SubjectService subjectService;
 
     public ProfessorMenu(LoginMenu loginMenu) {
         this.loginMenu = loginMenu;
@@ -28,15 +30,14 @@ public class ProfessorMenu {
             action = scanDecision.nextInt();
             switch (action) {
                 case 1:
-//                    SubjectService.showListOfSubjects();
-//                    break;
+                   subjectService.showSubjectList();
+                   break;
                 case 2:
-//                    System.out.println("Create subject.");
-//                    System.out.println("Subject title: ");
-//                    scanDecision.nextLine();
-//                    String subjectName = scanDecision.nextLine();
-//                    SubjectService newSubj = new SubjectService(subjectName);
-//                    SubjectService.addToRepository(newSubj);
+                    System.out.println("Create subject.");
+                    System.out.println("Subject title: ");
+                    scanDecision.nextLine();
+                    String subjectName = scanDecision.nextLine();
+                    subjectService.createSubject(subjectName);
                     break;
                 case 3:
                     //TODO Show list of students registered to specific subject

@@ -3,7 +3,7 @@ package logic;
 final public class ValidationService {
 
 
-    public static void isPasswordValid(String password) {
+    public static void passwordValidation(String password) {
 
         if (password.length() > 20 || password.length() < 8) {
             throw new IllegalArgumentException("Password must be less than 20 and more than 8 characters in length.");
@@ -23,7 +23,7 @@ final public class ValidationService {
 
     }
 
-    public static void isPeselValid(String pesel) {
+    public static void peselValidation(String pesel) {
         int[] digits = new int[11];
         for (int i = 0; i < 11; i++) {
             digits[i] = Integer.parseInt(pesel.substring(i, i + 1));

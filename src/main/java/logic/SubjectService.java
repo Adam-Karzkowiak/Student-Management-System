@@ -1,55 +1,34 @@
-//package logic;
-//
-//import data.StudentRepository;
-//import data.SubjectRepository;
-//import lombok.Data;
-//import lombok.EqualsAndHashCode;
-//
-//import java.util.ArrayList;
-//import java.util.Scanner;
-//
-//@Data
-//@EqualsAndHashCode
-//
-//public class SubjectService {
-//    String subjectName;
-//    final static Scanner scanWords = new Scanner(System.in);
-//    private static ArrayList<StudentService> listOfStudents = new ArrayList<>(); //FIXME wypad do data package-TU JEST BLAD
-//    //FIXME TA LISTA NIE MOZE BYC STATYCZNA-KAZDA INSTANCJA MA POSIADAC SWOJA WLASNA LISTE STUDENTOW
-//     ArrayList<Integer> studentGrades;
-//    public SubjectService(String subjectName) {
-//        this.subjectName = subjectName;
-//    }
-//
-//    public SubjectService() {
-//
-//    }
-//
-//    public static ArrayList<logic.StudentService> registerToSubject() {
-//        System.out.println("Subject registration");
-//        System.out.println("Provide your pesel");
-//        String peselNumber = scanWords.nextLine();
-//        System.out.println("Name of subject :");
-//        String subjectName = scanWords.nextLine();
-//        for (StudentService obj : StudentRepository.studentDatabase)
-//            if (obj.getPesel().equals(peselNumber)) {
-//                listOfStudents.add(obj);                //FIXME BEDZIE ZMIANA-listOfStudents do konkretnego przedmiotu
-//            }                                           // FOR(SUBJSERVICE OBJ : SUBJ REPOSITORY) I EQUALSIGNORECASE
-//        return listOfStudents;
-//    }
-//
-//    public static ArrayList<logic.SubjectService> addToRepository(SubjectService object) {
-//        SubjectRepository.subjectDatabase.add(object);
-//        return SubjectRepository.subjectDatabase;
-//    }
-//
-//    public static void showListOfSubjects() {
-//        System.out.println(SubjectRepository.subjectDatabase.toString());
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Subject name : " + subjectName + '\n' +
-//                "Registered students : " + listOfStudents + '\n';
-//    }
-//}
+package logic;
+
+import data.SubjectRepository;
+import model.Subject;
+
+import java.util.ArrayList;
+
+public class SubjectService {
+    private SubjectRepository subjectRepository;
+
+    public SubjectService(SubjectRepository subjectRepository) {
+        this.subjectRepository = subjectRepository;
+    }
+
+    public Subject createSubject(String subjectName) {
+
+        Subject subject = new Subject(subjectName);
+        addToRepository(subject);
+        return subject;
+    }
+
+    public ArrayList<Subject> removeSubject(String subjectName) {
+        SubjectRepository.subjectDatabase.removeIf(subject -> subject.getSubjectName().equals(subjectName));
+        return SubjectRepository.subjectDatabase;
+    }
+
+    public ArrayList<Subject> addToRepository(Subject subject) {
+        SubjectRepository.subjectDatabase.add(subject);
+        return SubjectRepository.subjectDatabase;
+    }
+    public void showSubjectList(){
+        System.out.println(SubjectRepository.subjectDatabase.toString());
+    }
+}
