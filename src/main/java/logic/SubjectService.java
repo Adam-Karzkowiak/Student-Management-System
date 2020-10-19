@@ -31,4 +31,11 @@ public class SubjectService {
     public void showSubjectList(){
         System.out.println(SubjectRepository.subjectDatabase.toString());
     }
+//    public void addGrade(String lessonName, int grade) {
+//        if (lessons.get(lessonName) == null) {
+//            ArrayList<Integer> grades = new ArrayList<>();
+//            lessons.put(lessonName, grades);
+//        }
+//        lessons.get(lessonName).add(grade);
+//    }
 }

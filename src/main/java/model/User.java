@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @ToString
 @Data
-public class User {
+abstract class User {
     int id;
     String login;
     String password;
