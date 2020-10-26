@@ -1,6 +1,5 @@
 package presentation;
 
-import logic.ProfessorService;
 import logic.SubjectService;
 //import logic.SubjectService;
 
@@ -10,11 +9,10 @@ public class ProfessorMenu {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
-    private LoginMenu loginMenu;
-    private SubjectService subjectService;
+private SubjectService subjectService;
 
-    public ProfessorMenu(LoginMenu loginMenu) {
-        this.loginMenu = loginMenu;
+    public ProfessorMenu(SubjectService subjectService) {
+        this.subjectService = subjectService;
     }
 
     public void professorMenu() {
@@ -54,7 +52,7 @@ public class ProfessorMenu {
             }
 
         } while (action != 7);
-        loginMenu.login();
+        ControllerMenu.callLoginMenu();
     }
 
 

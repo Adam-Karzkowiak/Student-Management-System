@@ -1,12 +1,15 @@
 package logic;
 
 import data.SubjectRepository;
+import model.Student;
 import model.Subject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
+    HashMap<Student, ArrayList<Integer>> grades;
 
     public SubjectService(SubjectRepository subjectRepository) {
         this.subjectRepository = subjectRepository;
@@ -28,9 +31,12 @@ public class SubjectService {
         SubjectRepository.subjectDatabase.add(subject);
         return SubjectRepository.subjectDatabase;
     }
-    public void showSubjectList(){
+
+    public void showSubjectList() {
         System.out.println(SubjectRepository.subjectDatabase.toString());
     }
+
+
 //    public void addGrade(String lessonName, int grade) {
 //        if (lessons.get(lessonName) == null) {
 //            ArrayList<Integer> grades = new ArrayList<>();

@@ -7,6 +7,8 @@ import lombok.ToString;
 import model.Student;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @ToString
 @EqualsAndHashCode(callSuper = false)
@@ -27,12 +29,12 @@ public class StudentService {
         return student;
     }
 
-    public ArrayList<Student> removeStudentAccount(String pesel) {
+    public List<Student> removeStudentAccount(String pesel) {
         studentRepository.studentDatabase.removeIf(student -> student.getPesel().equals(pesel));
         return studentRepository.studentDatabase;
     }
 
-    public ArrayList<Student> addToRepository(Student student) {
+    public List<Student> addToRepository(Student student) {
         studentRepository.studentDatabase.add(student);
         return studentRepository.studentDatabase;
     }

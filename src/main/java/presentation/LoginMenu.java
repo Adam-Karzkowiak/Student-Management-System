@@ -1,8 +1,6 @@
 package presentation;
 
-import data.StudentRepository;
 import logic.AdminService;
-import logic.IdentifierProvider;
 import logic.ProfessorService;
 import logic.StudentService;
 
@@ -10,17 +8,12 @@ import java.util.Scanner;
 
 public class LoginMenu {
     final static Scanner scanDecision = new Scanner(System.in);
-    private AdminMenu adminMenu;
     private ProfessorService professorService;
-    private ProfessorMenu professorMenu;
     private StudentService studentService;
-    private StudentMenu studentMenu;
 
-    public LoginMenu(ProfessorService professorService) {
-        this.studentService = new StudentService(new IdentifierProvider(), new StudentRepository());//FIXME instancja na potrzebe uruchomienia
-        this.adminMenu = new AdminMenu(professorService, this, studentService);
+    public LoginMenu(ProfessorService professorService, StudentService studentService) {
         this.professorService = professorService;
-        this.professorMenu = new ProfessorMenu(this);
+        this.studentService = studentService;
     }
 
     public void login() {
@@ -29,11 +22,11 @@ public class LoginMenu {
         System.out.print("Password :");
         String providePassword = scanDecision.nextLine();
         if (provideLogin.matches(AdminService.getLogin()) && providePassword.matches(AdminService.getPassword())) {
-            adminMenu.adminPanel();
+            ControllerMenu.callAdminMenu();
         } else if (professorService.checkPasswordAndLogin(provideLogin, providePassword)) {
-            professorMenu.professorMenu();
+            ControllerMenu.callProfessorMenu();
         } else if (studentService.checkPasswordAndLogin(provideLogin, providePassword)) {
-            studentMenu.studentMenu();
+            ControllerMenu.callStudentMenu();
         }
     }
 }

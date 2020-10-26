@@ -3,9 +3,10 @@ package data;
 import model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRepository {
-    public static ArrayList<Student> studentDatabase = new ArrayList<>();
+    public static List<Student> studentDatabase = new ArrayList<>();
 
 
 }

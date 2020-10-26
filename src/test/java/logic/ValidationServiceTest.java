@@ -7,7 +7,7 @@ import org.junit.jupiter.api.function.Executable;
 
 
 class ValidationServiceTest {
-
+// PasswordValidationTest
     @Test
     @DisplayName("when password is too short")
     public void test1() {
@@ -84,6 +84,10 @@ class ValidationServiceTest {
         String expectedMessage = "Password must have at least one number";
         Assertions.assertEquals(expectedMessage, e.getMessage(), "incorrect exception message");
     }
-
+    @Test
+    @DisplayName("when its ok-dont throw exception")
+    public void test7(){
+        ValidationService.passwordValidation("Passw0rdIsOk");
+    }
 
 }

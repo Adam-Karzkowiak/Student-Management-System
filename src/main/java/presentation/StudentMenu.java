@@ -1,13 +1,15 @@
 package presentation;
 
 
+import logic.StudentService;
+
 import java.util.Scanner;
 
 public class StudentMenu {
-    LoginMenu loginMenu;
+    StudentService studentService;
 
-    public StudentMenu(LoginMenu loginMenu) {
-        this.loginMenu = loginMenu;
+    public StudentMenu(StudentService studentService) {
+        this.studentService=studentService;
     }
 
     final static Scanner scanDecision = new Scanner(System.in);
@@ -28,6 +30,6 @@ public class StudentMenu {
                     break;
             }
         } while (action != 3);
-        loginMenu.login();
+        ControllerMenu.callLoginMenu();
     }
 }

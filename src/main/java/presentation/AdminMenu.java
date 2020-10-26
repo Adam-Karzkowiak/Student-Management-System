@@ -13,13 +13,11 @@ public class AdminMenu {
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
     private ProfessorService professorService;
-    private LoginMenu loginMenu;
     private StudentService studentService;
 
-    public AdminMenu(ProfessorService professorService, LoginMenu loginMenu, StudentService studentService) {
+    public AdminMenu(ProfessorService professorService, StudentService studentService) {
         this.professorService = professorService;
-        this.loginMenu = loginMenu;
-        this.studentService=studentService;
+        this.studentService = studentService;
     }
 
     public void adminPanel() {
@@ -99,7 +97,7 @@ public class AdminMenu {
                     scanDecision.nextLine();
                     peselToDelete = scanDecision.nextLine();
                     System.out.println("Do you want to delete ");
-                    professorService.printNameAndSurname(peselToDelete);
+                    studentService.printNameAndSurname(peselToDelete);
                     System.out.println("Y/N?");
                     decision = scanDecision.nextLine();
                     if (decision.equalsIgnoreCase("Y")) {
@@ -111,7 +109,7 @@ public class AdminMenu {
                     break;
             }
         } while (action != 5);
-        loginMenu.login();
+        ControllerMenu.callLoginMenu();
     }
 
 
