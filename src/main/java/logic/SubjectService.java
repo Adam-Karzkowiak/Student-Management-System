@@ -43,20 +43,14 @@ public class SubjectService {
         grades.put(returnStudent(pesel), new ArrayList<Integer>());
     }
 
-    public Student returnStudent(String pesel){
-        for(Student obj : StudentRepository.studentDatabase){
-            if(obj.getPesel().equals(pesel)){
+    public Student returnStudent(String pesel) {
+        for (Student obj : StudentRepository.studentDatabase) {
+            if (obj.getPesel().equals(pesel)) {
                 return obj;
             }
         }
         return null;
     }
 
-//    public void addGrade(String lessonName, int grade) {
-//        if (lessons.get(lessonName) == null) {
-//            ArrayList<Integer> grades = new ArrayList<>();
-//            lessons.put(lessonName, grades);
-//        }
-//        lessons.get(lessonName).add(grade);
-//    }
+
 }
