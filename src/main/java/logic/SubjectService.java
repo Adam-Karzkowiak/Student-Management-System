@@ -6,7 +6,6 @@ import model.Student;
 import model.Subject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class SubjectService {
@@ -41,9 +40,17 @@ public class SubjectService {
     }
 
     public void registerToSubject(String pesel) {
-        grades.put(StudentRepository.studentDatabase.stream().anyMatch(Student -> Student.getPesel().equals(pesel)), new ArrayList<Integer>());
+        grades.put(returnStudent(pesel), new ArrayList<Integer>());
     }
 
+    public Student returnStudent(String pesel){
+        for(Student obj : StudentRepository.studentDatabase){
+            if(obj.getPesel().equals(pesel)){
+                return obj;
+            }
+        }
+        return null;
+    }
 
 //    public void addGrade(String lessonName, int grade) {
 //        if (lessons.get(lessonName) == null) {
