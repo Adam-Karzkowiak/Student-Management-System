@@ -1,17 +1,20 @@
 package logic;
 
+import data.StudentRepository;
 import data.SubjectRepository;
 import model.Student;
 import model.Subject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
-    HashMap<Student, ArrayList<Integer>> grades;
+    private Map<Student, ArrayList<Integer>> grades;
 
     public SubjectService(SubjectRepository subjectRepository) {
+
         this.subjectRepository = subjectRepository;
     }
 
@@ -33,7 +36,12 @@ public class SubjectService {
     }
 
     public void showSubjectList() {
+
         System.out.println(SubjectRepository.subjectDatabase.toString());
+    }
+
+    public void registerToSubject(String pesel) {
+        grades.put(StudentRepository.studentDatabase.stream().anyMatch(Student -> Student.getPesel().equals(pesel)), new ArrayList<Integer>());
     }
 
 
