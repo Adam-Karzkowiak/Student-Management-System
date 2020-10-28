@@ -12,13 +12,10 @@ public class Student extends User {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", pesel='" + pesel + '\'' +
-                '}';
+        return "Student :" +
+                "id :" + id +
+                ", name :" + name + '\'' +
+                ", surname :" + surname + '\'' +
+                ", pesel :" + pesel + '\'' ;
     }
 }

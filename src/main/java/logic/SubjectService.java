@@ -5,10 +5,7 @@ import data.SubjectRepository;
 import model.Student;
 import model.Subject;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
@@ -18,8 +15,8 @@ public class SubjectService {
     }
 
     public Subject createSubject(String subjectName) {
-
-        Subject subject = new Subject(subjectName);
+        HashMap<Student,ArrayList<Integer>>grades=new HashMap<>();
+        Subject subject = new Subject(subjectName,grades);
         addToRepository(subject);
         return subject;
     }
@@ -62,5 +59,12 @@ public class SubjectService {
         return null;
     }
 
+    public void showRegisteredToSubject(String subjectName){
+    for (Subject obj : SubjectRepository.subjectDatabase){
+        if (obj.getSubjectName().equalsIgnoreCase(subjectName)){
+            System.out.println(obj.grades.keySet().toString());
+        }
+    }
+    }
 
 }
