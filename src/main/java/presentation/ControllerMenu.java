@@ -7,6 +7,7 @@ import logic.IdentifierProvider;
 import logic.ProfessorService;
 import logic.StudentService;
 import logic.SubjectService;
+import model.Subject;
 
 
 public class ControllerMenu {
@@ -47,7 +48,9 @@ public class ControllerMenu {
         IdentifierProvider identifierProvider = new IdentifierProvider();
         StudentRepository studentRepository = new StudentRepository();
         StudentService studentService = new StudentService(identifierProvider, studentRepository);
-        StudentMenu studentMenu = new StudentMenu(studentService);
+        SubjectRepository subjectRepository = new SubjectRepository();
+        SubjectService subjectService = new SubjectService(subjectRepository);
+        StudentMenu studentMenu = new StudentMenu(studentService, subjectService);
         studentMenu.studentMenu();
     }
 }

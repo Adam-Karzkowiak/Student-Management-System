@@ -7,13 +7,13 @@ import model.Subject;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
-    private Map<Student, ArrayList<Integer>> grades;
 
     public SubjectService(SubjectRepository subjectRepository) {
-
         this.subjectRepository = subjectRepository;
     }
 
@@ -39,13 +39,23 @@ public class SubjectService {
         System.out.println(SubjectRepository.subjectDatabase.toString());
     }
 
-    public void registerToSubject(String pesel) {
-        grades.put(returnStudent(pesel), new ArrayList<Integer>());
+    public void registerToSubject(String pesel, String subjectName) {
+        Subject subject=returnSubject(subjectName);
+        subject.grades.put(returnStudent(pesel), new ArrayList<Integer>());
     }
 
     public Student returnStudent(String pesel) {
         for (Student obj : StudentRepository.studentDatabase) {
             if (obj.getPesel().equals(pesel)) {
+                return obj;
+            }
+        }
+        return null; // Optional-doczytac-w przypadku, gdy spodziewam sie czestego bledu przy wprowadzania ID-lepiej uzyc Optional.
+    }
+
+    public Subject returnSubject(String subjectName) {
+        for (Subject obj : SubjectRepository.subjectDatabase) {
+            if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj;
             }
         }

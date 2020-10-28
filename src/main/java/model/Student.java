@@ -9,6 +9,7 @@ public class Student extends User {
         super(id, login, password, name, surname, pesel);
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
