@@ -15,8 +15,8 @@ public class SubjectService {
     }
 
     public Subject createSubject(String subjectName) {
-        HashMap<Student,ArrayList<Integer>>grades=new HashMap<>();
-        Subject subject = new Subject(subjectName,grades);
+        HashMap<Student, ArrayList<Integer>> grades = new HashMap<>();
+        Subject subject = new Subject(subjectName, grades);
         addToRepository(subject);
         return subject;
     }
@@ -37,8 +37,8 @@ public class SubjectService {
     }
 
     public void registerToSubject(String pesel, String subjectName) {
-        Subject subject=returnSubject(subjectName);
-        subject.grades.put(returnStudent(pesel), new ArrayList<Integer>());
+        Subject subject = returnSubject(subjectName);
+        subject.grades.put(returnStudent(pesel), new ArrayList<Integer>()); // trzeba obsluzyc put() -co jak wprowadze klucz null?
     }
 
     public Student returnStudent(String pesel) {
@@ -59,12 +59,18 @@ public class SubjectService {
         return null;
     }
 
-    public void showRegisteredToSubject(String subjectName){
-    for (Subject obj : SubjectRepository.subjectDatabase){
-        if (obj.getSubjectName().equalsIgnoreCase(subjectName)){
-            System.out.println(obj.grades.keySet().toString());
+    public void showRegisteredToSubject(String subjectName) {
+        for (Subject obj : SubjectRepository.subjectDatabase) {
+            if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
+                System.out.println(obj.grades.keySet());
+            }
         }
     }
+
+    public void giveAGrade(String subjectName, String studentPesel, int grade) {
+        Subject subject = returnSubject(subjectName);
+        Student student = returnStudent(studentPesel);
+        subject.grades.get(student).add(grade);
     }
 
 }

@@ -50,7 +50,13 @@ private SubjectService subjectService;
                     //TODO Show specific student grades from a subject
                     break;
                 case 6:
-                    //TODO Add grade (int) to grade arraylist from specific subject to specific student
+                    System.out.println("Subject name :");
+                    subjectName=scanDecision.nextLine();
+                    System.out.println("Student pesel number :");
+                    String studentPesel=scanDecision.nextLine();
+                    System.out.println("Grade : ");
+                    int grade=scanDecision.nextInt();
+                    subjectService.giveAGrade(subjectName,studentPesel,grade);
                     break;
             }
 
