@@ -70,8 +70,8 @@ public class SubjectService {
     }
 
     public void giveAGrade(String subjectName, String studentPesel, int grade) {
-        Subject subject = returnSubject(subjectName);
-        Student student = returnStudent(studentPesel);
+        Subject subject = getSubject(subjectName);
+        Student student = getStudent(studentPesel);
         subject.grades.get(student).add(grade);
     }
 
