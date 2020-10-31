@@ -17,7 +17,7 @@ public class SubjectService {
     public Subject createSubject(String subjectName) {
         HashMap<Student, ArrayList<Integer>> grades = new HashMap<>();
         Subject subject = new Subject(subjectName, grades);
-        addToRepository(subject);
+        addToSubjectDatabase(subject);
         return subject;
     }
 
@@ -27,7 +27,7 @@ public class SubjectService {
     }
 
     public ArrayList<Subject> addToSubjectDatabase(Subject subject) {
-        SubjectRepository.subjectDatabase.add(subject);
+        subjectRepository.addSubjectToRepository(subject);
         return SubjectRepository.subjectDatabase;
     }
 
