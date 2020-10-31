@@ -11,6 +11,7 @@ public class SubjectService {
     private SubjectRepository subjectRepository;
 
     public SubjectService(SubjectRepository subjectRepository) {
+
         this.subjectRepository = subjectRepository;
     }
 
@@ -38,7 +39,10 @@ public class SubjectService {
 
     public void registerToSubject(String pesel, String subjectName) {
         Subject subject = returnSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
-        subject.grades.put(returnStudent(pesel), new ArrayList<Integer>()); // trzeba obsluzyc put() -na wypadek key = null?
+        Student student = returnStudent(pesel);
+        if (!subject.grades.containsKey(student)) {
+            subject.grades.put(student, new ArrayList<Integer>());
+        }
     }
 
     public Student returnStudent(String pesel) { //getStudent
