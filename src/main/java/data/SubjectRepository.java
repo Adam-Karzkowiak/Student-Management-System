@@ -13,4 +13,9 @@ public class SubjectRepository {
         SubjectRepository.subjectDatabase.add(subject);
         return SubjectRepository.subjectDatabase;
     }
+
+    public ArrayList<Subject> deleteSubject(String subjectName) {
+        SubjectRepository.subjectDatabase.removeIf(subject -> subject.getSubjectName().equals(subjectName));
+        return SubjectRepository.subjectDatabase;
+    }
 }

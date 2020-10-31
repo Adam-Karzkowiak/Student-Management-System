@@ -22,7 +22,7 @@ public class SubjectService {
     }
 
     public ArrayList<Subject> removeSubject(String subjectName) {
-        SubjectRepository.subjectDatabase.removeIf(subject -> subject.getSubjectName().equals(subjectName));
+        subjectRepository.deleteSubject(subjectName);
         return SubjectRepository.subjectDatabase;
     }
 
