@@ -25,7 +25,7 @@ public class ProfessorService  {
     }
 
     public ArrayList<Professor> removeProfessorAccount(String pesel) {
-        ProfessorRepository.professorDatabase.removeIf(professor -> professor.getPesel().equals(pesel));
+        professorRepository.deleteProfessor(pesel);
         return ProfessorRepository.professorDatabase;
     }
 
