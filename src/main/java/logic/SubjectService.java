@@ -26,7 +26,7 @@ public class SubjectService {
         return SubjectRepository.subjectDatabase;
     }
 
-    public ArrayList<Subject> addToRepository(Subject subject) {
+    public ArrayList<Subject> addToSubjectDatabase(Subject subject) {
         SubjectRepository.subjectDatabase.add(subject);
         return SubjectRepository.subjectDatabase;
     }
