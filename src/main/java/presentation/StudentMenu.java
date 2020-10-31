@@ -34,6 +34,7 @@ public class StudentMenu {
                     break;
                 case 2:
                     System.out.println("Subject registration");
+                    subjectService.showSubjectList();
                     System.out.println("Provide your pesel: ");
                     scanDecision.nextLine();
                     String peselNumber=scanDecision.nextLine();

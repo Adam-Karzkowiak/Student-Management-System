@@ -24,19 +24,14 @@ public class StudentService {
     public Student createStudent(String login, String password, String name, String surname, String pesel) {
         int id = identifierProvider.getId();
         Student student = new Student(id, login, password, name, surname, pesel);
-        addToRepository(student);
-        return student;
+        return studentRepository.save(student);
     }
 
-    public List<Student> removeStudentAccount(String pesel) {
-        studentRepository.studentDatabase.removeIf(student -> student.getPesel().equals(pesel));
-        return studentRepository.studentDatabase;
+    public Student removeStudentAccount(String pesel) {
+        studentRepository.delete(pesel);
+
     }
 
-    public List<Student> addToRepository(Student student) {
-        studentRepository.studentDatabase.add(student);
-        return studentRepository.studentDatabase;
-    }
 
     public boolean checkPasswordAndLogin(String login, String password) {
 
@@ -64,9 +59,6 @@ public class StudentService {
             }
         }
     }
-
-
-
 
 
 }
