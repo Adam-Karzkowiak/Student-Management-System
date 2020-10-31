@@ -30,7 +30,7 @@ public class ProfessorService  {
     }
 
     public ArrayList<Professor> addToRepository(Professor professor) {
-        ProfessorRepository.professorDatabase.add(professor);
+        professorRepository.addToDatabase(professor);
         return ProfessorRepository.professorDatabase;
     }
 
