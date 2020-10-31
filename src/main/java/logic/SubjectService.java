@@ -38,12 +38,12 @@ public class SubjectService {
     }
 
     public void registerToSubject(String pesel, String subjectName) {
-        Subject subject = returnSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
-        Student student = returnStudent(pesel);
+        Subject subject = getSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
+        Student student = getStudent(pesel);
         subjectRepository.addStudentToSubject(subject,student);
     }
 
-    public Student returnStudent(String pesel) { //getStudent
+    public Student getStudent(String pesel) { //getStudent
         for (Student obj : StudentRepository.studentDatabase) {
             if (obj.getPesel().equals(pesel)) {
                 return obj;
@@ -52,7 +52,7 @@ public class SubjectService {
         return null; // Optional-doczytac. Gdy spodziewam sie czestego bledu przy wprowadzania ID-lepiej uzyc Optional.
     }
 
-    public Subject returnSubject(String subjectName) { //getSubject
+    public Subject getSubject(String subjectName) { //getSubject
         for (Subject obj : SubjectRepository.subjectDatabase) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj;
