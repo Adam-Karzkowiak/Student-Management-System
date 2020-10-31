@@ -1,5 +1,6 @@
 package data;
 
+import model.Student;
 import model.Subject;
 
 import java.util.ArrayList;
@@ -17,5 +18,11 @@ public class SubjectRepository {
     public ArrayList<Subject> deleteSubject(String subjectName) {
         SubjectRepository.subjectDatabase.removeIf(subject -> subject.getSubjectName().equals(subjectName));
         return SubjectRepository.subjectDatabase;
+    }
+
+    public void addStudentToSubject(Subject subject, Student student){
+        if (!subject.grades.containsKey(student)) {
+            subject.grades.put(student, new ArrayList<Integer>());
+        }
     }
 }

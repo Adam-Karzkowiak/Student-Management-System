@@ -40,9 +40,7 @@ public class SubjectService {
     public void registerToSubject(String pesel, String subjectName) {
         Subject subject = returnSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
         Student student = returnStudent(pesel);
-        if (!subject.grades.containsKey(student)) {
-            subject.grades.put(student, new ArrayList<Integer>());
-        }
+        subjectRepository.addStudentToSubject(subject,student);
     }
 
     public Student returnStudent(String pesel) { //getStudent
