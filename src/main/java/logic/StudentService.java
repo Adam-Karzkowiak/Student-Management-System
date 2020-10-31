@@ -24,12 +24,11 @@ public class StudentService {
     public Student createStudent(String login, String password, String name, String surname, String pesel) {
         int id = identifierProvider.getId();
         Student student = new Student(id, login, password, name, surname, pesel);
-        return studentRepository.save(student);
+        return studentRepository.saveStudent(student);
     }
 
-    public Student removeStudentAccount(String pesel) {
-        studentRepository.delete(pesel);
-
+    public void removeStudentAccount(String pesel) {
+        studentRepository.deleteStudent(pesel);
     }
 
 
