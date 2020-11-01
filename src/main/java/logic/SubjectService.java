@@ -5,7 +5,9 @@ import data.SubjectRepository;
 import model.Student;
 import model.Subject;
 
+import javax.swing.text.html.Option;
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
@@ -75,11 +77,14 @@ public class SubjectService {
         subjectRepository.addAGrade(subject, student, grade);
     }
 
-//    public void calculateAvgForStudent(String subjectName, String studentPesel) {
-//        Subject subject = returnSubject(subjectName);
-//        Student student = returnStudent(studentPesel);
-//        subject.grades.get(student).re
-//    }
+    public void calculateAvgForStudent(String subjectName, String studentPesel) {
+        Subject subject = getSubject(subjectName);
+        Student student = getStudent(studentPesel);
+        ArrayList<Integer> calculatedAvg = subject.grades.get(student);
+        double average = calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
+        System.out.println("Student :" + student.getName() + " " + student.getSurname() + "average grade: " + average + " " + subjectName);
+
+    }
 
 //    public double avgCalculation(ArrayList<Integer> array){
 //        int sum=0;
