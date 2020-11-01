@@ -38,6 +38,7 @@ private SubjectService subjectService;
                     subjectService.createSubject(subjectName);
                     break;
                 case 3:
+                    System.out.println("Show students registered for the subject");
                     System.out.println("Subject name: ");
                     scanDecision.nextLine();
                     subjectName = scanDecision.nextLine();
@@ -51,6 +52,7 @@ private SubjectService subjectService;
                     //TODO Show specific student grades from a subject
                     break;
                 case 6:
+                    System.out.println("Give the student a grade");
                     System.out.println("Subject name :");
                     subjectName=scanDecision.nextLine();
                     System.out.println("Student pesel number :");
