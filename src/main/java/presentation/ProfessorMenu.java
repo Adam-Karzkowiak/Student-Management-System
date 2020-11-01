@@ -39,6 +39,7 @@ private SubjectService subjectService;
                     break;
                 case 3:
                     System.out.println("Subject name: ");
+                    scanDecision.nextLine();
                     subjectName = scanDecision.nextLine();
                     System.out.println("Students list : ");
                     subjectService.showRegisteredToSubject(subjectName);

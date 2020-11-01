@@ -40,7 +40,7 @@ public class SubjectService {
     public void registerToSubject(String pesel, String subjectName) {
         Subject subject = getSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
         Student student = getStudent(pesel);
-        subjectRepository.addStudentToSubject(subject,student);
+        subjectRepository.addStudentToSubject(subject, student);
     }
 
     public Student getStudent(String pesel) { //getStudent
@@ -72,7 +72,7 @@ public class SubjectService {
     public void giveAGrade(String subjectName, String studentPesel, int grade) {
         Subject subject = getSubject(subjectName);
         Student student = getStudent(studentPesel);
-        subject.grades.get(student).add(grade);
+        subjectRepository.addAGrade(subject, student, grade);
     }
 
 //    public void calculateAvgForStudent(String subjectName, String studentPesel) {

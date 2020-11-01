@@ -25,4 +25,8 @@ public class SubjectRepository {
             subject.grades.put(student, new ArrayList<Integer>());
         }
     }
+
+    public void addAGrade(Subject subject, Student student, int grade){
+        subject.grades.get(student).add(grade);
+    }
 }
