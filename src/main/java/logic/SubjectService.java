@@ -7,6 +7,7 @@ import model.Subject;
 
 import javax.swing.text.html.Option;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class SubjectService {
@@ -84,6 +85,15 @@ public class SubjectService {
         double average = calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
         System.out.println("Student :" + student.getName() + " " + student.getSurname() + "average grade: " + average + " " + subjectName);
 
+    }
+
+    public void calculateAverageForWholeClass(String subjectName) {
+        Subject subject = getSubject(subjectName);
+        for (Map.Entry<Student, ArrayList<Integer>> entry : subject.grades.entrySet()) {
+            ArrayList<Integer> studentGrades = entry.getValue();
+            double average = studentGrades.stream().mapToInt(a-> a).average().orElse(0.0);
+            System.out.println("Student " + entry.getKey().getName() + " " + entry.getKey().getSurname() + " Average : " + average);
+        }
     }
 
 //    public double avgCalculation(ArrayList<Integer> array){
