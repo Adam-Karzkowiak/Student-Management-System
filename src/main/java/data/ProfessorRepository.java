@@ -10,7 +10,7 @@ import java.util.Iterator;
 public class ProfessorRepository {
     public static ArrayList<Professor> professorDatabase = new ArrayList<>();
 
-    public void addToDatabase(Professor professor){
+    public void safeProfessor(Professor professor){
         professorDatabase.add(professor);
     }
 
