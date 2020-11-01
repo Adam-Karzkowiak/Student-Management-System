@@ -52,14 +52,19 @@ private SubjectService subjectService;
                     subjectService.calculateAverageForWholeClass(subjectName);
                     break;
                 case 5:
-                    //TODO Show specific student grades from a subject
+                    System.out.println("Show student grades from subject");
+                    System.out.println("Student pesel");
+                    String studentPesel=scanDecision.nextLine();
+                    System.out.println("Subject name");
+                    subjectName=scanDecision.nextLine();
+                    subjectService.calculateAvgForStudent(subjectName,studentPesel);
                     break;
                 case 6:
                     System.out.println("Give the student a grade");
                     System.out.println("Subject name :");
                     subjectName=scanDecision.nextLine();
                     System.out.println("Student pesel number :");
-                    String studentPesel=scanDecision.nextLine();
+                    studentPesel=scanDecision.nextLine();
                     System.out.println("Grade : ");
                     int grade=scanDecision.nextInt();
                     subjectService.giveAGrade(subjectName,studentPesel,grade);
