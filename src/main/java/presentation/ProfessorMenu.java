@@ -46,7 +46,10 @@ private SubjectService subjectService;
                     subjectService.showRegisteredToSubject(subjectName);
                     break;
                 case 4:
-                    //TODO Calculate avg grades from all students to specific subject
+                    System.out.println("Show average grades from subject");
+                    System.out.println("Provide subject name :");
+                    subjectName=scanDecision.nextLine();
+                    subjectService.calculateAverageForWholeClass(subjectName);
                     break;
                 case 5:
                     //TODO Show specific student grades from a subject
