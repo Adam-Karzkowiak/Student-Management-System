@@ -1,5 +1,6 @@
 package presentation;
 
+import authorization.LoggedUser;
 import logic.SubjectService;
 
 import java.util.Scanner;
@@ -16,7 +17,7 @@ private SubjectService subjectService;
 
     public void professorMenu() {
         do {
-            System.out.println("Professor panel ID ");
+            System.out.println("Hello "+ LoggedUser.professor.getName()+" "+LoggedUser.professor.getSurname());
             System.out.println("1. Show a list of subjects");
             System.out.println("2. Add subject");
             System.out.println("3. Show registered students to a subject");
