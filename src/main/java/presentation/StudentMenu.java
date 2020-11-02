@@ -25,7 +25,7 @@ public class StudentMenu {
     public void studentMenu() {
         do {
             System.out.println("Student panel");
-            System.out.println("1. Check my grades");
+            System.out.println("1. Show my grades");
             System.out.println("2. Register to subject");
             System.out.println("3. Logout");
             action = scanDecision.nextInt();
