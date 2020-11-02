@@ -1,7 +1,6 @@
 package presentation;
 
 import authorization.LoggedUser;
-import data.ProfessorRepository;
 import logic.AdminService;
 import logic.ProfessorService;
 import logic.StudentService;

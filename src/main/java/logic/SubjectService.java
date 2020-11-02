@@ -5,10 +5,8 @@ import data.SubjectRepository;
 import model.Student;
 import model.Subject;
 
-import javax.swing.text.html.Option;
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.IntStream;
+
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
@@ -25,12 +23,12 @@ public class SubjectService {
         return subject;
     }
 
-    public ArrayList<Subject> removeSubject(String subjectName) {
+    public List<Subject> removeSubject(String subjectName) {
         subjectRepository.deleteSubject(subjectName);
         return SubjectRepository.subjectDatabase;
     }
 
-    public ArrayList<Subject> addToSubjectDatabase(Subject subject) {
+    public List<Subject> addToSubjectDatabase(Subject subject) {
         subjectRepository.addSubjectToRepository(subject);
         return SubjectRepository.subjectDatabase;
     }
@@ -40,7 +38,7 @@ public class SubjectService {
         System.out.println(SubjectRepository.subjectDatabase.toString());
     }
 
-    public void registerToSubject(String pesel, String subjectName) {
+    public void registerToSubject(String pesel, String subjectName) { //zrobione
         Subject subject = getSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
         Student student = getStudent(pesel);
         subjectRepository.addStudentToSubject(subject, student);
@@ -67,7 +65,7 @@ public class SubjectService {
     public void showRegisteredToSubject(String subjectName) {
         for (Subject obj : SubjectRepository.subjectDatabase) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
-                System.out.println(obj.grades.keySet()); //uzywa toString Student
+                System.out.println(obj.grades.keySet());
             }
         }
     }

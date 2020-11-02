@@ -7,7 +7,6 @@ import logic.IdentifierProvider;
 import logic.ProfessorService;
 import logic.StudentService;
 import logic.SubjectService;
-import model.Subject;
 
 
 public class ControllerMenu {

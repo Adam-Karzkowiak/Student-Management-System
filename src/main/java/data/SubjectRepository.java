@@ -20,13 +20,14 @@ public class SubjectRepository {
         return SubjectRepository.subjectDatabase;
     }
 
-    public void addStudentToSubject(Subject subject, Student student){
+    public void addStudentToSubject(Subject subject, Student student) {
         if (!subject.grades.containsKey(student)) {
             subject.grades.put(student, new ArrayList<Integer>());
         }
     }
 
-    public void addAGrade(Subject subject, Student student, int grade){
+    public void addAGrade(Subject subject, Student student, int grade) {
+
         subject.grades.get(student).add(grade);
     }
 }

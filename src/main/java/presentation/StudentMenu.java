@@ -5,13 +5,14 @@ import authorization.LoggedUser;
 import data.SubjectRepository;
 import logic.StudentService;
 import logic.SubjectService;
-import model.Subject;
 
 import java.util.Scanner;
 
 public class StudentMenu {
     StudentService studentService;
     SubjectService subjectService;
+    final static Scanner scanDecision = new Scanner(System.in);
+    private static int action;
 
     public StudentMenu(StudentService studentService, SubjectService subjectService) {
 
@@ -19,8 +20,7 @@ public class StudentMenu {
         this.subjectService=subjectService;
     }
 
-    final static Scanner scanDecision = new Scanner(System.in);
-    private static int action;
+
 
     public void studentMenu() {
         do {

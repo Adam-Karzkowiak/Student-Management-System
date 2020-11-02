@@ -1,10 +1,8 @@
 package logic;
 
 import data.ProfessorRepository;
-import data.SubjectRepository;
 import lombok.Data;
 import model.Professor;
-import model.Subject;
 
 import java.util.ArrayList;
 

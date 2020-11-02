@@ -2,7 +2,6 @@ package data;
 
 
 import model.Professor;
-import model.Student;
 
 import java.util.ArrayList;
 import java.util.Iterator;
