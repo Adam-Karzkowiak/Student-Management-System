@@ -59,5 +59,14 @@ public class StudentService {
         }
     }
 
+    public Student getStudent(String login) {
+        for (Student obj : StudentRepository.studentDatabase) {
+            if (obj.getPesel().equals(login)) {
+                return obj;
+            }
+        }
+        return null;
+    }
+
 
 }
