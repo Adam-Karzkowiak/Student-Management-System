@@ -1,6 +1,7 @@
 package presentation;
 
 
+import authorization.LoggedUser;
 import data.SubjectRepository;
 import logic.StudentService;
 import logic.SubjectService;
@@ -35,13 +36,10 @@ public class StudentMenu {
                 case 2:
                     System.out.println("Subject registration");
                     subjectService.showSubjectList();
-                    System.out.println("Provide your pesel: ");
-                    scanDecision.nextLine();
-                    String peselNumber=scanDecision.nextLine();
                     System.out.println("Provide subject name (case insensitive)");
                     scanDecision.nextLine();
                     String subjectName=scanDecision.nextLine();
-                    subjectService.registerToSubject(peselNumber,subjectName);
+                    subjectService.registerToSubject(LoggedUser.student.getPesel(),subjectName);
                     System.out.println(SubjectRepository.subjectDatabase.toString());
                     break;
             }
