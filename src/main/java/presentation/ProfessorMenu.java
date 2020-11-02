@@ -1,7 +1,6 @@
 package presentation;
 
 import logic.SubjectService;
-//import logic.SubjectService;
 
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ private SubjectService subjectService;
             System.out.println("3. Show registered students to a subject");
             System.out.println("4. Show average grades of all students from subject");
             System.out.println("5. Show specific student grades from a subject");
-            System.out.println("6. Give student a grade from subject");
+            System.out.println("6. Give student a grade from a subject");
             System.out.println("7. Logout");
             action = scanDecision.nextInt();
             switch (action) {
@@ -60,7 +59,7 @@ private SubjectService subjectService;
                     subjectService.calculateAvgForStudent(subjectName,studentPesel);
                     break;
                 case 6:
-                    System.out.println("Give the student a grade");
+                    System.out.println("Grading a student");
                     System.out.println("Subject name :");
                     subjectName=scanDecision.nextLine();
                     System.out.println("Student pesel number :");

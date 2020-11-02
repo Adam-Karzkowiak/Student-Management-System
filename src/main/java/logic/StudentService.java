@@ -5,8 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import model.Student;
+import model.Subject;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ToString
@@ -68,5 +70,8 @@ public class StudentService {
         return null;
     }
 
+    public void printAllStudentGrades(ArrayList<Subject> grades,String studentPesel){
+
+    }
 
 }

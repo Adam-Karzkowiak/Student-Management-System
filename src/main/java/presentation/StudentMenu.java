@@ -31,13 +31,12 @@ public class StudentMenu {
             action = scanDecision.nextInt();
             switch (action) {
                 case 1:
-                    //TODO Show subjects list
+
                     break;
                 case 2:
                     System.out.println("Subject registration");
                     subjectService.showSubjectList();
                     System.out.println("Provide subject name (case insensitive)");
-                    scanDecision.nextLine();
                     String subjectName=scanDecision.nextLine();
                     subjectService.registerToSubject(LoggedUser.student.getPesel(),subjectName);
                     System.out.println(SubjectRepository.subjectDatabase.toString());
