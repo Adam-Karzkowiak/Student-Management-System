@@ -24,8 +24,7 @@ public class StudentMenu {
 
     public void studentMenu() {
         do {
-            System.out.println("Hello "+LoggedUser.student.getName()+" "+LoggedUser.student.getSurname());
-            System.out.println("Student panel");
+            System.out.println(LoggedUser.student.getName()+" "+LoggedUser.student.getSurname()+ "student panel");
             System.out.println("1. Show my grades");
             System.out.println("2. Register to subject");
             System.out.println("3. Logout");
