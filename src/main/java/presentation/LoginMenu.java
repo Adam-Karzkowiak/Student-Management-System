@@ -1,5 +1,7 @@
 package presentation;
 
+import authorization.LoggedUser;
+import data.ProfessorRepository;
 import logic.AdminService;
 import logic.ProfessorService;
 import logic.StudentService;
@@ -24,6 +26,7 @@ public class LoginMenu {
         if (provideLogin.matches(AdminService.getLogin()) && providePassword.matches(AdminService.getPassword())) {
             ControllerMenu.callAdminMenu();
         } else if (professorService.checkPasswordAndLogin(provideLogin, providePassword)) {
+            LoggedUser.professor= ProfessorRepository.professorDatabase.
             ControllerMenu.callProfessorMenu();
         } else if (studentService.checkPasswordAndLogin(provideLogin, providePassword)) {
             ControllerMenu.callStudentMenu();
