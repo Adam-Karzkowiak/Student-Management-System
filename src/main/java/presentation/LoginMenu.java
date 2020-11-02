@@ -17,7 +17,7 @@ public class LoginMenu {
         this.professorService = professorService;
         this.studentService = studentService;
     }
-//statyczne pole-logged user. Klasa LoggedUser, osobny modul.
+
     public void login() {
         System.out.print("Login :");
         String provideLogin = scanDecision.nextLine();
@@ -29,6 +29,7 @@ public class LoginMenu {
             LoggedUser.professor= professorService.getProfessor(provideLogin);
             ControllerMenu.callProfessorMenu();
         } else if (studentService.checkPasswordAndLogin(provideLogin, providePassword)) {
+            LoggedUser.student=studentService.getStudent(provideLogin);
             ControllerMenu.callStudentMenu();
         }
     }
