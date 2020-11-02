@@ -20,9 +20,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "subjectName='" + subjectName + '\'' +
-                ", grades=" + grades +
-                '}';
+        return "Subject :" + subjectName + '\'' +
+                " grades :" + grades;
     }
 }

@@ -33,9 +33,10 @@ public class SubjectService {
         return SubjectRepository.subjectDatabase;
     }
 
-    public void showSubjectList() {  // zmienic-ma wyswietlac tylko przedmioty, bez HashMapy grades
-
-        System.out.println(SubjectRepository.subjectDatabase.toString());
+    public void showSubjectList() {
+        for (Subject obj : SubjectRepository.subjectDatabase) {
+            System.out.println(obj.getSubjectName());
+        }
     }
 
     public void registerToSubject(String pesel, String subjectName) { //zrobione
@@ -70,6 +71,15 @@ public class SubjectService {
         }
     }
 
+    public void showAllStudentGrades(String pesel) {
+        for (Subject obj : SubjectRepository.subjectDatabase) {
+            if (obj.grades.get().stream().)
+
+        }
+    }
+
+}
+
     public void giveAGrade(String subjectName, String studentPesel, int grade) {
         Subject subject = getSubject(subjectName);
         Student student = getStudent(studentPesel);
@@ -87,7 +97,7 @@ public class SubjectService {
 
     public void calculateAverageForWholeClass(String subjectName) {
         Subject subject = getSubject(subjectName);
-        System.out.println("Subject :"+subjectName);
+        System.out.println("Subject :" + subjectName);
         for (Map.Entry<Student, ArrayList<Integer>> entry : subject.grades.entrySet()) {
             ArrayList<Integer> studentGrades = entry.getValue();
             double average = studentGrades.stream().mapToInt(a -> a).average().orElse(0.0);
