@@ -4,6 +4,7 @@ import authorization.LoggedUser;
 import logic.AdminService;
 import logic.ProfessorService;
 import logic.StudentService;
+import model.Student;
 
 import java.util.Scanner;
 
@@ -25,11 +26,12 @@ public class LoginMenu {
         if (provideLogin.matches(AdminService.getLogin()) && providePassword.matches(AdminService.getPassword())) {
             ControllerMenu.callAdminMenu();
         } else if (professorService.checkPasswordAndLogin(provideLogin, providePassword)) {
-            LoggedUser.professor= professorService.getProfessor(provideLogin);
+            LoggedUser.professor = professorService.getProfessor(provideLogin);
             ControllerMenu.callProfessorMenu();
         } else if (studentService.checkPasswordAndLogin(provideLogin, providePassword)) {
             LoggedUser.student=studentService.getStudent(provideLogin);
-            ControllerMenu.callStudentMenu();
-        }
+
+        ControllerMenu.callStudentMenu();
     }
+}
 }

@@ -24,6 +24,7 @@ public class StudentMenu {
 
     public void studentMenu() {
         do {
+            System.out.println("Hello "+LoggedUser.student.getName()+" "+LoggedUser.student.getSurname());
             System.out.println("Student panel");
             System.out.println("1. Show my grades");
             System.out.println("2. Register to subject");
@@ -31,12 +32,13 @@ public class StudentMenu {
             action = scanDecision.nextInt();
             switch (action) {
                 case 1:
-
+                    subjectService.showAllStudentGrades(LoggedUser.student.getPesel());
                     break;
                 case 2:
                     System.out.println("Subject registration");
                     subjectService.showSubjectList();
                     System.out.println("Provide subject name (case insensitive)");
+                    scanDecision.nextLine();
                     String subjectName=scanDecision.nextLine();
                     subjectService.registerToSubject(LoggedUser.student.getPesel(),subjectName);
                     System.out.println(SubjectRepository.subjectDatabase.toString());

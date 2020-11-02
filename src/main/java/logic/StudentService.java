@@ -62,7 +62,7 @@ public class StudentService {
 
     public Student getStudent(String login) {
         for (Student obj : StudentRepository.studentDatabase) {
-            if (obj.getPesel().equals(login)) {
+            if (obj.getLogin().equals(login)) {
                 return obj;
             }
         }
