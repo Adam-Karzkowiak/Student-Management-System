@@ -10,10 +10,6 @@ import logic.SubjectService;
 
 
 public class ControllerMenu {
-//listener wzorzec projektowy<-
-    //jako konstruktor-wszystkie Menu.
-    //wstrzykiwanie zaleznosci
-    //booleany do kontroli przeplywu
 
     public ControllerMenu() {
 
