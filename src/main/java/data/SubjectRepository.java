@@ -4,18 +4,19 @@ import model.Student;
 import model.Subject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SubjectRepository {
-    public static ArrayList<Subject> subjectDatabase = new ArrayList<>();
+    public static List<Subject> subjectDatabase = new ArrayList<>();
 
 //addsubject np
 
-    public ArrayList<Subject> addSubjectToRepository(Subject subject) {
+    public List<Subject> addSubjectToRepository(Subject subject) {
         SubjectRepository.subjectDatabase.add(subject);
         return SubjectRepository.subjectDatabase;
     }
 
-    public ArrayList<Subject> deleteSubject(String subjectName) {
+    public List<Subject> deleteSubject(String subjectName) {
         SubjectRepository.subjectDatabase.removeIf(subject -> subject.getSubjectName().equals(subjectName));
         return SubjectRepository.subjectDatabase;
     }
