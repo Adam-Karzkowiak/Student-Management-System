@@ -39,22 +39,22 @@ public class SubjectService {
         }
     }
 
-    public void registerToSubject(String pesel, String subjectName) { //zrobione
-        Subject subject = getSubject(subjectName); //sprawdzanie-czy nie zarejestrowany-czy nic sie nie dubluje
+    public void registerToSubject(String pesel, String subjectName) {
+        Subject subject = getSubject(subjectName);
         Student student = getStudent(pesel);
         subjectRepository.addStudentToSubject(subject, student);
     }
 
-    public Student getStudent(String pesel) { //getStudent
+    public Student getStudent(String pesel) {
         for (Student obj : StudentRepository.studentDatabase) {
             if (obj.getPesel().equals(pesel)) {
                 return obj;
             }
         }
-        return null; // Optional-doczytac. Gdy spodziewam sie czestego bledu przy wprowadzania ID-lepiej uzyc Optional.
+        return null;
     }
 
-    public Subject getSubject(String subjectName) { //getSubject
+    public Subject getSubject(String subjectName) {
         for (Subject obj : SubjectRepository.subjectDatabase) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj;
@@ -72,11 +72,13 @@ public class SubjectService {
     }
 
     public void showAllStudentGrades(String pesel) {
+        Student student = getStudent(pesel);
         for (Subject obj : SubjectRepository.subjectDatabase) {
-            if (obj.grades.get().stream().)
+            if (obj.grades.containsKey(student)) {
+                System.out.println(obj.getSubjectName() + " : " + obj.grades.get(student));
 
+            }
         }
-    }
 
 }
 
