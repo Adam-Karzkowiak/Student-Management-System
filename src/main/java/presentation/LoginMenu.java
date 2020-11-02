@@ -8,7 +8,7 @@ import logic.StudentService;
 import java.util.Scanner;
 
 public class LoginMenu {
-    final static Scanner scanDecision = new Scanner(System.in);
+    static final Scanner scanDecision = new Scanner(System.in);
     private ProfessorService professorService;
     private StudentService studentService;
 
