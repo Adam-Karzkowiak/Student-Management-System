@@ -5,9 +5,10 @@ import model.Professor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ProfessorRepository {
-    public static ArrayList<Professor> professorDatabase = new ArrayList<>();
+    public static List<Professor> professorDatabase = new ArrayList<>();
 
     public void safeProfessor(Professor professor){
         professorDatabase.add(professor);

@@ -4,7 +4,7 @@ import data.ProfessorRepository;
 import lombok.Data;
 import model.Professor;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class ProfessorService  {
@@ -24,12 +24,12 @@ public class ProfessorService  {
         return professor;
     }
 
-    public ArrayList<Professor> removeProfessorAccount(String pesel) {
+    public List<Professor> removeProfessorAccount(String pesel) {
         professorRepository.deleteProfessor(pesel);
         return ProfessorRepository.professorDatabase;
     }
 
-    public ArrayList<Professor> addToRepository(Professor professor) {
+    public List<Professor> addToRepository(Professor professor) {
         professorRepository.safeProfessor(professor);
         return ProfessorRepository.professorDatabase;
     }
