@@ -40,7 +40,6 @@ public class StudentMenu {
                     scanDecision.nextLine();
                     String subjectName=scanDecision.nextLine();
                     subjectService.registerToSubject(LoggedUser.student.getPesel(),subjectName);
-                    System.out.println(SubjectRepository.subjectDatabase.toString());
                     break;
             }
         } while (action != 3);
