@@ -9,7 +9,6 @@ import java.util.List;
 public class SubjectRepository {
     public static List<Subject> subjectDatabase = new ArrayList<>();
 
-//addsubject np
 
     public List<Subject> addSubjectToRepository(Subject subject) {
         SubjectRepository.subjectDatabase.add(subject);
