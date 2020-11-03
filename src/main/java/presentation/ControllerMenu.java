@@ -10,45 +10,55 @@ import logic.SubjectService;
 
 
 public class ControllerMenu {
+    public ProfessorRepository professorRepository;
+    public StudentRepository studentRepository;
+    public SubjectRepository subjectRepository;
+    public IdentifierProvider identifierProvider;
+    public ProfessorService professorService;
+    public StudentService studentService;
+    public SubjectService subjectService;
+    public LoginMenu loginMenu;
+    public AdminMenu adminMenu;
+    public ProfessorMenu professorMenu;
+    public StudentMenu studentMenu;
 
-    public ControllerMenu() {
-
+    public ControllerMenu(ProfessorRepository professorRepository, StudentRepository studentRepository, SubjectRepository subjectRepository, IdentifierProvider identifierProvider, ProfessorService professorService, StudentService studentService, SubjectService subjectService, LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
+        this.professorRepository = professorRepository;
+        this.studentRepository = studentRepository;
+        this.subjectRepository = subjectRepository;
+        this.identifierProvider = identifierProvider;
+        this.professorService = professorService;
+        this.studentService = studentService;
+        this.subjectService = subjectService;
+        this.loginMenu = loginMenu;
+        this.adminMenu = adminMenu;
+        this.professorMenu = professorMenu;
+        this.studentMenu = studentMenu;
     }
 
-    public static void callLoginMenu() {
-        StudentRepository studentRepository = new StudentRepository();
-        ProfessorRepository professorRepository = new ProfessorRepository();
-        IdentifierProvider identifierProvider = new IdentifierProvider();
-        StudentService studentService = new StudentService(identifierProvider, studentRepository);
-        ProfessorService professorService = new ProfessorService(identifierProvider, professorRepository);
-        LoginMenu loginMenu = new LoginMenu(professorService, studentService);
-        loginMenu.login();
+    public void callLoginMenu() {
+        int callMenu = loginMenu.login(professorService, studentService);
+        if (callMenu == 1) {
+            callAdminMenu();
+        } else if (callMenu == 2) {
+            callProfessorMenu();
+        } else if (callMenu == 3) {
+            callStudentMenu();
+        }
     }
 
-    public static void callAdminMenu() {
-        StudentRepository studentRepository = new StudentRepository();
-        ProfessorRepository professorRepository = new ProfessorRepository();
-        IdentifierProvider identifierProvider = new IdentifierProvider();
-        StudentService studentService = new StudentService(identifierProvider, studentRepository);
-        ProfessorService professorService = new ProfessorService(identifierProvider, professorRepository);
-        AdminMenu adminMenu = new AdminMenu(professorService, studentService);
-        adminMenu.adminPanel();
+    public void callAdminMenu() {
+        adminMenu.adminPanel(professorService, studentService);
+        callLoginMenu();
     }
 
-    public static void callProfessorMenu() {
-        SubjectRepository subjectRepository = new SubjectRepository();
-        SubjectService subjectService = new SubjectService(subjectRepository);
-        ProfessorMenu professorMenu = new ProfessorMenu(subjectService);
-        professorMenu.professorMenu();
+    public void callProfessorMenu() {
+        professorMenu.professorMenu(subjectService);
+        callLoginMenu();
     }
 
-    public static void callStudentMenu() {
-        IdentifierProvider identifierProvider = new IdentifierProvider();
-        StudentRepository studentRepository = new StudentRepository();
-        StudentService studentService = new StudentService(identifierProvider, studentRepository);
-        SubjectRepository subjectRepository = new SubjectRepository();
-        SubjectService subjectService = new SubjectService(subjectRepository);
-        StudentMenu studentMenu = new StudentMenu(studentService, subjectService);
-        studentMenu.studentMenu();
+    public void callStudentMenu() {
+        studentMenu.studentMenu(studentService, subjectService);
+       callLoginMenu();
     }
 }

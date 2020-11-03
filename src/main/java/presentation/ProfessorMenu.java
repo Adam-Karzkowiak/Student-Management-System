@@ -9,13 +9,9 @@ public class ProfessorMenu {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
-    private SubjectService subjectService;
 
-    public ProfessorMenu(SubjectService subjectService) {
-        this.subjectService = subjectService;
-    }
 
-    public void professorMenu() {
+    public void professorMenu(SubjectService subjectService) {
         do {
             System.out.println(LoggedUser.professor.getName() + " " + LoggedUser.professor.getSurname() + " professor panel");
             System.out.println("1. Show a list of subjects");
@@ -75,7 +71,6 @@ public class ProfessorMenu {
             }
 
         } while (action != 7);
-        ControllerMenu.callLoginMenu();
     }
 
 

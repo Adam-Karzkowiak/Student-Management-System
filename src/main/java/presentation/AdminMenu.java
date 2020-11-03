@@ -8,19 +8,13 @@ import logic.ValidationService;
 
 import java.util.Scanner;
 
-public class AdminMenu {
+public class AdminMenu  {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
-    private ProfessorService professorService;
-    private StudentService studentService;
 
-    public AdminMenu(ProfessorService professorService, StudentService studentService) {
-        this.professorService = professorService;
-        this.studentService = studentService;
-    }
 
-    public void adminPanel() {
+    public void adminPanel(ProfessorService professorService, StudentService studentService) {
         String login;
         String password;
         String name;
@@ -109,7 +103,6 @@ public class AdminMenu {
                     break;
             }
         } while (action != 5);
-        ControllerMenu.callLoginMenu();
     }
 
 

@@ -9,20 +9,12 @@ import logic.SubjectService;
 import java.util.Scanner;
 
 public class StudentMenu {
-    StudentService studentService;
-    SubjectService subjectService;
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
 
-    public StudentMenu(StudentService studentService, SubjectService subjectService) {
-
-        this.studentService=studentService;
-        this.subjectService=subjectService;
-    }
 
 
-
-    public void studentMenu() {
+    public void studentMenu(StudentService studentService, SubjectService subjectService) {
         do {
             System.out.println(LoggedUser.student.getName()+" "+LoggedUser.student.getSurname()+ " student panel");
             System.out.println("1. Show my grades");
@@ -43,6 +35,5 @@ public class StudentMenu {
                     break;
             }
         } while (action != 3);
-        ControllerMenu.callLoginMenu();
     }
 }

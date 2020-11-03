@@ -1,19 +1,27 @@
 import data.ProfessorRepository;
 import data.StudentRepository;
+import data.SubjectRepository;
 import logic.IdentifierProvider;
 import logic.ProfessorService;
 import logic.StudentService;
-import presentation.LoginMenu;
+import logic.SubjectService;
+import model.Professor;
+import presentation.*;
 
 public class Main1 {
     public static void main(String[] args) {
-        IdentifierProvider identifierProvider = new IdentifierProvider();
-        ProfessorRepository professorRepository = new ProfessorRepository();
-        ProfessorService professorService = new ProfessorService(identifierProvider, professorRepository);
+        ProfessorRepository professorRepository=new ProfessorRepository();
         StudentRepository studentRepository=new StudentRepository();
+        SubjectRepository subjectRepository=new SubjectRepository();
+        IdentifierProvider identifierProvider=new IdentifierProvider();
+        ProfessorService professorService=new ProfessorService(identifierProvider,professorRepository);
         StudentService studentService=new StudentService(identifierProvider,studentRepository);
-        LoginMenu loginMenu=new LoginMenu(professorService,studentService);
-        loginMenu.login();
-
+        SubjectService subjectService=new SubjectService(subjectRepository);
+        AdminMenu adminMenu=new AdminMenu();
+        LoginMenu loginMenu=new LoginMenu();
+        ProfessorMenu professorMenu=new ProfessorMenu();
+        StudentMenu studentMenu=new StudentMenu();
+        ControllerMenu controllerMenu=new ControllerMenu(professorRepository,studentRepository,subjectRepository,identifierProvider,professorService,studentService,subjectService,loginMenu,adminMenu,professorMenu,studentMenu);
+        controllerMenu.callLoginMenu();
     }
 }
