@@ -20,7 +20,7 @@ public class AdminMenu  {
         this.studentService = studentService;
     }
 
-    public void adminPanel() {
+    public boolean adminPanel() {
         String login;
         String password;
         String name;
@@ -109,6 +109,13 @@ public class AdminMenu  {
                     break;
             }
         } while (action != 5);
+        System.out.println("Logout? (YES/NO)");
+        scanDecision.nextLine();
+        String logout = scanDecision.nextLine();
+        if (logout.equalsIgnoreCase("yes")) {
+            return true;
+        }
+        return false;
     }
 
 
