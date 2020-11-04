@@ -18,7 +18,7 @@ public class Main1 {
         StudentService studentService=new StudentService(identifierProvider,studentRepository);
         SubjectService subjectService=new SubjectService(subjectRepository);
         AdminMenu adminMenu=new AdminMenu();
-        LoginMenu loginMenu=new LoginMenu();
+        LoginMenu loginMenu=new LoginMenu(professorService,studentService);
         ProfessorMenu professorMenu=new ProfessorMenu();
         StudentMenu studentMenu=new StudentMenu();
         ControllerMenu controllerMenu=new ControllerMenu(professorRepository,studentRepository,subjectRepository,identifierProvider,professorService,studentService,subjectService,loginMenu,adminMenu,professorMenu,studentMenu);

@@ -1,12 +1,12 @@
 package presentation;
 
+import authorization.LoggedUser;
 import data.ProfessorRepository;
 import data.StudentRepository;
 import data.SubjectRepository;
-import logic.IdentifierProvider;
-import logic.ProfessorService;
-import logic.StudentService;
-import logic.SubjectService;
+import logic.*;
+
+import java.util.Scanner;
 
 
 public class ControllerMenu {
@@ -37,7 +37,7 @@ public class ControllerMenu {
     }
 
     public void callLoginMenu() {
-        int callMenu = loginMenu.login(professorService, studentService);
+        int callMenu = loginMenu.login();
         if (callMenu == 1) {
             callAdminMenu();
         } else if (callMenu == 2) {
@@ -61,4 +61,5 @@ public class ControllerMenu {
         studentMenu.studentMenu(studentService, subjectService);
        callLoginMenu();
     }
+
 }

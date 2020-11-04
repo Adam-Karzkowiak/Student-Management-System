@@ -10,9 +10,15 @@ import java.util.Scanner;
 
 public class LoginMenu {
     static final Scanner scanDecision = new Scanner(System.in);
+    public ProfessorService professorService;
+    public StudentService studentService;
 
+    public LoginMenu(ProfessorService professorService, StudentService studentService) {
+        this.professorService = professorService;
+        this.studentService = studentService;
+    }
 
-    public int login(ProfessorService professorService, StudentService studentService) {
+    public int login() {
         System.out.print("Login :");
         String provideLogin = scanDecision.nextLine();
         System.out.print("Password :");
