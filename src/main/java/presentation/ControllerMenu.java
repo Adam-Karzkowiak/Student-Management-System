@@ -45,6 +45,7 @@ public class ControllerMenu {
         } else if (callMenu == 3) {
             callStudentMenu();
         }
+        callLoginMenu();
     }
 
     public void callAdminMenu() {
