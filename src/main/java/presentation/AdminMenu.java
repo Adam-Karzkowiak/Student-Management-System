@@ -12,9 +12,15 @@ public class AdminMenu  {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
+    ProfessorService professorService;
+    StudentService studentService;
 
+    public AdminMenu(ProfessorService professorService, StudentService studentService) {
+        this.professorService = professorService;
+        this.studentService = studentService;
+    }
 
-    public void adminPanel(ProfessorService professorService, StudentService studentService) {
+    public void adminPanel() {
         String login;
         String password;
         String name;
