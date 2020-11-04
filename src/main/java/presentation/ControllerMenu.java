@@ -48,7 +48,7 @@ public class ControllerMenu {
     }
 
     public void callAdminMenu() {
-        adminMenu.adminPanel(professorService, studentService);
+        adminMenu.adminPanel();
         callLoginMenu();
     }
 
