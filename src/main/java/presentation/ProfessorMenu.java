@@ -15,7 +15,7 @@ public class ProfessorMenu {
         this.subjectService = subjectService;
     }
 
-    public void professorMenu() {
+    public boolean professorMenu() {
         do {
             System.out.println(LoggedUser.professor.getName() + " " + LoggedUser.professor.getSurname() + " professor panel");
             System.out.println("1. Show a list of subjects");
@@ -75,6 +75,13 @@ public class ProfessorMenu {
             }
 
         } while (action != 7);
+        System.out.println("Logout? (YES/NO)");
+        scanDecision.nextLine();
+        String logout = scanDecision.nextLine();
+        if (logout.equalsIgnoreCase("yes")) {
+            return true;
+        }
+        return false;
     }
 
 

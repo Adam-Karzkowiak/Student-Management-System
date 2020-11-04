@@ -53,13 +53,15 @@ public class ControllerMenu {
     }
 
     public void callProfessorMenu() {
-        professorMenu.professorMenu();
+        if (professorMenu.professorMenu() == false) {
+            callProfessorMenu();
+        }
         callLoginMenu();
     }
 
     public void callStudentMenu() {
         studentMenu.studentMenu();
-       callLoginMenu();
+        callLoginMenu();
     }
 
 }
