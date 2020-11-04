@@ -48,9 +48,9 @@ public class ControllerMenu {
     }
 
     public void callAdminMenu() {
-       if (adminMenu.adminPanel() == false){
-           callAdminMenu();
-       }
+        if (adminMenu.adminPanel() == false) {
+            callAdminMenu();
+        }
         callLoginMenu();
     }
 
