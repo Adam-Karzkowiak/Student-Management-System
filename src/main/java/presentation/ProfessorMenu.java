@@ -9,9 +9,13 @@ public class ProfessorMenu {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
+    SubjectService subjectService;
 
+    public ProfessorMenu(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
-    public void professorMenu(SubjectService subjectService) {
+    public void professorMenu() {
         do {
             System.out.println(LoggedUser.professor.getName() + " " + LoggedUser.professor.getSurname() + " professor panel");
             System.out.println("1. Show a list of subjects");
