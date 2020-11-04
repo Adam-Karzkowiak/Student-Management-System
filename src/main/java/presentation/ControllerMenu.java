@@ -58,7 +58,7 @@ public class ControllerMenu {
     }
 
     public void callStudentMenu() {
-        studentMenu.studentMenu(studentService, subjectService);
+        studentMenu.studentMenu();
        callLoginMenu();
     }
 

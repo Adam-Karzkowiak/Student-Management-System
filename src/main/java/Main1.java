@@ -20,7 +20,7 @@ public class Main1 {
         AdminMenu adminMenu=new AdminMenu();
         LoginMenu loginMenu=new LoginMenu(professorService,studentService);
         ProfessorMenu professorMenu=new ProfessorMenu(subjectService);
-        StudentMenu studentMenu=new StudentMenu();
+        StudentMenu studentMenu=new StudentMenu(studentService,subjectService);
         ControllerMenu controllerMenu=new ControllerMenu(professorRepository,studentRepository,subjectRepository,identifierProvider,professorService,studentService,subjectService,loginMenu,adminMenu,professorMenu,studentMenu);
         controllerMenu.callLoginMenu();
     }

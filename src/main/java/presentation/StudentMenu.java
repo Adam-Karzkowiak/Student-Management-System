@@ -11,10 +11,15 @@ import java.util.Scanner;
 public class StudentMenu {
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
+    StudentService studentService;
+    SubjectService subjectService;
 
+    public StudentMenu(StudentService studentService, SubjectService subjectService) {
+        this.studentService = studentService;
+        this.subjectService = subjectService;
+    }
 
-
-    public void studentMenu(StudentService studentService, SubjectService subjectService) {
+    public void studentMenu() {
         do {
             System.out.println(LoggedUser.student.getName()+" "+LoggedUser.student.getSurname()+ " student panel");
             System.out.println("1. Show my grades");
