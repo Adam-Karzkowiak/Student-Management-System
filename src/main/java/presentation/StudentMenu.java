@@ -19,7 +19,7 @@ public class StudentMenu {
         this.subjectService = subjectService;
     }
 
-    public void studentMenu() {
+    public boolean studentMenu() {
         do {
             System.out.println(LoggedUser.student.getName()+" "+LoggedUser.student.getSurname()+ " student panel");
             System.out.println("1. Show my grades");
@@ -40,5 +40,12 @@ public class StudentMenu {
                     break;
             }
         } while (action != 3);
+        System.out.println("Logout? (YES/NO)");
+        scanDecision.nextLine();
+        String logout = scanDecision.nextLine();
+        if (logout.equalsIgnoreCase("yes")) {
+            return true;
+        }
+        return false;
     }
 }

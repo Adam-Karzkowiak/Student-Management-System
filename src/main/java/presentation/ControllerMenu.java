@@ -60,7 +60,9 @@ public class ControllerMenu {
     }
 
     public void callStudentMenu() {
-        studentMenu.studentMenu();
+        if (studentMenu.studentMenu() == false) {
+            callStudentMenu();
+        }
         callLoginMenu();
     }
 
