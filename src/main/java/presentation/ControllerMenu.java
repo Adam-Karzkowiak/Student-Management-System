@@ -46,6 +46,7 @@ public class ControllerMenu {
         if (professorMenu.professorMenu() == false) {
             callProfessorMenu();
         }
+        LoggedUser.professor = null;
         callLoginMenu();
     }
 
@@ -53,6 +54,7 @@ public class ControllerMenu {
         if (studentMenu.studentMenu() == false) {
             callStudentMenu();
         }
+        LoggedUser.student = null;
         callLoginMenu();
     }
 
