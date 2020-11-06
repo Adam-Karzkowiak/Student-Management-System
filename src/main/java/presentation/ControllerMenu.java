@@ -10,26 +10,13 @@ import java.util.Scanner;
 
 
 public class ControllerMenu {
-    public ProfessorRepository professorRepository;
-    public StudentRepository studentRepository;
-    public SubjectRepository subjectRepository;
-    public IdentifierProvider identifierProvider;
-    public ProfessorService professorService;
-    public StudentService studentService;
-    public SubjectService subjectService;
     public LoginMenu loginMenu;
     public AdminMenu adminMenu;
     public ProfessorMenu professorMenu;
     public StudentMenu studentMenu;
 
-    public ControllerMenu(ProfessorRepository professorRepository, StudentRepository studentRepository, SubjectRepository subjectRepository, IdentifierProvider identifierProvider, ProfessorService professorService, StudentService studentService, SubjectService subjectService, LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
-        this.professorRepository = professorRepository;
-        this.studentRepository = studentRepository;
-        this.subjectRepository = subjectRepository;
-        this.identifierProvider = identifierProvider;
-        this.professorService = professorService;
-        this.studentService = studentService;
-        this.subjectService = subjectService;
+    public ControllerMenu(LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
+
         this.loginMenu = loginMenu;
         this.adminMenu = adminMenu;
         this.professorMenu = professorMenu;
