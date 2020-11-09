@@ -1,12 +1,8 @@
 package presentation;
 
 import authorization.LoggedUser;
-import data.ProfessorRepository;
-import data.StudentRepository;
-import data.SubjectRepository;
-import logic.*;
 
-import java.util.Scanner;
+
 
 
 public class ControllerMenu {
