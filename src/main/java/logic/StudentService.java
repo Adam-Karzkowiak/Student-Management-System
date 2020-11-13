@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import model.Student;
 import model.Subject;
+import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 @ToString
 @EqualsAndHashCode(callSuper = false)
 @Data
+@Service
 public class StudentService {
     private IdentifierProvider identifierProvider;
     private StudentRepository studentRepository;
