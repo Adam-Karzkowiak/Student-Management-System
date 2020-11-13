@@ -3,10 +3,12 @@ package logic;
 import data.ProfessorRepository;
 import lombok.Data;
 import model.Professor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Data
+@Service
 public class ProfessorService  {
     private IdentifierProvider identifierProvider;
     private ProfessorRepository professorRepository;
