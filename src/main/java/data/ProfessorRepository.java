@@ -2,11 +2,13 @@ package data;
 
 
 import model.Professor;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@Repository
 public class ProfessorRepository {
     public static List<Professor> professorDatabase = new ArrayList<>();
 
