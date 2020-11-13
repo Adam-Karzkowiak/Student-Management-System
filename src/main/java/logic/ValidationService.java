@@ -1,5 +1,9 @@
 package logic;
 
+
+import org.springframework.stereotype.Service;
+
+@Service
 final public class ValidationService {
 
 
