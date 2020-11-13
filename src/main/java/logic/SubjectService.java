@@ -4,10 +4,11 @@ import data.StudentRepository;
 import data.SubjectRepository;
 import model.Student;
 import model.Subject;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-
+@Service
 public class SubjectService {
     private SubjectRepository subjectRepository;
 
