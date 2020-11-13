@@ -1,6 +1,7 @@
 package presentation;
 
 import authorization.LoggedUser;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 public class ControllerMenu {
@@ -17,7 +18,7 @@ public class ControllerMenu {
         this.professorMenu = professorMenu;
         this.studentMenu = studentMenu;
     }
-
+    @GetMapping("/loginMenu") //gdy wejde na localhost 8080 /loginMenu wywolam funkcje loginMenu
     public void callLoginMenu() {
         int callMenu = loginMenu.login();
         if (callMenu == 1) {
