@@ -3,9 +3,8 @@ package presentation;
 import authorization.LoggedUser;
 
 
-
-
 public class ControllerMenu {
+
     public LoginMenu loginMenu;
     public AdminMenu adminMenu;
     public ProfessorMenu professorMenu;
