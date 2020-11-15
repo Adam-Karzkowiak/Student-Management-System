@@ -5,9 +5,10 @@ import authorization.LoggedUser;
 import data.SubjectRepository;
 import logic.StudentService;
 import logic.SubjectService;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
-
+@Controller
 public class StudentMenu {
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
