@@ -4,10 +4,11 @@ import authorization.LoggedUser;
 import logic.AdminService;
 import logic.ProfessorService;
 import logic.StudentService;
+import org.springframework.stereotype.Controller;
 
 
 import java.util.Scanner;
-
+@Controller
 public class LoginMenu {
     static final Scanner scanDecision = new Scanner(System.in);
     public ProfessorService professorService;
