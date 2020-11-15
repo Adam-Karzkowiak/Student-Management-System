@@ -5,7 +5,6 @@ import logic.IdentifierProvider;
 import logic.ProfessorService;
 import logic.StudentService;
 import logic.SubjectService;
-import model.Professor;
 import presentation.*;
 
 public class Run {
