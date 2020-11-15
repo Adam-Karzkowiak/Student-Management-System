@@ -1,11 +1,12 @@
 package presentation;
 
 import authorization.LoggedUser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 public class ControllerMenu {
-
+    @Autowired
     public LoginMenu loginMenu;
     public AdminMenu adminMenu;
     public ProfessorMenu professorMenu;

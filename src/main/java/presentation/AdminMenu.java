@@ -5,9 +5,10 @@ import data.StudentRepository;
 import logic.ProfessorService;
 import logic.StudentService;
 import logic.ValidationService;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
-
+@Controller
 public class AdminMenu  {
 
     final static Scanner scanDecision = new Scanner(System.in);
