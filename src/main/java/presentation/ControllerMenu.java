@@ -18,6 +18,7 @@ public class ControllerMenu {
         this.professorMenu = professorMenu;
         this.studentMenu = studentMenu;
     }
+
     @GetMapping("/loginMenu") //gdy wejde na localhost 8080 /loginMenu wywolam funkcje loginMenu
     public void callLoginMenu() {
         int callMenu = loginMenu.login();
@@ -31,6 +32,7 @@ public class ControllerMenu {
         callLoginMenu();
     }
 
+    @GetMapping("/adminMenu")
     public void callAdminMenu() {
         if (adminMenu.adminPanel() == false) {
             callAdminMenu();
@@ -38,6 +40,7 @@ public class ControllerMenu {
         callLoginMenu();
     }
 
+    @GetMapping("/professorMenu")
     public void callProfessorMenu() {
         if (professorMenu.professorMenu() == false) {
             callProfessorMenu();
