@@ -2,9 +2,10 @@ package presentation;
 
 import authorization.LoggedUser;
 import logic.SubjectService;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
-
+@Controller
 public class ProfessorMenu {
 
     final static Scanner scanDecision = new Scanner(System.in);
