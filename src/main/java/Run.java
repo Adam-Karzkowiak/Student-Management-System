@@ -8,7 +8,7 @@ import logic.SubjectService;
 import model.Professor;
 import presentation.*;
 
-public class Main1 {
+public class Run {
     public static void main(String[] args) {
         ProfessorRepository professorRepository=new ProfessorRepository();
         StudentRepository studentRepository=new StudentRepository();
