@@ -1,11 +1,11 @@
-package logic;
+package app.logic;
 
-import data.StudentRepository;
+import app.data.StudentRepository;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import model.Student;
-import model.Subject;
+import app.model.Student;
+import app.model.Subject;
 import org.springframework.stereotype.Service;
 
 

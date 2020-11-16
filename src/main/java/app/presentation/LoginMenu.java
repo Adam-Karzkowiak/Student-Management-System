@@ -1,9 +1,9 @@
-package presentation;
+package app.presentation;
 
-import authorization.LoggedUser;
-import logic.AdminService;
-import logic.ProfessorService;
-import logic.StudentService;
+import app.authorization.LoggedUser;
+import app.logic.AdminService;
+import app.logic.ProfessorService;
+import app.logic.StudentService;
 import org.springframework.stereotype.Controller;
 
 

@@ -1,13 +1,16 @@
-import data.ProfessorRepository;
-import data.StudentRepository;
-import data.SubjectRepository;
-import logic.IdentifierProvider;
-import logic.ProfessorService;
-import logic.StudentService;
-import logic.SubjectService;
-import presentation.*;
+package app;
+
+import app.data.ProfessorRepository;
+import app.data.StudentRepository;
+import app.data.SubjectRepository;
+import app.logic.IdentifierProvider;
+import app.logic.ProfessorService;
+import app.logic.StudentService;
+import app.logic.SubjectService;
+import app.presentation.*;
 
 public class Run {
+
     public static void main(String[] args) {
         ProfessorRepository professorRepository=new ProfessorRepository();
         StudentRepository studentRepository=new StudentRepository();

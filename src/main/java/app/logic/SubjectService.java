@@ -1,9 +1,9 @@
-package logic;
+package app.logic;
 
-import data.StudentRepository;
-import data.SubjectRepository;
-import model.Student;
-import model.Subject;
+import app.data.StudentRepository;
+import app.data.SubjectRepository;
+import app.model.Student;
+import app.model.Subject;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

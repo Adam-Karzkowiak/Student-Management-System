@@ -1,6 +1,6 @@
-package presentation;
+package app.presentation;
 
-import authorization.LoggedUser;
+import app.authorization.LoggedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 

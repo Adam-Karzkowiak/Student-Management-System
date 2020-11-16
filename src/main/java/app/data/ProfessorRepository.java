@@ -1,7 +1,7 @@
-package data;
+package app.data;
 
 
-import model.Professor;
+import app.model.Professor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

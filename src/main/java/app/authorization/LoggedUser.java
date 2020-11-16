@@ -1,7 +1,7 @@
-package authorization;
+package app.authorization;
 
-import model.Professor;
-import model.Student;
+import app.model.Professor;
+import app.model.Student;
 import org.springframework.stereotype.Component;
 
 @Component

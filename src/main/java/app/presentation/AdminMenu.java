@@ -1,10 +1,10 @@
-package presentation;
+package app.presentation;
 
-import data.ProfessorRepository;
-import data.StudentRepository;
-import logic.ProfessorService;
-import logic.StudentService;
-import logic.ValidationService;
+import app.data.ProfessorRepository;
+import app.data.StudentRepository;
+import app.logic.ProfessorService;
+import app.logic.StudentService;
+import app.logic.ValidationService;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;

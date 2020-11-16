@@ -1,8 +1,8 @@
-package logic;
+package app.logic;
 
-import data.ProfessorRepository;
+import app.data.ProfessorRepository;
 import lombok.Data;
-import model.Professor;
+import app.model.Professor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

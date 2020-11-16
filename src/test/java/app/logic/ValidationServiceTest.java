@@ -1,4 +1,4 @@
-package logic;
+package app.logic;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

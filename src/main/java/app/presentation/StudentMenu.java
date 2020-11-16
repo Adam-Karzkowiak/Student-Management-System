@@ -1,10 +1,9 @@
-package presentation;
+package app.presentation;
 
 
-import authorization.LoggedUser;
-import data.SubjectRepository;
-import logic.StudentService;
-import logic.SubjectService;
+import app.authorization.LoggedUser;
+import app.logic.StudentService;
+import app.logic.SubjectService;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
