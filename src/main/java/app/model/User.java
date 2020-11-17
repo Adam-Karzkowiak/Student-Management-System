@@ -2,11 +2,9 @@ package app.model;
 
 import lombok.Data;
 import lombok.ToString;
-import org.springframework.stereotype.Component;
 
 @ToString
 @Data
-@Component
 abstract class User {
     int id;
     String login;
