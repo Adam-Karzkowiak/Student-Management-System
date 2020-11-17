@@ -8,7 +8,9 @@ import app.logic.ProfessorService;
 import app.logic.StudentService;
 import app.logic.SubjectService;
 import app.presentation.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Run {
 
     public static void main(String[] args) {

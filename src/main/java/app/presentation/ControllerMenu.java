@@ -5,14 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 public class ControllerMenu {
-    @Autowired
     public LoginMenu loginMenu;
     public AdminMenu adminMenu;
     public ProfessorMenu professorMenu;
     public StudentMenu studentMenu;
 
-    public ControllerMenu(LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
 
+    public ControllerMenu(LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
         this.loginMenu = loginMenu;
         this.adminMenu = adminMenu;
         this.professorMenu = professorMenu;
