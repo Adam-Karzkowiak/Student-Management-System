@@ -1,13 +1,11 @@
 package app.model;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 @Data
-@Component
 public class Subject {
 
     String subjectName;
