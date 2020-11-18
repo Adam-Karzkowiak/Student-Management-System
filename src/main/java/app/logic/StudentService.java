@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import app.model.Student;
 import app.model.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -19,6 +20,7 @@ public class StudentService {
     private IdentifierProvider identifierProvider;
     private StudentRepository studentRepository;
 
+    @Autowired
     public StudentService(IdentifierProvider identifierProvider, StudentRepository studentRepository) {
         this.identifierProvider = identifierProvider;
         this.studentRepository = studentRepository;
