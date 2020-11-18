@@ -4,6 +4,7 @@ import app.authorization.LoggedUser;
 import app.logic.AdminService;
 import app.logic.ProfessorService;
 import app.logic.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
@@ -14,6 +15,7 @@ public class LoginMenu {
     public ProfessorService professorService;
     public StudentService studentService;
 
+    @Autowired
     public LoginMenu(ProfessorService professorService, StudentService studentService) {
         this.professorService = professorService;
         this.studentService = studentService;
