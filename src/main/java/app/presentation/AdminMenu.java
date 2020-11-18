@@ -5,6 +5,7 @@ import app.data.StudentRepository;
 import app.logic.ProfessorService;
 import app.logic.StudentService;
 import app.logic.ValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class AdminMenu  {
     ProfessorService professorService;
     StudentService studentService;
 
+    @Autowired
     public AdminMenu(ProfessorService professorService, StudentService studentService) {
         this.professorService = professorService;
         this.studentService = studentService;
