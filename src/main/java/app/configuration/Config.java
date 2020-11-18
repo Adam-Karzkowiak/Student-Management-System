@@ -21,4 +21,6 @@ public class Config extends AbstractAnnotationConfigDispatcherServletInitializer
     protected String[] getServletMappings() {
         return new String[0];
     }
+
+
 }
