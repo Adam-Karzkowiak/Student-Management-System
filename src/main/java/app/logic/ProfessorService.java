@@ -3,6 +3,7 @@ package app.logic;
 import app.data.ProfessorRepository;
 import lombok.Data;
 import app.model.Professor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class ProfessorService  {
     private IdentifierProvider identifierProvider;
     private ProfessorRepository professorRepository;
 
+    @Autowired
     public ProfessorService(IdentifierProvider identifierProvider, ProfessorRepository professorRepository) {
         this.identifierProvider = identifierProvider;
         this.professorRepository = professorRepository;
