@@ -10,7 +10,7 @@ public class ControllerMenu {
     public ProfessorMenu professorMenu;
     public StudentMenu studentMenu;
 
-
+    @Autowired
     public ControllerMenu(LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
         this.loginMenu = loginMenu;
         this.adminMenu = adminMenu;
