@@ -4,6 +4,7 @@ import app.data.StudentRepository;
 import app.data.SubjectRepository;
 import app.model.Student;
 import app.model.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,6 +13,7 @@ import java.util.*;
 public class SubjectService {
     private SubjectRepository subjectRepository;
 
+    @Autowired
     public SubjectService(SubjectRepository subjectRepository) {
 
         this.subjectRepository = subjectRepository;
