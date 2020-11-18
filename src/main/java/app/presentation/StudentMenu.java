@@ -4,6 +4,7 @@ package app.presentation;
 import app.authorization.LoggedUser;
 import app.logic.StudentService;
 import app.logic.SubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class StudentMenu {
     StudentService studentService;
     SubjectService subjectService;
 
+    @Autowired
     public StudentMenu(StudentService studentService, SubjectService subjectService) {
         this.studentService = studentService;
         this.subjectService = subjectService;
