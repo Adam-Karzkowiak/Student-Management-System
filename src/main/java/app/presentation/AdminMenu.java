@@ -12,7 +12,7 @@ import java.util.Scanner;
 @Controller
 public class AdminMenu  {
 
-    final static Scanner scanDecision = new Scanner(System.in);
+    static final Scanner scanDecision = new Scanner(System.in);
     private static int action;
     ProfessorService professorService;
     StudentService studentService;
