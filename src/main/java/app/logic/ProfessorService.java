@@ -34,7 +34,7 @@ public class ProfessorService  {
     }
 
     public List<Professor> addToRepository(Professor professor) {
-        professorRepository.safeProfessor(professor);
+        professorRepository.saveProfessor(professor);
         return ProfessorRepository.professorDatabase;
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class ProfessorRepository {
     public static List<Professor> professorDatabase = new ArrayList<>();
 
-    public void safeProfessor(Professor professor){
+    public void saveProfessor(Professor professor){
         professorDatabase.add(professor);
     }
 
