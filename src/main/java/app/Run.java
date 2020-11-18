@@ -8,11 +8,12 @@ import app.logic.ProfessorService;
 import app.logic.StudentService;
 import app.logic.SubjectService;
 import app.presentation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Run {
-
+    @Autowired
     public static void main(String[] args) {
         ProfessorRepository professorRepository=new ProfessorRepository();
         StudentRepository studentRepository=new StudentRepository();
