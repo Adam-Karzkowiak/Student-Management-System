@@ -4,7 +4,6 @@ import app.authorization.LoggedUser;
 import app.logic.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Scanner;
 @Controller
