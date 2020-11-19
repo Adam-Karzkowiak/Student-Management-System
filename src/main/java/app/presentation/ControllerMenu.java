@@ -19,7 +19,7 @@ public class ControllerMenu {
         this.studentMenu = studentMenu;
     }
 
-    @GetMapping("/loginmenu") //gdy wejde na localhost 8080 /loginMenu wywolam funkcje loginMenu
+    @GetMapping("/loginmenu")
     public void callLoginMenu() {
         int callMenu = loginMenu.login();
         if (callMenu == 1) {
