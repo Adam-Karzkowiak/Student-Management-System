@@ -2,7 +2,9 @@ package app.model;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class Student extends User {
     public Student(int id, String login, String password, String name, String surname, String pesel) {
