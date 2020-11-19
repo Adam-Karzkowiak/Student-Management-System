@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import java.util.Scanner;
 @Controller
 public class StudentMenu {
-    final static Scanner scanDecision = new Scanner(System.in);
+    static final Scanner scanDecision = new Scanner(System.in);
     private static int action;
     StudentService studentService;
     SubjectService subjectService;
