@@ -4,12 +4,13 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 @Data
 public class Subject {
 
     String subjectName;
-    public HashMap<Student, ArrayList<Integer>> grades;
+    public Map<Student, ArrayList<Integer>> grades;
 
 
     public Subject(String subjectName, HashMap<Student, ArrayList<Integer>> grades) {
