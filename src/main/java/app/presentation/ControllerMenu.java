@@ -50,7 +50,7 @@ public class ControllerMenu {
     }
     @GetMapping("/studentmenu")
     public void callStudentMenu() {
-        if (studentMenu.studentMenu() == false) {
+        if (!studentMenu.studentMenu()) {
             callStudentMenu();
         }
         LoggedUser.student = null;
