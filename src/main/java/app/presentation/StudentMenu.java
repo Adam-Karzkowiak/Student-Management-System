@@ -29,17 +29,15 @@ public class StudentMenu {
             System.out.println("3. Logout");
             action = scanDecision.nextInt();
             switch (action) {
-                case 1:
-                    subjectService.showAllStudentGrades(LoggedUser.student.getPesel());
-                    break;
-                case 2:
+                case 1 -> subjectService.showAllStudentGrades(LoggedUser.student.getPesel());
+                case 2 -> {
                     System.out.println("Subject registration");
                     subjectService.showSubjectList();
                     System.out.println("Provide subject name (case insensitive)");
                     scanDecision.nextLine();
-                    String subjectName=scanDecision.nextLine();
-                    subjectService.registerToSubject(LoggedUser.student.getPesel(),subjectName);
-                    break;
+                    String subjectName = scanDecision.nextLine();
+                    subjectService.registerToSubject(LoggedUser.student.getPesel(), subjectName);
+                }
             }
         } while (action != 3);
         System.out.println("Logout? (YES/NO)");
