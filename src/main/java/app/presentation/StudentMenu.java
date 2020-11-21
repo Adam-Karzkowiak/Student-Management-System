@@ -44,9 +44,6 @@ public class StudentMenu {
         scanDecision.nextLine();
 
         String logout = scanDecision.nextLine();
-        if (logout.equalsIgnoreCase("yes")) {
-            return true;
-        }
-        return false;
+        return logout.equalsIgnoreCase("yes");
     }
 }
