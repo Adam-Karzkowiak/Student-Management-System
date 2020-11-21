@@ -42,7 +42,7 @@ public class AdminMenu  {
             action = scanDecision.nextInt();
 
             switch (action) {
-                case 1:
+                case 1 -> {
                     System.out.println("Enter Login");
                     scanDecision.nextLine();
                     login = scanDecision.nextLine();
@@ -60,8 +60,8 @@ public class AdminMenu  {
                     ValidationService.peselValidation(pesel);
                     professorService.createProfessor(login, password, name, surname, pesel);
                     System.out.println(ProfessorRepository.professorDatabase);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Enter Login");
                     scanDecision.nextLine();
                     login = scanDecision.nextLine();
@@ -79,8 +79,8 @@ public class AdminMenu  {
                     ValidationService.peselValidation(pesel);
                     studentService.createStudent(login, password, name, surname, pesel);
                     System.out.println(StudentRepository.studentDatabase);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Provide PESEL number to delete account");
                     scanDecision.nextLine();
                     peselToDelete = scanDecision.nextLine();
@@ -94,8 +94,8 @@ public class AdminMenu  {
                     } else {
                         System.out.println("Procedure has been cancelled");
                     }
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("Provide PESEL number to delete account");
                     scanDecision.nextLine();
                     peselToDelete = scanDecision.nextLine();
@@ -109,7 +109,7 @@ public class AdminMenu  {
                     } else {
                         System.out.println("Procedure has been cancelled");
                     }
-                    break;
+                }
             }
         } while (action != 5);
         System.out.println("Logout? (YES/NO)");
