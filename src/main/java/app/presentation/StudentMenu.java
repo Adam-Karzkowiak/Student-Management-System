@@ -42,6 +42,7 @@ public class StudentMenu {
         } while (action != 3);
         System.out.println("Logout? (YES/NO)");
         scanDecision.nextLine();
+
         String logout = scanDecision.nextLine();
         if (logout.equalsIgnoreCase("yes")) {
             return true;

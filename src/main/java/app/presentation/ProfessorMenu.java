@@ -81,10 +81,7 @@ public class ProfessorMenu {
         System.out.println("Logout? (YES/NO)");
         scanDecision.nextLine();
         String logout = scanDecision.nextLine();
-        if (logout.equalsIgnoreCase("yes")) {
-            return true;
-        }
-        return false;
+        return logout.equalsIgnoreCase("yes");
     }
 
 
