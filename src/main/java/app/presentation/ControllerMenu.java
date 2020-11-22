@@ -34,7 +34,7 @@ public class ControllerMenu {
 
     @GetMapping("/adminmenu")
     public void callAdminMenu() {
-        if (adminMenu.adminPanel() == false) {
+        if (!adminMenu.adminPanel()) {
             callAdminMenu();
         }
         callLoginMenu();
