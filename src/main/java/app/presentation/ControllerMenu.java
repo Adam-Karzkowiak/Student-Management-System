@@ -42,7 +42,7 @@ public class ControllerMenu {
 
     @GetMapping("/professormenu")
     public void callProfessorMenu() {
-        if (professorMenu.professorMenu() == false) {
+        if (!professorMenu.professorMenu()) {
             callProfessorMenu();
         }
         LoggedUser.professor = null;
