@@ -14,7 +14,7 @@ public class Config extends AbstractAnnotationConfigDispatcherServletInitializer
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[]{Config.class};
     }
 
     @Override
