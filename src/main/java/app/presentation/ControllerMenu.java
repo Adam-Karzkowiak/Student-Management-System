@@ -2,9 +2,11 @@ package app.presentation;
 
 import app.authorization.LoggedUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-@Controller
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class ControllerMenu {
     public LoginMenu loginMenu;
     public AdminMenu adminMenu;
@@ -19,7 +21,7 @@ public class ControllerMenu {
         this.studentMenu = studentMenu;
     }
 
-    @GetMapping("/loginmenu")
+    @PostMapping("/login-menu")
     public void callLoginMenu() {
         int callMenu = loginMenu.login();
         if (callMenu == 1) {
@@ -30,6 +32,11 @@ public class ControllerMenu {
             callStudentMenu();
         }
         callLoginMenu();
+    }
+
+    @GetMapping("/test")
+    public String checkTomcat(){
+        return "its working";
     }
 
     @GetMapping("/adminmenu")
