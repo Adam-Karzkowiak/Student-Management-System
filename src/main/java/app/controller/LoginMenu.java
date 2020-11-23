@@ -1,9 +1,9 @@
 package app.controller;
 
 import app.authorization.LoggedUser;
-import app.logic.AdminService;
-import app.logic.ProfessorService;
-import app.logic.StudentService;
+import app.service.AdminService;
+import app.service.ProfessorService;
+import app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

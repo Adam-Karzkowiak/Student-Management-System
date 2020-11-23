@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.authorization.LoggedUser;
-import app.logic.SubjectService;
+import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

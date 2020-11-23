@@ -2,9 +2,9 @@ package app.controller;
 
 import app.data.ProfessorRepository;
 import app.data.StudentRepository;
-import app.logic.ProfessorService;
-import app.logic.StudentService;
-import app.logic.ValidationService;
+import app.service.ProfessorService;
+import app.service.StudentService;
+import app.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

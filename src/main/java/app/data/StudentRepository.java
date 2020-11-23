@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public class StudentRepository {
+    // Spring Data @RepositoryRestResource(collectionResourceRel = "student", path = "student")
     public static List<Student> studentDatabase = new ArrayList<>();
 
     public Student saveStudent(Student student) {
