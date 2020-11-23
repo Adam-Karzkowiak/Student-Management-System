@@ -1,4 +1,4 @@
-package app.presentation;
+package app.controller;
 
 import app.authorization.LoggedUser;
 import app.logic.AdminService;

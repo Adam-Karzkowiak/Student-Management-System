@@ -1,4 +1,4 @@
-package app.presentation;
+package app.controller;
 
 import app.data.ProfessorRepository;
 import app.data.StudentRepository;

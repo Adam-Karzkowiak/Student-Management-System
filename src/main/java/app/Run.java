@@ -1,7 +1,7 @@
 package app;
 
 import app.configuration.Config;
-import app.presentation.*;
+import app.controller.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
