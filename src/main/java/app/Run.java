@@ -1,15 +1,13 @@
 package app;
 
-import app.configuration.Config;
-import app.controller.*;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+@SpringBootApplication
 public class Run {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        ControllerMenu controllerMenu = context.getBean("controllerMenu", ControllerMenu.class);
-        controllerMenu.callLoginMenu();
+        SpringApplication.run(Run.class,args);
 
     }
 }
