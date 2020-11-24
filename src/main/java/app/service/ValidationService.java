@@ -4,7 +4,7 @@ package app.service;
 import org.springframework.stereotype.Service;
 
 @Service
-final public class ValidationService {
+public final class ValidationService {
 
     private ValidationService(){
         throw new IllegalStateException("Utility class");
