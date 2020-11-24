@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 final public class ValidationService {
 
+    private ValidationService(){
+        throw new IllegalStateException("Utility class");
+    }
 
     public static void passwordValidation(String password) {
 
