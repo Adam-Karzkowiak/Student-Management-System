@@ -5,11 +5,11 @@ import app.service.AdminService;
 import app.service.ProfessorService;
 import app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.Scanner;
-@Controller
+@RestController
 public class LoginController {
     static final Scanner scanDecision = new Scanner(System.in);
     public ProfessorService professorService;
