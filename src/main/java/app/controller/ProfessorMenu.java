@@ -46,13 +46,7 @@ public class ProfessorMenu {
                     callCalculateAverageForWholeClass();
                     break;
                 case 5:
-                    System.out.println("Show student grades from subject");
-                    System.out.println("Student pesel:");
-                    scanDecision.nextLine();
-                    String studentPesel = scanDecision.nextLine();
-                    System.out.println("Subject name");
-                    subjectName = scanDecision.nextLine();
-                    subjectService.calculateAvgForStudent(subjectName, studentPesel);
+                    callCalculateAvgForStudent();
                     break;
                 case 6:
                     System.out.println("Grading a student");
@@ -105,5 +99,15 @@ public class ProfessorMenu {
         subjectService.calculateAverageForWholeClass(subjectName);
     }
 
+    public void callCalculateAvgForStudent() {
+        System.out.println("Show student grades from subject");
+        System.out.println("Student pesel:");
+        scanDecision.nextLine();
+        String studentPesel = scanDecision.nextLine();
+        System.out.println("Subject name");
+        String subjectName = scanDecision.nextLine();
+        subjectService.calculateAvgForStudent(subjectName, studentPesel);
+
+    }
 }
 
