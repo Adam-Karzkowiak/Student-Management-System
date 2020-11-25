@@ -47,7 +47,7 @@ public class ControllerMenu {
         callLoginMenu();
     }
 
-    @GetMapping("/professor-menu")
+    @PostMapping("/professor-menu")
     public void callProfessorController() {
         if (!professorController.professorMenu()) {
             callProfessorController();
