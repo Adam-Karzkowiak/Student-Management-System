@@ -40,12 +40,7 @@ public class ProfessorMenu {
                     callCreateSubject();
                     break;
                 case 3:
-                    System.out.println("Show students registered for the subject");
-                    System.out.println("Subject name: ");
-                    scanDecision.nextLine();
-                    subjectName = scanDecision.nextLine();
-                    System.out.println("Students list : ");
-                    subjectService.showRegisteredToSubject(subjectName);
+                    callShowRegisteredToSubject();
                     break;
                 case 4:
                     System.out.println("Show average grades from subject");
@@ -95,6 +90,15 @@ public class ProfessorMenu {
         scanDecision.nextLine();
         String subjectName = scanDecision.nextLine();
         subjectService.createSubject(subjectName);
+    }
+
+    public void callShowRegisteredToSubject(){
+        System.out.println("Show students registered for the subject");
+        System.out.println("Subject name: ");
+        scanDecision.nextLine();
+        String subjectName = scanDecision.nextLine();
+        System.out.println("Students list : ");
+        subjectService.showRegisteredToSubject(subjectName);
     }
 
 }
