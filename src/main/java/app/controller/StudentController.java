@@ -5,10 +5,12 @@ import app.authorization.LoggedUser;
 import app.service.StudentService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Scanner;
 @RestController
+@RequestMapping("/student")
 public class StudentController {
     static final Scanner scanDecision = new Scanner(System.in);
     private static int action;
