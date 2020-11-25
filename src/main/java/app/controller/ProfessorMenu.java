@@ -4,6 +4,7 @@ import app.authorization.LoggedUser;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Scanner;
 @Controller
@@ -31,7 +32,7 @@ public class ProfessorMenu {
             action = scanDecision.nextInt();
             switch (action) {
                 case 1:
-                    subjectService.showSubjectList();
+                    callShowSubjectList();
                     break;
                 case 2:
                     System.out.println("Create subject.");
@@ -84,6 +85,10 @@ public class ProfessorMenu {
         return logout.equalsIgnoreCase("yes");
     }
 
+    @GetMapping("/subjects")
+    public void callShowSubjectList(){
+        subjectService.showSubjectList();
+    }
 
 }
 
