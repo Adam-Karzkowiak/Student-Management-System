@@ -50,7 +50,7 @@ public final class ValidationService {
 
     public static void checkName(String name) {
         if (!name.matches("[A-Za-z]+")) {
-            throw new IllegalArgumentException("Wrong name. If you are Elon Musk daughter, Æ A-12, contact with our customer service.");
+            throw new IllegalArgumentException("Wrong name.");
         }
     }
 
