@@ -41,22 +41,7 @@ public class AdminController {
                     System.out.println(ProfessorRepository.professorDatabase);
                 }
                 case 2 -> {
-                    System.out.println("Enter Login");
-                    scanDecision.nextLine();
-                    login = scanDecision.nextLine();
-                    System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
-                    password = scanDecision.nextLine();
-                    ValidationService.passwordValidation(password);
-                    System.out.println("Enter name");
-                    name = scanDecision.nextLine();
-                    ValidationService.checkName(name);
-                    System.out.println("Enter surname");
-                    surname = scanDecision.nextLine();
-                    ValidationService.checkSurname(surname);
-                    System.out.println("Enter pesel number");
-                    pesel = scanDecision.nextLine();
-                    ValidationService.peselValidation(pesel);
-                    callCreateStudent(login, password, name, surname, pesel);
+                    callCreateStudent();
                     System.out.println(StudentRepository.studentDatabase);
                 }
                 case 3 -> {
@@ -116,11 +101,26 @@ public class AdminController {
         professorService.createProfessor(login, password, name, surname, pesel);
     }
 
-    public void callCreateStudent(String login, String password, String name, String surname, String pesel) {
+    public void callCreateStudent() {
+        System.out.println("Enter Login");
+        scanDecision.nextLine();
+        String login = scanDecision.nextLine();
+        System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
+        String password = scanDecision.nextLine();
+        ValidationService.passwordValidation(password);
+        System.out.println("Enter name");
+        String name = scanDecision.nextLine();
+        ValidationService.checkName(name);
+        System.out.println("Enter surname");
+        String surname = scanDecision.nextLine();
+        ValidationService.checkSurname(surname);
+        System.out.println("Enter pesel number");
+        String pesel = scanDecision.nextLine();
+        ValidationService.peselValidation(pesel);
         studentService.createStudent(login, password, name, surname, pesel);
     }
 
-    public void callDeleteAccount(String pesel){
+    public void callDeleteAccount(String pesel) {
 
     }
 
