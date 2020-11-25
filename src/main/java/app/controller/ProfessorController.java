@@ -5,11 +5,13 @@ import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Scanner;
 
 @RestController
+@RequestMapping("/professor")
 public class ProfessorController {
 
     final static Scanner scanDecision = new Scanner(System.in);
