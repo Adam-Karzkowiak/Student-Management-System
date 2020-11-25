@@ -11,14 +11,14 @@ public class ControllerMenu {
     public LoginMenu loginMenu;
     public AdminController adminController;
     public ProfessorMenu professorMenu;
-    public StudentMenu studentMenu;
+    public StudentController studentController;
 
     @Autowired
-    public ControllerMenu(LoginMenu loginMenu,AdminController adminController , ProfessorMenu professorMenu, StudentMenu studentMenu) {
+    public ControllerMenu(LoginMenu loginMenu, AdminController adminController , ProfessorMenu professorMenu, StudentController studentController) {
         this.loginMenu = loginMenu;
         this.adminController = adminController;
         this.professorMenu = professorMenu;
-        this.studentMenu = studentMenu;
+        this.studentController = studentController;
     }
 
     @PostMapping("/login-menu")
@@ -57,7 +57,7 @@ public class ControllerMenu {
     }
     @GetMapping("/studentmenu")
     public void callStudentMenu() {
-        if (!studentMenu.studentMenu()) {
+        if (!studentController.studentMenu()) {
             callStudentMenu();
         }
         LoggedUser.student = null;

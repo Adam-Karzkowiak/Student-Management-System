@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Scanner;
 @RestController
-public class StudentMenu {
+public class StudentController {
     static final Scanner scanDecision = new Scanner(System.in);
     private static int action;
     StudentService studentService;
     SubjectService subjectService;
 
     @Autowired
-    public StudentMenu(StudentService studentService, SubjectService subjectService) {
+    public StudentController(StudentService studentService, SubjectService subjectService) {
         this.studentService = studentService;
         this.subjectService = subjectService;
     }
