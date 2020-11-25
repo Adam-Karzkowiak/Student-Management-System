@@ -6,10 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public final class ValidationService {
 
-    private ValidationService(){
-        throw new IllegalStateException("Utility class");
-    }
-
     public static void passwordValidation(String password) {
 
         if (password.length() > 20 || password.length() < 8) {
