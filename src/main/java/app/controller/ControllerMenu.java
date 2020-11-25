@@ -14,7 +14,7 @@ public class ControllerMenu {
     public StudentController studentController;
 
     @Autowired
-    public ControllerMenu(LoginController loginController, AdminController adminController , ProfessorController professorController, StudentController studentController) {
+    public ControllerMenu(LoginController loginController, AdminController adminController, ProfessorController professorController, StudentController studentController) {
         this.loginController = loginController;
         this.adminController = adminController;
         this.professorController = professorController;
@@ -27,7 +27,7 @@ public class ControllerMenu {
         if (callMenu == 1) {
             callAdminController();
         } else if (callMenu == 2) {
-            callProfessorMenu();
+            callProfessorController();
         } else if (callMenu == 3) {
             callStudentController();
         }
@@ -35,7 +35,7 @@ public class ControllerMenu {
     }
 
     @GetMapping("/test")
-    public String checkTomcat(){
+    public String checkTomcat() {
         return "its working";
     }
 
@@ -48,13 +48,14 @@ public class ControllerMenu {
     }
 
     @GetMapping("/professor-menu")
-    public void callProfessorMenu() {
+    public void callProfessorController() {
         if (!professorController.professorMenu()) {
-            callProfessorMenu();
+            callProfessorController();
         }
         LoggedUser.professor = null;
         callLoginMenu();
     }
+
     @GetMapping("/student-menu")
     public void callStudentController() {
         if (!studentController.studentMenu()) {
