@@ -10,13 +10,13 @@ import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 @Controller
-public class LoginMenu {
+public class LoginController {
     static final Scanner scanDecision = new Scanner(System.in);
     public ProfessorService professorService;
     public StudentService studentService;
 
     @Autowired
-    public LoginMenu(ProfessorService professorService, StudentService studentService) {
+    public LoginController(ProfessorService professorService, StudentService studentService) {
         this.professorService = professorService;
         this.studentService = studentService;
     }

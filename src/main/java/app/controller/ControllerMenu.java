@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ControllerMenu {
-    public LoginMenu loginMenu;
+    public LoginController loginController;
     public AdminController adminController;
     public ProfessorMenu professorMenu;
     public StudentController studentController;
 
     @Autowired
-    public ControllerMenu(LoginMenu loginMenu, AdminController adminController , ProfessorMenu professorMenu, StudentController studentController) {
-        this.loginMenu = loginMenu;
+    public ControllerMenu(LoginController loginController, AdminController adminController , ProfessorMenu professorMenu, StudentController studentController) {
+        this.loginController = loginController;
         this.adminController = adminController;
         this.professorMenu = professorMenu;
         this.studentController = studentController;
@@ -23,7 +23,7 @@ public class ControllerMenu {
 
     @PostMapping("/login-menu")
     public void callLoginMenu() {
-        int callMenu = loginMenu.login();
+        int callMenu = loginController.login();
         if (callMenu == 1) {
             callAdminController();
         } else if (callMenu == 2) {
