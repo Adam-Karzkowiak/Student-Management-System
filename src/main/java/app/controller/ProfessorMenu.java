@@ -5,8 +5,10 @@ import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Scanner;
+
 @Controller
 public class ProfessorMenu {
 
@@ -35,11 +37,7 @@ public class ProfessorMenu {
                     callShowSubjectList();
                     break;
                 case 2:
-                    System.out.println("Create subject.");
-                    System.out.println("Subject title: ");
-                    scanDecision.nextLine();
-                    String subjectName = scanDecision.nextLine();
-                    subjectService.createSubject(subjectName);
+                    callCreateSubject();
                     break;
                 case 3:
                     System.out.println("Show students registered for the subject");
@@ -86,8 +84,17 @@ public class ProfessorMenu {
     }
 
     @GetMapping("/subjects")
-    public void callShowSubjectList(){
+    public void callShowSubjectList() {
         subjectService.showSubjectList();
+    }
+
+    @PostMapping("/subjects")
+    public void callCreateSubject() {
+        System.out.println("Create subject.");
+        System.out.println("Subject title: ");
+        scanDecision.nextLine();
+        String subjectName = scanDecision.nextLine();
+        subjectService.createSubject(subjectName);
     }
 
 }
