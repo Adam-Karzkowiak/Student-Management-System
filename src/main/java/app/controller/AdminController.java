@@ -45,19 +45,6 @@ public class AdminController {
                     System.out.println(StudentRepository.studentDatabase);
                 }
                 case 3 -> {
-                    System.out.println("Provide PESEL number to delete account");
-                    scanDecision.nextLine();
-                    peselToDelete = scanDecision.nextLine();
-                    System.out.println("Do you want to delete ");
-                    professorService.printNameAndSurname(peselToDelete);
-                    System.out.println("Y/N?");
-                    decision = scanDecision.nextLine();
-                    if (decision.equalsIgnoreCase("Y")) {
-                        professorService.removeProfessorAccount(peselToDelete);
-                        System.out.println("Account has been deleted");
-                    } else {
-                        System.out.println("Procedure has been cancelled");
-                    }
                 }
                 case 4 -> {
                     System.out.println("Provide PESEL number to delete account");
@@ -120,8 +107,20 @@ public class AdminController {
         studentService.createStudent(login, password, name, surname, pesel);
     }
 
-    public void callDeleteAccount(String pesel) {
-
+    public void callRemoveProfessorAccount() {
+        System.out.println("Provide PESEL number to delete account");
+        scanDecision.nextLine();
+        String peselToDelete = scanDecision.nextLine();
+        System.out.println("Do you want to delete ");
+        professorService.printNameAndSurname(peselToDelete);
+        System.out.println("Y/N?");
+        String decision = scanDecision.nextLine();
+        if (decision.equalsIgnoreCase("Y")) {
+            professorService.removeProfessorAccount(peselToDelete);
+            System.out.println("Account has been deleted");
+        } else {
+            System.out.println("Procedure has been cancelled");
+        }
     }
 
 }
