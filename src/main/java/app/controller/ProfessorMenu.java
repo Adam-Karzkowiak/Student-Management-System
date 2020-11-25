@@ -49,15 +49,7 @@ public class ProfessorMenu {
                     callCalculateAvgForStudent();
                     break;
                 case 6:
-                    System.out.println("Grading a student");
-                    System.out.println("Subject name :");
-                    scanDecision.nextLine();
-                    subjectName = scanDecision.nextLine();
-                    System.out.println("Student pesel number :");
-                    studentPesel = scanDecision.nextLine();
-                    System.out.println("Grade : ");
-                    int grade = scanDecision.nextInt();
-                    subjectService.giveAGrade(subjectName, studentPesel, grade);
+                    callGiveAGrade();
                     break;
             }
 
@@ -108,6 +100,18 @@ public class ProfessorMenu {
         String subjectName = scanDecision.nextLine();
         subjectService.calculateAvgForStudent(subjectName, studentPesel);
 
+    }
+
+    public void callGiveAGrade() {
+        System.out.println("Grading a student");
+        System.out.println("Subject name :");
+        scanDecision.nextLine();
+        String subjectName = scanDecision.nextLine();
+        System.out.println("Student pesel number :");
+        String studentPesel = scanDecision.nextLine();
+        System.out.println("Grade : ");
+        int grade = scanDecision.nextInt();
+        subjectService.giveAGrade(subjectName, studentPesel, grade);
     }
 }
 
