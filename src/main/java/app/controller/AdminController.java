@@ -45,6 +45,7 @@ public class AdminController {
                     System.out.println(StudentRepository.studentDatabase);
                 }
                 case 3 -> {
+                callRemoveProfessorAccount();
                 }
                 case 4 -> {
                     System.out.println("Provide PESEL number to delete account");
