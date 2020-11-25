@@ -25,13 +25,6 @@ public class AdminController {
 
 
     public boolean adminPanel() {
-        String login;
-        String password;
-        String name;
-        String surname;
-        String pesel;
-        String peselToDelete;
-        String decision;
 
         do {
             System.out.println("Administration panel");
@@ -44,22 +37,7 @@ public class AdminController {
 
             switch (action) {
                 case 1 -> {
-                    System.out.println("Enter Login");
-                    scanDecision.nextLine();
-                    login = scanDecision.nextLine();
-                    System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
-                    password = scanDecision.nextLine();
-                    ValidationService.passwordValidation(password);
-                    System.out.println("Enter name");
-                    name = scanDecision.nextLine();
-                    ValidationService.checkName(name);
-                    System.out.println("Enter surname");
-                    surname = scanDecision.nextLine();
-                    ValidationService.checkSurname(surname);
-                    System.out.println("Enter pesel number");
-                    pesel = scanDecision.nextLine();
-                    ValidationService.peselValidation(pesel);
-                    callCreateProfessor(login, password, name, surname, pesel);
+                    callCreateProfessor();
                     System.out.println(ProfessorRepository.professorDatabase);
                 }
                 case 2 -> {
@@ -119,12 +97,31 @@ public class AdminController {
         return logout.equalsIgnoreCase("yes");
     }
 
-    public void callCreateProfessor(String login, String password, String name, String surname, String pesel) {
+    public void callCreateProfessor() {
+        System.out.println("Enter Login");
+        scanDecision.nextLine();
+        String login = scanDecision.nextLine();
+        System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
+        String password = scanDecision.nextLine();
+        ValidationService.passwordValidation(password);
+        System.out.println("Enter name");
+        String name = scanDecision.nextLine();
+        ValidationService.checkName(name);
+        System.out.println("Enter surname");
+        String surname = scanDecision.nextLine();
+        ValidationService.checkSurname(surname);
+        System.out.println("Enter pesel number");
+        String pesel = scanDecision.nextLine();
+        ValidationService.peselValidation(pesel);
         professorService.createProfessor(login, password, name, surname, pesel);
     }
 
     public void callCreateStudent(String login, String password, String name, String surname, String pesel) {
         studentService.createStudent(login, password, name, surname, pesel);
+    }
+
+    public void callDeleteAccount(String pesel){
+
     }
 
 }
