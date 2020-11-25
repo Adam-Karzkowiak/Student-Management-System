@@ -39,7 +39,7 @@ public class ControllerMenu {
         return "its working";
     }
 
-    @GetMapping("/adminmenu")
+    @GetMapping("/admin-menu")
     public void callAdminController() {
         if (!adminController.adminPanel()) {
             callAdminController();
