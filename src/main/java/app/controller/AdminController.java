@@ -78,7 +78,7 @@ public class AdminController {
                     System.out.println("Enter pesel number");
                     pesel = scanDecision.nextLine();
                     ValidationService.peselValidation(pesel);
-                    studentService.createStudent(login, password, name, surname, pesel);
+                    callCreateStudent(login, password, name, surname, pesel);
                     System.out.println(StudentRepository.studentDatabase);
                 }
                 case 3 -> {
@@ -121,6 +121,10 @@ public class AdminController {
 
     public void callCreateProfessor(String login, String password, String name, String surname, String pesel) {
         professorService.createProfessor(login, password, name, surname, pesel);
+    }
+
+    public void callCreateStudent(String login, String password, String name, String surname, String pesel) {
+        studentService.createStudent(login, password, name, surname, pesel);
     }
 
 }
