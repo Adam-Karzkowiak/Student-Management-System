@@ -59,7 +59,7 @@ public class AdminController {
                     System.out.println("Enter pesel number");
                     pesel = scanDecision.nextLine();
                     ValidationService.peselValidation(pesel);
-                    professorService.createProfessor(login, password, name, surname, pesel);
+                    callCreateProfessor(login, password, name, surname, pesel);
                     System.out.println(ProfessorRepository.professorDatabase);
                 }
                 case 2 -> {
@@ -118,4 +118,9 @@ public class AdminController {
         String logout = scanDecision.nextLine();
         return logout.equalsIgnoreCase("yes");
     }
+
+    public void callCreateProfessor(String login, String password, String name, String surname, String pesel) {
+        professorService.createProfessor(login, password, name, surname, pesel);
+    }
+
 }
