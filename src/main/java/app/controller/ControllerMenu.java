@@ -29,7 +29,7 @@ public class ControllerMenu {
         } else if (callMenu == 2) {
             callProfessorMenu();
         } else if (callMenu == 3) {
-            callStudentMenu();
+            callStudentController();
         }
         callLoginMenu();
     }
@@ -56,9 +56,9 @@ public class ControllerMenu {
         callLoginMenu();
     }
     @GetMapping("/studentmenu")
-    public void callStudentMenu() {
+    public void callStudentController() {
         if (!studentController.studentMenu()) {
-            callStudentMenu();
+            callStudentController();
         }
         LoggedUser.student = null;
         callLoginMenu();
