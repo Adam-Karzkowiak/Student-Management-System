@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControllerMenu {
     public LoginController loginController;
     public AdminController adminController;
-    public ProfessorMenu professorMenu;
+    public ProfessorController professorController;
     public StudentController studentController;
 
     @Autowired
-    public ControllerMenu(LoginController loginController, AdminController adminController , ProfessorMenu professorMenu, StudentController studentController) {
+    public ControllerMenu(LoginController loginController, AdminController adminController , ProfessorController professorController, StudentController studentController) {
         this.loginController = loginController;
         this.adminController = adminController;
-        this.professorMenu = professorMenu;
+        this.professorController = professorController;
         this.studentController = studentController;
     }
 
@@ -49,7 +49,7 @@ public class ControllerMenu {
 
     @GetMapping("/professormenu")
     public void callProfessorMenu() {
-        if (!professorMenu.professorMenu()) {
+        if (!professorController.professorMenu()) {
             callProfessorMenu();
         }
         LoggedUser.professor = null;
