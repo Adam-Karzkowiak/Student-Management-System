@@ -43,11 +43,7 @@ public class ProfessorMenu {
                     callShowRegisteredToSubject();
                     break;
                 case 4:
-                    System.out.println("Show average grades from subject");
-                    System.out.println("Provide subject name :");
-                    scanDecision.nextLine();
-                    subjectName = scanDecision.nextLine();
-                    subjectService.calculateAverageForWholeClass(subjectName);
+                    callCalculateAverageForWholeClass();
                     break;
                 case 5:
                     System.out.println("Show student grades from subject");
@@ -92,13 +88,21 @@ public class ProfessorMenu {
         subjectService.createSubject(subjectName);
     }
 
-    public void callShowRegisteredToSubject(){
+    public void callShowRegisteredToSubject() {
         System.out.println("Show students registered for the subject");
         System.out.println("Subject name: ");
         scanDecision.nextLine();
         String subjectName = scanDecision.nextLine();
         System.out.println("Students list : ");
         subjectService.showRegisteredToSubject(subjectName);
+    }
+
+    public void callCalculateAverageForWholeClass() {
+        System.out.println("Show average grades from subject");
+        System.out.println("Provide subject name :");
+        scanDecision.nextLine();
+        String subjectName = scanDecision.nextLine();
+        subjectService.calculateAverageForWholeClass(subjectName);
     }
 
 }
