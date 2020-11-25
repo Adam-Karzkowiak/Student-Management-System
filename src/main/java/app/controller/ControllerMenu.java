@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ControllerMenu {
     public LoginMenu loginMenu;
-    public AdminMenu adminMenu;
+    public AdminController adminController;
     public ProfessorMenu professorMenu;
     public StudentMenu studentMenu;
 
     @Autowired
-    public ControllerMenu(LoginMenu loginMenu, AdminMenu adminMenu, ProfessorMenu professorMenu, StudentMenu studentMenu) {
+    public ControllerMenu(LoginMenu loginMenu,AdminController adminController , ProfessorMenu professorMenu, StudentMenu studentMenu) {
         this.loginMenu = loginMenu;
-        this.adminMenu = adminMenu;
+        this.adminController = adminController;
         this.professorMenu = professorMenu;
         this.studentMenu = studentMenu;
     }
@@ -25,7 +25,7 @@ public class ControllerMenu {
     public void callLoginMenu() {
         int callMenu = loginMenu.login();
         if (callMenu == 1) {
-            callAdminMenu();
+            callAdminController();
         } else if (callMenu == 2) {
             callProfessorMenu();
         } else if (callMenu == 3) {
@@ -40,9 +40,9 @@ public class ControllerMenu {
     }
 
     @GetMapping("/adminmenu")
-    public void callAdminMenu() {
-        if (!adminMenu.adminPanel()) {
-            callAdminMenu();
+    public void callAdminController() {
+        if (!adminController.adminPanel()) {
+            callAdminController();
         }
         callLoginMenu();
     }
