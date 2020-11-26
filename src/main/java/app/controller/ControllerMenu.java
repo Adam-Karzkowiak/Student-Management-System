@@ -21,7 +21,7 @@ public class ControllerMenu {
         this.studentController = studentController;
     }
 
-    @PostMapping("/login-menu")
+    @PostMapping("/")
     public void callLoginMenu() {
         int callMenu = loginController.login();
         if (callMenu == 1) {
@@ -34,10 +34,6 @@ public class ControllerMenu {
         callLoginMenu();
     }
 
-    @GetMapping("/test")
-    public String checkTomcat() {
-        return "its working";
-    }
 
     @GetMapping("/admin-menu")
     public void callAdminController() {
