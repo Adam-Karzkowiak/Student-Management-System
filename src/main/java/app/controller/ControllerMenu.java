@@ -21,7 +21,7 @@ public class ControllerMenu {
         this.studentController = studentController;
     }
 
-    @PostMapping("/")
+    @PostMapping("/login-menu")
     public void callLoginMenu() {
         int callMenu = loginController.login();
         if (callMenu == 1) {
