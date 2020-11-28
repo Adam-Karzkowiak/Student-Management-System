@@ -116,4 +116,3 @@ public class ProfessorController {
         subjectService.giveAGrade(subjectName, studentPesel, grade);
     }
 }
-
