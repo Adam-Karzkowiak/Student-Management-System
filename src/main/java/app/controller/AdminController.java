@@ -2,15 +2,18 @@ package app.controller;
 
 import app.data.ProfessorRepository;
 import app.data.StudentRepository;
+import app.model.Professor;
 import app.service.ProfessorService;
 import app.service.StudentService;
 import app.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Scanner;
 
 @RestController
+@RequestMapping("/admin")
 public class AdminController {
     static final Scanner scanDecision = new Scanner(System.in);
     private static int action;
@@ -58,23 +61,10 @@ public class AdminController {
         return logout.equalsIgnoreCase("yes");
     }
 
-    public void callCreateProfessor() {
-        System.out.println("Enter Login");
-        scanDecision.nextLine();
-        String login = scanDecision.nextLine();
-        System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
-        String password = scanDecision.nextLine();
-        ValidationService.passwordValidation(password);
-        System.out.println("Enter name");
-        String name = scanDecision.nextLine();
-        ValidationService.checkName(name);
-        System.out.println("Enter surname");
-        String surname = scanDecision.nextLine();
-        ValidationService.checkSurname(surname);
-        System.out.println("Enter pesel number");
-        String pesel = scanDecision.nextLine();
-        ValidationService.peselValidation(pesel);
-        professorService.createProfessor(login, password, name, surname, pesel);
+    @PostMapping("/create-acc/professor")
+    @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
+    public Professor callCreateProfessor(String login, String password, String name, String surname, String pesel) {
+        return professorService.createProfessor(login, password, name, surname, pesel);
     }
 
     public void callCreateStudent() {
