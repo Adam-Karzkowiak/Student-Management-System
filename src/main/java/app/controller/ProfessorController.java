@@ -85,13 +85,8 @@ public class ProfessorController {
         subjectService.calculateAverageForWholeClass(subjectName);
     }
 
-    public void callCalculateAvgForStudent() {
-        System.out.println("Show student grades from subject");
-        System.out.println("Student pesel:");
-        scanDecision.nextLine();
-        String studentPesel = scanDecision.nextLine();
-        System.out.println("Subject name");
-        String subjectName = scanDecision.nextLine();
+    @PostMapping("/subjects/avg/{subjectName}")
+    private void callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
         subjectService.calculateAvgForStudent(subjectName, studentPesel);
 
     }
