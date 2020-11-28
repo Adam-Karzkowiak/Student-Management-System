@@ -80,11 +80,8 @@ public class ProfessorController {
         subjectService.showRegisteredToSubject(subjectName);
     }
 
-    public void callCalculateAverageForWholeClass() {
-        System.out.println("Show average grades from subject");
-        System.out.println("Provide subject name :");
-        scanDecision.nextLine();
-        String subjectName = scanDecision.nextLine();
+    @GetMapping("/subjects/avg/{subjectName}")
+    private void callCalculateAverageForWholeClass(@PathVariable String subjectName) {
         subjectService.calculateAverageForWholeClass(subjectName);
     }
 
