@@ -16,6 +16,9 @@ public class ProfessorController {
 
     final static Scanner scanDecision = new Scanner(System.in);
     private static int action;
+    private String subjectName;
+    private String studentPesel;
+    private int grade;
     SubjectService subjectService;
 
     @Autowired
