@@ -75,12 +75,8 @@ public class ProfessorController {
         subjectService.createSubject(subjectName);
     }
 
-    public void callShowRegisteredToSubject() {
-        System.out.println("Show students registered for the subject");
-        System.out.println("Subject name: ");
-        scanDecision.nextLine();
-        String subjectName = scanDecision.nextLine();
-        System.out.println("Students list : ");
+    @GetMapping("/subjects/{subjectName}")
+    private void callShowRegisteredToSubject(@PathVariable String subjectName) {
         subjectService.showRegisteredToSubject(subjectName);
     }
 
