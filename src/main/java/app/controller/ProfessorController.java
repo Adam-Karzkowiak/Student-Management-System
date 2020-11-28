@@ -26,6 +26,7 @@ public class ProfessorController {
         this.subjectService = subjectService;
     }
 
+    @GetMapping("/home")
     public boolean professorMenu() {
         do {
             System.out.println(LoggedUser.professor.getName() + " " + LoggedUser.professor.getSurname() + " professor panel");
@@ -42,19 +43,19 @@ public class ProfessorController {
                     callShowSubjectList();
                     break;
                 case 2:
-                    callCreateSubject();
+                    callCreateSubject(subjectName);
                     break;
                 case 3:
-                    callShowRegisteredToSubject();
+                    callShowRegisteredToSubject(subjectName);
                     break;
                 case 4:
-                    callCalculateAverageForWholeClass();
+                    callCalculateAverageForWholeClass(subjectName);
                     break;
                 case 5:
-                    callCalculateAvgForStudent();
+                    callCalculateAvgForStudent(subjectName, studentPesel);
                     break;
                 case 6:
-                    callGiveAGrade();
+                    callGiveAGrade(subjectName, studentPesel, grade);
                     break;
             }
 
