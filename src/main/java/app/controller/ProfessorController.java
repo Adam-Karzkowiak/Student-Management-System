@@ -91,15 +91,9 @@ public class ProfessorController {
 
     }
 
-    public void callGiveAGrade() {
-        System.out.println("Grading a student");
-        System.out.println("Subject name :");
-        scanDecision.nextLine();
-        String subjectName = scanDecision.nextLine();
-        System.out.println("Student pesel number :");
-        String studentPesel = scanDecision.nextLine();
-        System.out.println("Grade : ");
-        int grade = scanDecision.nextInt();
+    @PatchMapping("/subjects/{subjectName}/{studentPesel}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Grades updated!")
+    private void callGiveAGrade(@PathVariable String subjectName, @PathVariable String studentPesel, @RequestBody int grade) {
         subjectService.giveAGrade(subjectName, studentPesel, grade);
     }
 }
