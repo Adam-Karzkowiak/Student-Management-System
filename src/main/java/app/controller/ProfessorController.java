@@ -3,10 +3,8 @@ package app.controller;
 import app.authorization.LoggedUser;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Scanner;
 
@@ -72,11 +70,8 @@ public class ProfessorController {
     }
 
     @PostMapping("/subjects")
-    public void callCreateSubject() {
-        System.out.println("Create subject.");
-        System.out.println("Subject title: ");
-        scanDecision.nextLine();
-        String subjectName = scanDecision.nextLine();
+    @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
+    private void callCreateSubject(@RequestBody String subjectName) {
         subjectService.createSubject(subjectName);
     }
 
