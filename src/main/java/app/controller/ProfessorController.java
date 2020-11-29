@@ -4,19 +4,17 @@ import app.authorization.LoggedUser;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Scanner;
 
 @RestController
 @RequestMapping("/professor")
 public class ProfessorController {
 
-    final static Scanner scanDecision = new Scanner(System.in);
-    private static int action;
-    private String subjectName;
-    private String studentPesel;
-    private int grade;
+
     SubjectService subjectService;
 
     @Autowired
@@ -24,49 +22,10 @@ public class ProfessorController {
         this.subjectService = subjectService;
     }
 
-    @GetMapping("/home")
-    public boolean professorMenu() {
-        do {
-            System.out.println(LoggedUser.professor.getName() + " " + LoggedUser.professor.getSurname() + " professor panel");
-            System.out.println("1. Show a list of subjects");
-            System.out.println("2. Add subject");
-            System.out.println("3. Show registered students to a subject");
-            System.out.println("4. Show average grades of all students from subject");
-            System.out.println("5. Show specific student grades from a subject");
-            System.out.println("6. Give student a grade from a subject");
-            System.out.println("7. Logout");
-            action = scanDecision.nextInt();
-            switch (action) {
-                case 1:
-                    callShowSubjectList();
-                    break;
-                case 2:
-                    callCreateSubject(subjectName);
-                    break;
-                case 3:
-                    callShowRegisteredToSubject(subjectName);
-                    break;
-                case 4:
-                    callCalculateAverageForWholeClass(subjectName);
-                    break;
-                case 5:
-                    callCalculateAvgForStudent(subjectName, studentPesel);
-                    break;
-                case 6:
-                    callGiveAGrade(subjectName, studentPesel, grade);
-                    break;
-            }
-
-        } while (action != 7);
-        System.out.println("Logout? (YES/NO)");
-        scanDecision.nextLine();
-        String logout = scanDecision.nextLine();
-        return logout.equalsIgnoreCase("yes");
-    }
 
     @GetMapping("/subjects")
-    public void callShowSubjectList() {
-        subjectService.showSubjectList();
+    public List<String> callShowSubjectList() {
+        return subjectService.showSubjectList();
     }
 
     @PostMapping("/subjects")
