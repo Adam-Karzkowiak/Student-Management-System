@@ -10,13 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Scanner;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    static final Scanner scanDecision = new Scanner(System.in);
-    private static int action;
+
     ProfessorService professorService;
     StudentService studentService;
 
@@ -26,40 +24,6 @@ public class AdminController {
         this.studentService = studentService;
     }
 
-
-    public boolean adminPanel() {
-
-        do {
-            System.out.println("Administration panel");
-            System.out.println("1. Create professor account");
-            System.out.println("2. Create student account");
-            System.out.println("3. Delete professor account");
-            System.out.println("4. Delete student account");
-            System.out.println("5. Logout");
-            action = scanDecision.nextInt();
-
-            switch (action) {
-                case 1 -> {
-                    callCreateProfessor();
-                    System.out.println(ProfessorRepository.professorDatabase);
-                }
-                case 2 -> {
-                    callCreateStudent();
-                    System.out.println(StudentRepository.studentDatabase);
-                }
-                case 3 -> {
-                    callRemoveProfessorAccount();
-                }
-                case 4 -> {
-                    callRemoveStudentAccount();
-                }
-            }
-        } while (action != 5);
-        System.out.println("Logout? (YES/NO)");
-        scanDecision.nextLine();
-        String logout = scanDecision.nextLine();
-        return logout.equalsIgnoreCase("yes");
-    }
 
     @PostMapping("/create-acc/professor")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
