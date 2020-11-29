@@ -1,7 +1,6 @@
 package app.controller;
 
-import app.data.ProfessorRepository;
-import app.data.StudentRepository;
+
 import app.model.Professor;
 import app.service.ProfessorService;
 import app.service.StudentService;
@@ -9,6 +8,7 @@ import app.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -25,12 +25,19 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create-acc/professor")
-    @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
-    public Professor callCreateProfessor(String login, String password, String name, String surname, String pesel) {
-        return professorService.createProfessor(login, password, name, surname, pesel);
+        @PostMapping("/create-acc/professor")
+    @ResponseStatus(value = HttpStatus.CREATED, reason = "Professor created!")
+    public Professor callCreateProfessor(@RequestBody Professor newProfessor) {
+        return professorService.createProfessor(
+                newProfessor.getLogin(),
+                newProfessor.getPassword(),
+                newProfessor.getName(),
+                newProfessor.getSurname(),
+                newProfessor.getPesel());
     }
 
+
+    @PostMapping("/create-acc/student")
     public void callCreateStudent() {
         System.out.println("Enter Login");
         scanDecision.nextLine();
