@@ -1,14 +1,14 @@
 package app.controller;
 
-import app.authorization.LoggedUser;
+import app.model.Student;
+import app.model.Subject;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Scanner;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/professor")
@@ -30,13 +30,13 @@ public class ProfessorController {
 
     @PostMapping("/subjects")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
-    private void callCreateSubject(@RequestBody String subjectName) {
-        subjectService.createSubject(subjectName);
+    private Subject callCreateSubject(@RequestBody String subjectName) {
+        return subjectService.createSubject(subjectName);
     }
 
     @GetMapping("/subjects/{subjectName}")
-    private void callShowRegisteredToSubject(@PathVariable String subjectName) {
-        subjectService.showRegisteredToSubject(subjectName);
+    private Set<Student> callShowRegisteredToSubject(@PathVariable String subjectName) {
+        return subjectService.showRegisteredToSubject(subjectName);
     }
 
     @GetMapping("/subjects/avg/{subjectName}")
