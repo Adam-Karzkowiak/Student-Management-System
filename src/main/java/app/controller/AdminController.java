@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/admin")
@@ -51,8 +53,8 @@ public class AdminController {
                 newStudent.getPesel());
     }
 
-    @DeleteMapping("/delete/professors")
-    public ResponseEntity<String> callRemoveProfessorAccount(@RequestBody String pesel) {
+    @DeleteMapping("/delete/professors/{pesel}")
+    public ResponseEntity<String> callRemoveProfessorAccount(@PathVariable String pesel) {
         if (ProfessorRepository.professorDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new ProfessorNotFoundException(pesel);
         }
@@ -61,8 +63,8 @@ public class AdminController {
 
     }
 
-    @DeleteMapping("/delete/students")
-    public ResponseEntity<String> callRemoveStudentAccount(@RequestBody String pesel) {
+    @DeleteMapping("/delete/students/{pesel}")
+    public ResponseEntity<String> callRemoveStudentAccount(@PathVariable String pesel) {
         if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new StudentNotFoundException(pesel);
         }
@@ -70,4 +72,6 @@ public class AdminController {
         return new ResponseEntity<>(pesel, HttpStatus.OK);
 
     }
+
+
 }
