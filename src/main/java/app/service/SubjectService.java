@@ -69,12 +69,13 @@ public class SubjectService {
         return null;
     }
 
-    public void showRegisteredToSubject(String subjectName) {
+    public Set<Student> showRegisteredToSubject(String subjectName) {
         for (Subject obj : SubjectRepository.subjectDatabase) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
-                System.out.println(obj.grades.keySet());
+                return obj.grades.keySet();
             }
         }
+        return null;
     }
 
     public void showAllStudentGrades(String pesel) {
