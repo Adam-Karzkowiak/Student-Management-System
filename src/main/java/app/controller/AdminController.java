@@ -2,13 +2,13 @@ package app.controller;
 
 
 import app.model.Professor;
+import app.model.Student;
 import app.service.ProfessorService;
 import app.service.StudentService;
 import app.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @RestController
@@ -25,7 +25,7 @@ public class AdminController {
     }
 
 
-        @PostMapping("/create-acc/professor")
+    @PostMapping("/create-acc/professor")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Professor created!")
     public Professor callCreateProfessor(@RequestBody Professor newProfessor) {
         return professorService.createProfessor(
@@ -38,23 +38,13 @@ public class AdminController {
 
 
     @PostMapping("/create-acc/student")
-    public void callCreateStudent() {
-        System.out.println("Enter Login");
-        scanDecision.nextLine();
-        String login = scanDecision.nextLine();
-        System.out.println("Enter Passowrd. ( 8 < X < 20 letters, at least: one uppercase, one lowercase, one number");
-        String password = scanDecision.nextLine();
-        ValidationService.passwordValidation(password);
-        System.out.println("Enter name");
-        String name = scanDecision.nextLine();
-        ValidationService.checkName(name);
-        System.out.println("Enter surname");
-        String surname = scanDecision.nextLine();
-        ValidationService.checkSurname(surname);
-        System.out.println("Enter pesel number");
-        String pesel = scanDecision.nextLine();
-        ValidationService.peselValidation(pesel);
-        studentService.createStudent(login, password, name, surname, pesel);
+    public Student callCreateStudent(@RequestBody Student newStudent) {
+        return studentService.createStudent(
+                newStudent.getLogin(),
+                newStudent.getPassword(),
+                newStudent.getName(),
+                newStudent.getSurname(),
+                newStudent.getPesel());
     }
 
     public void callRemoveProfessorAccount() {
