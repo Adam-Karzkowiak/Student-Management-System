@@ -1,11 +1,16 @@
 package app.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-@Data
+
+@NoArgsConstructor
+@Getter
+@Setter
 public class Subject {
 
     String subjectName;
