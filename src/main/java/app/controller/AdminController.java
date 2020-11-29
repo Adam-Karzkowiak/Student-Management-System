@@ -44,6 +44,7 @@ public class AdminController {
 
 
     @PostMapping("/create-acc/students")
+    @ResponseStatus(value = HttpStatus.CREATED, reason = "Student created!")
     public Student callCreateStudent(@RequestBody Student newStudent) {
         return studentService.createStudent(
                 newStudent.getLogin(),
