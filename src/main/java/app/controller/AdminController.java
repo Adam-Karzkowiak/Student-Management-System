@@ -2,12 +2,13 @@ package app.controller;
 
 
 import app.data.ProfessorRepository;
+import app.data.StudentRepository;
 import app.exception.ProfessorNotFoundException;
+import app.exception.StudentNotFoundException;
 import app.model.Professor;
 import app.model.Student;
 import app.service.ProfessorService;
 import app.service.StudentService;
-import app.service.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create-acc/professor")
+    @PostMapping("/create-acc/professors")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Professor created!")
     public Professor callCreateProfessor(@RequestBody Professor newProfessor) {
         return professorService.createProfessor(
@@ -40,7 +41,7 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create-acc/student")
+    @PostMapping("/create-acc/students")
     public Student callCreateStudent(@RequestBody Student newStudent) {
         return studentService.createStudent(
                 newStudent.getLogin(),
@@ -60,19 +61,13 @@ public class AdminController {
 
     }
 
-    public ResponseEntity<V> callRemoveStudentAccount() {
-        System.out.println("Provide PESEL number to delete account");
-        scanDecision.nextLine();
-        String peselToDelete = scanDecision.nextLine();
-        System.out.println("Do you want to delete ");
-        studentService.printNameAndSurname(peselToDelete);
-        System.out.println("Y/N?");
-        String decision = scanDecision.nextLine();
-        if (decision.equalsIgnoreCase("Y")) {
-            studentService.removeStudentAccount(peselToDelete);
-            System.out.println("Account has been deleted");
-        } else {
-            System.out.println("Procedure has been cancelled");
+    @DeleteMapping("/delete/students")
+    public ResponseEntity<String> callRemoveStudentAccount(@RequestBody String pesel) {
+        if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
+            throw new StudentNotFoundException(pesel);
         }
+        studentService.removeStudentAccount(pesel);
+        return new ResponseEntity<>(pesel, HttpStatus.OK);
+
     }
 }
