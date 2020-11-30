@@ -64,7 +64,7 @@ public class AdminController {
 
     }
 
-    @DeleteMapping("/delete/students}")
+    @DeleteMapping("/delete/students")
     public ResponseEntity<String> callRemoveStudentAccount(@RequestParam String pesel) {
         if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new StudentNotFoundException(pesel);
