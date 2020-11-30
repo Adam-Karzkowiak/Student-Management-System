@@ -31,7 +31,7 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create-acc/professors")
+    @PostMapping("/professors")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Professor created!")
     public Professor callCreateProfessor(@RequestBody Professor newProfessor) {
         return professorService.createProfessor(
@@ -43,7 +43,7 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create-acc/students")
+    @PostMapping("/students")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Student created!")
     public Student callCreateStudent(@RequestBody Student newStudent) {
         return studentService.createStudent(
@@ -54,7 +54,7 @@ public class AdminController {
                 newStudent.getPesel());
     }
 
-    @DeleteMapping("/delete/professors")
+    @DeleteMapping("/professors")
     public ResponseEntity<String> callRemoveProfessorAccount(@RequestParam String pesel) {
         if (ProfessorRepository.professorDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new ProfessorNotFoundException(pesel);
@@ -64,7 +64,7 @@ public class AdminController {
 
     }
 
-    @DeleteMapping("/delete/students")
+    @DeleteMapping("/students")
     public ResponseEntity<String> callRemoveStudentAccount(@RequestParam String pesel) {
         if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new StudentNotFoundException(pesel);
