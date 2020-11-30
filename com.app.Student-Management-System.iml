@@ -49,6 +49,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.4.0" level="project" />
@@ -73,15 +81,9 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.39" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:jakarta.el:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.39" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.0" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.21" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.6.2" level="project" />
