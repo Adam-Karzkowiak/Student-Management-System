@@ -17,10 +17,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("user")
-                .roles("USER")
+
+        UserDetails student = User.withDefaultPasswordEncoder()
+                .username("student")
+                .password("student")
+                .roles("STUDENT")
+                .build();
+
+        UserDetails professor = User.withDefaultPasswordEncoder()
+                .username("professor")
+                .password("professor")
+                .roles("PROFESSOR")
                 .build();
 
         UserDetails admin = User.withDefaultPasswordEncoder()
@@ -29,13 +36,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin);
+        return new InMemoryUserDetailsManager(student, professor, admin);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .anyRequest().hasRole("ADMIN");
+        http.httpBasic().and().authorizeRequests()
+                .antMatchers("/admin")
+                .hasRole("ADMIN")
+                .anyRequest().hasRole("ADMIN")
+                .and()
+                .formLogin()
+                .permitAll()
+                .and()
+                .logout().permitAll()
+                .and()
+                .csrf().disable();
     }
 }
