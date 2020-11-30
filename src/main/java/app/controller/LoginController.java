@@ -5,6 +5,8 @@ import app.service.AdminService;
 import app.service.ProfessorService;
 import app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -21,21 +23,20 @@ public class LoginController {
         this.studentService = studentService;
     }
 
-    public int login() {
-        System.out.print("Login :");
-        String provideLogin = scanDecision.nextLine();
-        System.out.print("Password :");
-        String providePassword = scanDecision.nextLine();
-        if (provideLogin.matches(AdminService.getLogin()) && providePassword.matches(AdminService.getPassword())) {
+    @PostMapping("/login")
+    public int login(@RequestParam("login") String login,@RequestParam("password") String password) {
+        if (login.matches(AdminService.getLogin()) && password.matches(AdminService.getPassword())) {
             return 1;
-        } else if (professorService.checkPasswordAndLogin(provideLogin, providePassword)) {
-            LoggedUser.professor = professorService.getProfessor(provideLogin);
+        } else if (professorService.checkPasswordAndLogin(login, password)) {
+            LoggedUser.professor = professorService.getProfessor(login);
             return 2;
-        } else if (studentService.checkPasswordAndLogin(provideLogin, providePassword)) {
-            LoggedUser.student = studentService.getStudent(provideLogin);
+        } else if (studentService.checkPasswordAndLogin(login, password)) {
+            LoggedUser.student = studentService.getStudent(login);
             return 3;
 
         }
         return 0;
     }
+
+
 }
