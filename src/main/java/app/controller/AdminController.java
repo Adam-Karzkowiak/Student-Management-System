@@ -54,8 +54,8 @@ public class AdminController {
                 newStudent.getPesel());
     }
 
-    @DeleteMapping("/delete/professors/{pesel}")
-    public ResponseEntity<String> callRemoveProfessorAccount(@PathVariable String pesel) {
+    @DeleteMapping("/delete/professors")
+    public ResponseEntity<String> callRemoveProfessorAccount(@RequestParam String pesel) {
         if (ProfessorRepository.professorDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new ProfessorNotFoundException(pesel);
         }
@@ -64,8 +64,8 @@ public class AdminController {
 
     }
 
-    @DeleteMapping("/delete/students/{pesel}")
-    public ResponseEntity<String> callRemoveStudentAccount(@PathVariable String pesel) {
+    @DeleteMapping("/delete/students}")
+    public ResponseEntity<String> callRemoveStudentAccount(@RequestParam String pesel) {
         if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
             throw new StudentNotFoundException(pesel);
         }
