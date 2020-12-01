@@ -31,28 +31,28 @@ public class ProfessorController {
 
     @PostMapping("/subjects")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
-    private Subject callCreateSubject(@RequestBody String subjectName) {
+    public Subject callCreateSubject(@RequestBody String subjectName) {
         return subjectService.createSubject(subjectName);
     }
 
     @GetMapping("/subjects/{subjectName}")
-    private Set<Student> callShowRegisteredToSubject(@PathVariable String subjectName) {
+    public Set<Student> callShowRegisteredToSubject(@PathVariable String subjectName) {
         return subjectService.showRegisteredToSubject(subjectName);
     }
 
     @GetMapping("/subjects/avg/{subjectName}")
-    private void callCalculateAverageForWholeClass(@PathVariable String subjectName) {
+    public void callCalculateAverageForWholeClass(@PathVariable String subjectName) {
         subjectService.calculateAverageForWholeClass(subjectName);
     }
 
     @PostMapping("/subjects/avg/{subjectName}")
-    private double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
+    public double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
        return subjectService.calculateAvgForStudent(subjectName, studentPesel);
     }
 
     @PatchMapping("/subjects")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Grades updated!")
-    private void callGiveAGrade(@RequestBody StudentSubjectKey studentSubjectKey) {
+    public void callGiveAGrade(@RequestBody StudentSubjectKey studentSubjectKey) {
         subjectService.giveAGrade(
                 studentSubjectKey.getSubjectName(),
                 studentSubjectKey.getStudentPesel(),
