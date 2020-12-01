@@ -10,4 +10,5 @@ import lombok.Setter;
 public class StudentSubjectKey {
     String subjectName;
     String studentPesel;
+    int grade;
 }
