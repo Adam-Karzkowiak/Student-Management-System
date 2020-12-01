@@ -5,9 +5,11 @@ import app.authorization.LoggedUser;
 import app.service.StudentService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Scanner;
 @RestController
 @RequestMapping("/student")
@@ -47,5 +49,10 @@ public class StudentController {
 
         String logout = scanDecision.nextLine();
         return logout.equalsIgnoreCase("yes");
+    }
+
+    @GetMapping("/subjects")
+    public List<String> callShowSubjectList() {
+        return subjectService.showSubjectList();
     }
 }
