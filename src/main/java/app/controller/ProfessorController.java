@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.model.Student;
+import app.model.StudentSubjectKey;
 import app.model.Subject;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +50,12 @@ public class ProfessorController {
        return subjectService.calculateAvgForStudent(subjectName, studentPesel);
     }
 
-    @PatchMapping("/subjects/{subjectName}/{studentPesel}")
+    @PatchMapping("/subjects")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Grades updated!")
-    private void callGiveAGrade(@PathVariable String subjectName, @PathVariable String studentPesel, @RequestBody int grade) {
-        subjectService.giveAGrade(subjectName, studentPesel, grade);
+    private void callGiveAGrade(@RequestBody StudentSubjectKey studentSubjectKey) {
+        subjectService.giveAGrade(
+                studentSubjectKey.getSubjectName(),
+                studentSubjectKey.getStudentPesel(),
+                studentSubjectKey.getGrade());
     }
 }
