@@ -2,12 +2,12 @@ package app.controller;
 
 
 import app.authorization.LoggedUser;
+import app.model.StudentSubjectKey;
 import app.service.StudentService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -55,4 +55,13 @@ public class StudentController {
     public List<String> callShowSubjectList() {
         return subjectService.showSubjectList();
     }
+
+    @PatchMapping("/subjects")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Registered!")
+    public void callRegisterToSubject(@RequestBody StudentSubjectKey studentSubjectKey){
+        subjectService.registerToSubject(
+                studentSubjectKey.getStudentPesel(),
+                studentSubjectKey.getSubjectName());
+    }
+
 }
