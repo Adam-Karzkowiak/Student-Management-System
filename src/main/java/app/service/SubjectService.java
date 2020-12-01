@@ -95,12 +95,12 @@ public class SubjectService {
         subjectRepository.addAGrade(subject, student, grade);
     }
 
-    public void calculateAvgForStudent(String subjectName, String studentPesel) {
+    public double calculateAvgForStudent(String subjectName, String studentPesel) {
         Subject subject = getSubject(subjectName);
         Student student = getStudent(studentPesel);
         ArrayList<Integer> calculatedAvg = subject.grades.get(student);
         double average = calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
-        System.out.println("Student :" + student.getName() + " " + student.getSurname() + " Average: " + average + " " + subjectName);
+        return average;
 
     }
 

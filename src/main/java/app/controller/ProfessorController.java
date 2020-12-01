@@ -45,9 +45,8 @@ public class ProfessorController {
     }
 
     @PostMapping("/subjects/avg/{subjectName}")
-    private void callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
-        subjectService.calculateAvgForStudent(subjectName, studentPesel);
-
+    private double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
+       return subjectService.calculateAvgForStudent(subjectName, studentPesel);
     }
 
     @PatchMapping("/subjects/{subjectName}/{studentPesel}")
