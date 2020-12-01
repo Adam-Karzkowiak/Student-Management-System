@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class SubjectService {
@@ -38,8 +37,8 @@ public class SubjectService {
     }
 
     public List<String> showSubjectList() {
-        List<String> subNames=new ArrayList<>();
-        for(Subject o : SubjectRepository.subjectDatabase){
+        List<String> subNames = new ArrayList<>();
+        for (Subject o : SubjectRepository.subjectDatabase) {
             subNames.add(o.getSubjectName());
         }
         return subNames;
@@ -87,7 +86,7 @@ public class SubjectService {
             }
         }
 
-}
+    }
 
     public void giveAGrade(String subjectName, String studentPesel, int grade) {
         Subject subject = getSubject(subjectName);
