@@ -98,8 +98,8 @@ public class SubjectService {
         Subject subject = getSubject(subjectName);
         Student student = getStudent(studentPesel);
         ArrayList<Integer> calculatedAvg = subject.grades.get(student);
-        double average = calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
-        return average;
+        return calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
+
 
     }
 
