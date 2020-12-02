@@ -6,12 +6,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import app.model.Student;
-import app.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 
 @ToString
 @EqualsAndHashCode(callSuper = false)
@@ -52,21 +50,7 @@ public class StudentService {
         return false;
     }
 
-    public void printID(String login, String password) {
-        for (Student obj : studentRepository.studentDatabase) {
-            if (obj.getLogin().equals(login) && obj.getPassword().equals(password)) {
-                System.out.println(obj.getId());
-            }
-        }
-    }
 
-    public void printNameAndSurname(String pesel) {
-        for (Student obj : studentRepository.studentDatabase) {
-            if (obj.getPesel().equals(pesel)) {
-                System.out.println(obj.getName() + " " + obj.getSurname());
-            }
-        }
-    }
 
     public Student getStudent(String login) {
         for (Student obj : StudentRepository.studentDatabase) {
@@ -75,10 +59,6 @@ public class StudentService {
             }
         }
         return null;
-    }
-
-    public void printAllStudentGrades(ArrayList<Subject> grades,String studentPesel){
-
     }
 
 }
