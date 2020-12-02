@@ -49,21 +49,6 @@ public class ProfessorService  {
         return false;
     }
 
-    public void printID(String login, String password) {
-        for (Professor obj : ProfessorRepository.professorDatabase) {
-            if (obj.getLogin().equals(login) && obj.getPassword().equals(password)) {
-                System.out.println(obj.getId());
-            }
-        }
-    }
-
-    public void printNameAndSurname(String pesel) {
-        for (Professor obj : ProfessorRepository.professorDatabase) {
-            if (obj.getPesel().equals(pesel)) {
-                System.out.println(obj.getName() + " " + obj.getSurname());
-            }
-        }
-    }
     public Professor getProfessor(String login) {
         for (Professor obj : ProfessorRepository.professorDatabase) {
             if (obj.getLogin().equals(login)) {
