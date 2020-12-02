@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -42,8 +43,8 @@ public class ProfessorController {
     }
 
     @GetMapping("/subjects/avg/{subjectName}")
-    public void callCalculateAverageForWholeClass(@PathVariable String subjectName) {
-        subjectService.calculateAverageForWholeClass(subjectName);
+    public Map<String,Double> callCalculateAverageForWholeClass(@PathVariable String subjectName) {
+        return subjectService.calculateAverageForWholeClass(subjectName);
     }
 
     @PostMapping("/subjects/avg/{subjectName}")
