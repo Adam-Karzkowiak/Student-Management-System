@@ -1,8 +1,6 @@
 package app.controller;
 
 
-import app.data.StudentRepository;
-import app.exception.StudentNotFoundException;
 import app.model.Professor;
 import app.model.Student;
 import app.service.ProfessorService;
@@ -11,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @RestController
@@ -60,9 +57,6 @@ public class AdminController {
 
     @DeleteMapping("/students")
     public ResponseEntity<String> callRemoveStudentAccount(@RequestParam String pesel) {
-        if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
-            throw new StudentNotFoundException(pesel);
-        }
         studentService.removeStudentAccount(pesel);
         return new ResponseEntity<>(pesel, HttpStatus.OK);
 
