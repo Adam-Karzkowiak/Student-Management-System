@@ -1,6 +1,7 @@
 package app.service;
 
 import app.data.StudentRepository;
+import app.exception.StudentNotFoundException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -33,6 +34,9 @@ public class StudentService {
     }
 
     public void removeStudentAccount(String pesel) {
+        if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
+            throw new StudentNotFoundException(pesel);
+        }
         studentRepository.deleteStudent(pesel);
     }
 

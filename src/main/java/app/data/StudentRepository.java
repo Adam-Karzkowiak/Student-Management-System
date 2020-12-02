@@ -1,6 +1,5 @@
 package app.data;
 
-import app.exception.StudentNotFoundException;
 import app.model.Student;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +18,6 @@ public class StudentRepository {
     }
 
     public void deleteStudent(String pesel) {
-        if (StudentRepository.studentDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
-            throw new StudentNotFoundException(pesel);
-        }
         Iterator<Student> iterator = studentDatabase.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().getPesel().equals(pesel)) {
