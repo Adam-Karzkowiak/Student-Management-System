@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import java.util.Scanner;
 @RestController
 public class LoginController {
-    static final Scanner scanDecision = new Scanner(System.in);
     public ProfessorService professorService;
     public StudentService studentService;
 
