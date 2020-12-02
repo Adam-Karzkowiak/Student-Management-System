@@ -20,6 +20,7 @@ public class ProfessorController {
 
     @Autowired
     public ProfessorController(SubjectService subjectService) {
+
         this.subjectService = subjectService;
     }
 
@@ -47,7 +48,7 @@ public class ProfessorController {
 
     @PostMapping("/subjects/avg/{subjectName}")
     public double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
-       return subjectService.calculateAvgForStudent(subjectName, studentPesel);
+        return subjectService.calculateAvgForStudent(subjectName, studentPesel);
     }
 
     @PatchMapping("/subjects")
