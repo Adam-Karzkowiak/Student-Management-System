@@ -103,14 +103,15 @@ public class SubjectService {
 
     }
 
-    public void calculateAverageForWholeClass(String subjectName) {
+    public Map<String, Double> calculateAverageForWholeClass(String subjectName) {
         Subject subject = getSubject(subjectName);
-        System.out.println("Subject :" + subjectName);
+        Map<String, Double> avgForClass = new HashMap<>();
         for (Map.Entry<Student, ArrayList<Integer>> entry : subject.grades.entrySet()) {
             ArrayList<Integer> studentGrades = entry.getValue();
             double average = studentGrades.stream().mapToInt(a -> a).average().orElse(0.0);
-            System.out.println("Student " + entry.getKey().getName() + " " + entry.getKey().getSurname() + " Average : " + average);
+            avgForClass.put(entry.getKey().getSurname(), average);
         }
+        return avgForClass;
     }
 
 
