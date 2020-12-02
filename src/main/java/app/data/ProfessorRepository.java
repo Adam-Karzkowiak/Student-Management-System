@@ -25,4 +25,13 @@ public class ProfessorRepository {
         }
     }
 
+    public Professor returnProfessor(String pesel){
+        for(Professor prof : professorDatabase){
+            if(prof.getPesel().equals(pesel)){
+                return prof;
+            }
+        }
+        return null;
+    }
+
 }
