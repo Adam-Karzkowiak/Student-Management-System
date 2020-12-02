@@ -1,9 +1,7 @@
 package app.controller;
 
 
-import app.data.ProfessorRepository;
 import app.data.StudentRepository;
-import app.exception.ProfessorNotFoundException;
 import app.exception.StudentNotFoundException;
 import app.model.Professor;
 import app.model.Student;
@@ -55,9 +53,6 @@ public class AdminController {
 
     @DeleteMapping("/professors")
     public ResponseEntity<String> callRemoveProfessorAccount(@RequestParam String pesel) {
-        if (ProfessorRepository.professorDatabase.stream().noneMatch(o -> o.getPesel().equals(pesel))) {
-            throw new ProfessorNotFoundException(pesel);
-        }
         professorService.removeProfessorAccount(pesel);
         return new ResponseEntity<>(pesel, HttpStatus.OK);
 
