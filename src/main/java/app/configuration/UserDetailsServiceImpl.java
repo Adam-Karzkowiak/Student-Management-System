@@ -7,14 +7,21 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     StudentRepository studentRepository;
     ProfessorRepository professorRepository;
 
+    public UserDetailsServiceImpl(StudentRepository studentRepository, ProfessorRepository professorRepository) {
+        this.studentRepository = studentRepository;
+        this.professorRepository = professorRepository;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String pesel) throws UsernameNotFoundException {
-        User user = professorRepository.returnProfessor(pesel); //metoda retrieve student/professor w repozytoriach
+        UserDetails professor = User.; //metoda retrieve student/professor w repozytoriach
     }
 }
