@@ -33,7 +33,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+
         for (Professor obj : ProfessorRepository.professorDatabase) {
             if (obj.getLogin().equals(username)) {
                 authorities.add(new SimpleGrantedAuthority("PROFESSOR"));
