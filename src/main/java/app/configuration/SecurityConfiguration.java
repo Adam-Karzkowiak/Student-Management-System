@@ -17,6 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     @Override
+    //TODO delete userDetailsService, implement custom one
     public UserDetailsService userDetailsService() {
 
         UserDetails student = User.withDefaultPasswordEncoder()
