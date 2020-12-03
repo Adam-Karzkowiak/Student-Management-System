@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
+
     StudentRepository studentRepository;
     ProfessorRepository professorRepository;
 
+    @Autowired
     public UserDetailsServiceImpl(StudentRepository studentRepository, ProfessorRepository professorRepository) {
         this.studentRepository = studentRepository;
         this.professorRepository = professorRepository;
