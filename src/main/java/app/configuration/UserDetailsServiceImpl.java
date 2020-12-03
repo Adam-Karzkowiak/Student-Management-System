@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -34,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-
+        String admin = "admin";
         for (Professor obj : ProfessorRepository.professorDatabase) {
             if (obj.getLogin().equals(username)) {
                 authorities.add(new SimpleGrantedAuthority("PROFESSOR"));
@@ -46,6 +45,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 authorities.add(new SimpleGrantedAuthority("STUDENT"));
                 return new User(obj.getLogin(), obj.getPassword(), authorities);
             }
+        }
+        if (username.equals(admin)) {
+            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+            return new User(admin, admin, authorities);
         }
         throw new UsernameNotFoundException(username);
     }
