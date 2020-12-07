@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import app.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -18,16 +19,21 @@ import org.springframework.stereotype.Service;
 public class StudentService {
     private IdentifierProvider identifierProvider;
     private StudentRepository studentRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public StudentService(IdentifierProvider identifierProvider, StudentRepository studentRepository) {
+    public StudentService(IdentifierProvider identifierProvider,
+                          StudentRepository studentRepository,
+                          BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.identifierProvider = identifierProvider;
         this.studentRepository = studentRepository;
+        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
     }
 
     public Student createStudent(String login, String password, String name, String surname, String pesel) {
         int id = identifierProvider.getId();
         Student student = new Student(id, login, password, name, surname, pesel);
+        student.setPassword(bCryptPasswordEncoder.encode(student.getPassword()));
         return studentRepository.saveStudent(student);
     }
 
