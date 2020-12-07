@@ -1,4 +1,4 @@
-package app.configuration;
+package app.service;
 
 import app.data.ProfessorRepository;
 import app.data.StudentRepository;
@@ -28,7 +28,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.professorRepository = professorRepository;
     }
 
-    //TODO Roles i Authority.
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
