@@ -4,6 +4,7 @@ import app.data.ProfessorRepository;
 import lombok.Data;
 import app.model.Professor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,17 +14,23 @@ import java.util.List;
 public class ProfessorService  {
     private IdentifierProvider identifierProvider;
     private ProfessorRepository professorRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Autowired
-    public ProfessorService(IdentifierProvider identifierProvider, ProfessorRepository professorRepository) {
+    public ProfessorService(IdentifierProvider identifierProvider,
+                            ProfessorRepository professorRepository,
+                            BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.identifierProvider = identifierProvider;
         this.professorRepository = professorRepository;
+        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
     }
 
 
     public Professor createProfessor(String login, String password, String name, String surname, String pesel) {
         int id = identifierProvider.getId();
         Professor professor = new Professor(id, login, password, name, surname, pesel);
+        professor.setPassword(bCryptPasswordEncoder.encode(professor.getPassword()));
         addToRepository(professor);
         return professor;
     }
