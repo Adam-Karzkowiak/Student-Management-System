@@ -1,4 +1,4 @@
-package app.configuration;
+package app.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
-import static app.configuration.SecurityConstants.EXPIRATION_TIME;
-import static app.configuration.SecurityConstants.HEADER_STRING;
-import static app.configuration.SecurityConstants.SECRET;
-import static app.configuration.SecurityConstants.TOKEN_PREFIX;
+import static app.security.SecurityConstants.EXPIRATION_TIME;
+import static app.security.SecurityConstants.HEADER_STRING;
+import static app.security.SecurityConstants.SECRET;
+import static app.security.SecurityConstants.TOKEN_PREFIX;
 
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {

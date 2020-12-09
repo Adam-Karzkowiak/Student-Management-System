@@ -1,4 +1,4 @@
-package app.configuration;
+package app.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static app.configuration.SecurityConstants.TOKEN_PREFIX;
-import static app.configuration.SecurityConstants.HEADER_STRING;
-import static app.configuration.SecurityConstants.SECRET;
+import static app.security.SecurityConstants.TOKEN_PREFIX;
+import static app.security.SecurityConstants.HEADER_STRING;
+import static app.security.SecurityConstants.SECRET;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
