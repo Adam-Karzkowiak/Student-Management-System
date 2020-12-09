@@ -1,7 +1,7 @@
 package app.controller;
 
 
-import app.model.StudentSubjectKey;
+import app.model.StudentSubjectDTO;
 import app.service.StudentService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +31,10 @@ public class StudentController {
 
     @PatchMapping("/subjects")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Registered!")
-    public void callRegisterToSubject(@RequestBody StudentSubjectKey studentSubjectKey){
+    public void callRegisterToSubject(@RequestBody StudentSubjectDTO studentSubjectDTO){
         subjectService.registerToSubject(
-                studentSubjectKey.getStudentPesel(),
-                studentSubjectKey.getSubjectName());
+                studentSubjectDTO.getStudentPesel(),
+                studentSubjectDTO.getSubjectName());
     }
 
 //  TODO subjectService.registerToSubject(LoggedUser.student.getPesel(), subjectName);

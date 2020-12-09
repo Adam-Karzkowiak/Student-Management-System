@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class StudentSubjectKey {
+public class StudentSubjectDTO {
     String subjectName;
     String studentPesel;
 }
