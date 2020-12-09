@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.model.Student;
-import app.model.StudentSubjectGradeKey;
+import app.model.StudentSubjectGradeDTO;
 import app.model.Subject;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class ProfessorController {
 
     @PatchMapping("/subjects")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Grades updated!")
-    public void callGiveAGrade(@RequestBody StudentSubjectGradeKey studentSubjectKey) {
+    public void callGiveAGrade(@RequestBody StudentSubjectGradeDTO studentSubjectKey) {
         subjectService.giveAGrade(
                 studentSubjectKey.getSubjectName(),
                 studentSubjectKey.getStudentPesel(),
