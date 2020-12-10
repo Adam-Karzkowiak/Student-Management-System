@@ -1,5 +1,6 @@
 package app.security;
 
+import app.model.AppUser;
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +24,6 @@ import static app.security.SecurityConstants.HEADER_STRING;
 import static app.security.SecurityConstants.SECRET;
 import static app.security.SecurityConstants.TOKEN_PREFIX;
 
-
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
@@ -36,8 +36,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
         try {
-            User credentials = new ObjectMapper()
-                    .readValue(request.getInputStream(), User.class);
+            AppUser credentials = new ObjectMapper()
+                    .readValue(request.getInputStream(), AppUser.class);
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
