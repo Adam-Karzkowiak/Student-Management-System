@@ -32,7 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        String admin = "admin";
         for (Professor obj : ProfessorRepository.professorDatabase) {
             if (obj.getLogin().equals(username)) {
                 authorities.add(new SimpleGrantedAuthority("PROFESSOR"));
@@ -45,9 +44,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 return new User(obj.getLogin(), obj.getPassword(), authorities);
             }
         }
-        if (username.equals(admin)) {
+        if (username.equals("admin")) {
             authorities.add(new SimpleGrantedAuthority("ADMIN"));
-            return new User(admin, admin, authorities);
+            return new User("admin", "admin", authorities);
         }
         throw new UsernameNotFoundException(username);
     }
