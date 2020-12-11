@@ -59,7 +59,7 @@ public class StudentService {
 
 
     public Student getStudent(String login) {
-        for (Student obj : StudentRepository.studentDatabase) {
+        for (Student obj : studentRepository.studentDatabase) {
             if (obj.getLogin().equals(login)) {
                 return obj;
             }
