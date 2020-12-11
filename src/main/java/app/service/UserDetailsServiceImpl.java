@@ -32,13 +32,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String admin = "admin";
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        for (Professor obj : ProfessorRepository.professorDatabase) {
+        for (Professor obj : professorRepository.professorDatabase) {
             if (obj.getLogin().equals(username)) {
                 authorities.add(new SimpleGrantedAuthority("PROFESSOR"));
                 return new User(obj.getLogin(), obj.getPassword(), authorities);
             }
         }
-        for (Student obj : StudentRepository.studentDatabase) {
+        for (Student obj : studentRepository.studentDatabase) {
             if (obj.getLogin().equals(username)) {
                 authorities.add(new SimpleGrantedAuthority("STUDENT"));
                 return new User(obj.getLogin(), obj.getPassword(), authorities);
