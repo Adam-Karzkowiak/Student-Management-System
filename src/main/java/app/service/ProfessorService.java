@@ -47,7 +47,7 @@ public class ProfessorService  {
 
     public boolean checkPasswordAndLogin(String login, String password) {
 
-        for (Professor obj : ProfessorRepository.professorDatabase) {
+        for (Professor obj : professorRepository.professorDatabase) {
 
             if (obj.getLogin().equals(login) && obj.getPassword().equals(password)) {
                 return true;
@@ -57,7 +57,7 @@ public class ProfessorService  {
     }
 
     public Professor getProfessor(String login) {
-        for (Professor obj : ProfessorRepository.professorDatabase) {
+        for (Professor obj : professorRepository.professorDatabase) {
             if (obj.getLogin().equals(login)) {
                 return obj;
             }
