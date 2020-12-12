@@ -18,4 +18,5 @@ public class AppUser {
     private long id;
     private String username;
     private String password;
+    private boolean isProfessor;
 }
