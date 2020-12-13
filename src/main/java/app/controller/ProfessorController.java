@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/professor")
+@RequestMapping("/professor-home")
 public class ProfessorController {
 
 
