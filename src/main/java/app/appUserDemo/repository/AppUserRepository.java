@@ -1,7 +1,8 @@
-package app.data;
+package app.appUserDemo.repository;
 
-import app.model.AppUser;
+import app.appUserDemo.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
