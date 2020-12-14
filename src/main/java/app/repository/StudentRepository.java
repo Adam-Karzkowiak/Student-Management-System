@@ -1,4 +1,4 @@
-package app.data;
+package app.repository;
 
 import app.model.Student;
 import org.springframework.stereotype.Repository;

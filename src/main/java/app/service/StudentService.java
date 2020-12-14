@@ -1,6 +1,6 @@
 package app.service;
 
-import app.data.StudentRepository;
+import app.repository.StudentRepository;
 import app.exception.StudentNotFoundException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

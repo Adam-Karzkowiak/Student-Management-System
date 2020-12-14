@@ -1,6 +1,6 @@
 package app.service;
 
-import app.data.ProfessorRepository;
+import app.repository.ProfessorRepository;
 import lombok.Data;
 import app.model.Professor;
 import org.springframework.beans.factory.annotation.Autowired;
