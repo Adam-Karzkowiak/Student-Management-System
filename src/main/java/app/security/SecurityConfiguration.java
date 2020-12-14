@@ -34,9 +34,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests() //Cross-origin resource sharing-współdzielenie zasobów przez serwery na różnych domenach i Cross-site request forgery (atak-spreparowane żądania)
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/professor/**").hasRole("PROFESSOR")
-                .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/admin-home/**").hasRole("ADMIN")
+                .antMatchers("/professor-home/**").hasRole("PROFESSOR")
+                .antMatchers("/student-home/**").hasRole("STUDENT")
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
