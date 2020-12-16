@@ -24,7 +24,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password is too long")
-    public void test2() {
+     void test2() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
