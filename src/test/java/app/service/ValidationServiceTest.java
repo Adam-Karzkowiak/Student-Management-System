@@ -58,7 +58,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password dont have got lowercase")
-     void test5() {
+    void test5() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -72,7 +72,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password dont have got numbers")
-     void test6() {
+    void test6() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -86,7 +86,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when its ok-dont throw exception")
-    public void test7() {
+    void test7() {
         ValidationService.passwordValidation("Passw0rdIsOk");
     }
 
