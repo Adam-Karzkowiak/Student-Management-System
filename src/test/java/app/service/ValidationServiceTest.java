@@ -7,7 +7,7 @@ import org.junit.jupiter.api.function.Executable;
 
 
 class ValidationServiceTest {
-// PasswordValidationTest
+
     @Test
     @DisplayName("when password is too short")
      void test1() {
@@ -17,7 +17,6 @@ class ValidationServiceTest {
                 ValidationService.passwordValidation("Pasw0rd");
             }
         });
-        //Assertions.assertThrows(IllegalArgumentException.class, () -> ValidationService.isPasswordValid("Pasw0rd"));
 
         String expectedMessage = "Password must be less than 20 and more than 8 characters in length.";
         Assertions.assertEquals(expectedMessage, e.getMessage(), "incorrect exception message");
