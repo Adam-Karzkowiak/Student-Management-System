@@ -10,7 +10,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password is too short")
-     void test1() {
+    void test1() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -24,7 +24,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password is too long")
-     void test2() {
+    void test2() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -38,12 +38,12 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password is correct")
-     void test3() {
+    void test3() {
     }
 
     @Test
     @DisplayName("when password dont have got uppercase")
-    public void test4() {
+    void test4() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -83,9 +83,10 @@ class ValidationServiceTest {
         String expectedMessage = "Password must have at least one number";
         Assertions.assertEquals(expectedMessage, e.getMessage(), "incorrect exception message");
     }
+
     @Test
     @DisplayName("when its ok-dont throw exception")
-    public void test7(){
+    public void test7() {
         ValidationService.passwordValidation("Passw0rdIsOk");
     }
 
