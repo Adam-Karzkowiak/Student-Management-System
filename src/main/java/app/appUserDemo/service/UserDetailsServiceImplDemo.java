@@ -3,6 +3,7 @@ package app.appUserDemo.service;
 import app.appUserDemo.model.AppUser;
 import app.appUserDemo.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -17,6 +18,14 @@ import java.util.Collection;
 @Service
 public class UserDetailsServiceImplDemo implements UserDetailsService {
     AppUserRepository appUserRepository;
+    @Value("${spring.security.user.name}")
+    private String adminUserName;
+
+    @Value("${spring.security.user.password}")
+    private String adminPassword;
+
+    @Value("${spring.security.user.roles}")
+    private String adminRole;
 
 
     @Autowired
