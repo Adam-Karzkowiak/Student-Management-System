@@ -72,7 +72,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password dont have got numbers")
-    public void test6() {
+     void test6() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
