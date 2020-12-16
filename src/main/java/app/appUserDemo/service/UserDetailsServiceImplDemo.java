@@ -35,12 +35,10 @@ public class UserDetailsServiceImplDemo implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        String admin = "admin";
         AppUser appUser = appUserRepository.findByUsername(username);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        if (appUser.getUsername().equalsIgnoreCase(admin)) {
-            authorities.add(new SimpleGrantedAuthority("ADMIN"));
-            return new User(admin, admin, authorities);
+        if (username.equals("admin")) {
+            return User.builder().username(adminUserName).password(adminPassword).roles(adminRole).build();
         }
 
         if (appUser.isProfessor()) {
