@@ -58,7 +58,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password dont have got lowercase")
-    public void test5() {
+     void test5() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
