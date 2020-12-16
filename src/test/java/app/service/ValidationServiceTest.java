@@ -38,7 +38,7 @@ class ValidationServiceTest {
 
     @Test
     @DisplayName("when password is correct")
-    public void test3() {
+     void test3() {
     }
 
     @Test
