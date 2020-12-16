@@ -10,7 +10,7 @@ class ValidationServiceTest {
 // PasswordValidationTest
     @Test
     @DisplayName("when password is too short")
-    public void test1() {
+     void test1() {
         IllegalArgumentException e = Assertions.assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
