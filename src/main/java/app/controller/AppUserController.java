@@ -1,4 +1,4 @@
-package app.appUserDemo.controller;
+package app.controller;
 
 import app.model.AppUser;
 import app.data.AppUserRepository;
