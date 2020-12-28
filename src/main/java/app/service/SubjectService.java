@@ -1,6 +1,6 @@
 package app.service;
 
-import app.repository.SubjectRepository;
+import app.data.SubjectRepository;
 import app.model.Student;
 import app.model.Subject;
 import org.springframework.beans.factory.annotation.Autowired;

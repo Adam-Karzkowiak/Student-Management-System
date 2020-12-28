@@ -1,4 +1,4 @@
-package app.repository;
+package app.data;
 
 import app.model.Student;
 import app.model.Subject;
