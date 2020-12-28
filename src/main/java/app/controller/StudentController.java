@@ -8,19 +8,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/student-home")
 public class StudentController {
 
-    StudentService studentService;
     SubjectService subjectService;
 
     @Autowired
-    public StudentController(StudentService studentService, SubjectService subjectService) {
-        this.studentService = studentService;
+    public StudentController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
-
 
 
     @GetMapping("/subjects")
@@ -30,7 +28,7 @@ public class StudentController {
 
     @PatchMapping("/subjects")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Registered!")
-    public void callRegisterToSubject(@RequestBody StudentSubjectDTO studentSubjectDTO){
+    public void callRegisterToSubject(@RequestBody StudentSubjectDTO studentSubjectDTO) {
         subjectService.registerToSubject(
                 studentSubjectDTO.getStudentId(),
                 studentSubjectDTO.getSubjectName());
