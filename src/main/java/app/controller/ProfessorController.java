@@ -1,6 +1,9 @@
 package app.controller;
 
+import app.model.AppUser;
 import app.model.StudentSubjectGradeDTO;
+import app.model.Subject;
+import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +38,7 @@ public class ProfessorController {
     }
 
     @GetMapping("/subjects/{subjectName}")
-    public Set<Student> callShowRegisteredToSubject(@PathVariable String subjectName) {
+    public Set<AppUser> callShowRegisteredToSubject(@PathVariable String subjectName) {
         return subjectService.showRegisteredToSubject(subjectName);
     }
 
@@ -45,8 +48,8 @@ public class ProfessorController {
     }
 
     @PostMapping("/subjects/avg/{subjectName}")
-    public double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody String studentPesel) {
-        return subjectService.calculateAvgForStudent(subjectName, studentPesel);
+    public double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody long id) {
+        return subjectService.calculateAvgForStudent(subjectName, id);
     }
 
     @PatchMapping("/subjects")
