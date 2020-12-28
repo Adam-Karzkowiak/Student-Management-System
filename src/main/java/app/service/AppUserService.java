@@ -1,4 +1,4 @@
-package app.appUserDemo.service;
+package app.service;
 
 import app.model.AppUser;
 import app.data.AppUserRepository;
