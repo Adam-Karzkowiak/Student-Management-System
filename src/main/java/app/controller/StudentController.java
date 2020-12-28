@@ -3,6 +3,7 @@ package app.controller;
 
 import app.model.StudentSubjectDTO;
 import app.service.StudentService;
+import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class StudentController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Registered!")
     public void callRegisterToSubject(@RequestBody StudentSubjectDTO studentSubjectDTO){
         subjectService.registerToSubject(
-                studentSubjectDTO.getStudentPesel(),
+                studentSubjectDTO.getStudentId(),
                 studentSubjectDTO.getSubjectName());
     }
 
