@@ -57,7 +57,7 @@ public class ProfessorController {
     public void callGiveAGrade(@RequestBody StudentSubjectGradeDTO studentSubjectKey) {
         subjectService.giveAGrade(
                 studentSubjectKey.getSubjectName(),
-                studentSubjectKey.getStudentPesel(),
+                studentSubjectKey.getStudentId(),
                 studentSubjectKey.getGrade());
     }
 }
