@@ -9,6 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class StudentSubjectGradeDTO {
     String subjectName;
-    String studentPesel;
+    long studentId;
     int grade;
 }
