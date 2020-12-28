@@ -1,6 +1,6 @@
-package app.appUserDemo.repository;
+package app.repository;
 
-import app.appUserDemo.model.AppUser;
+import app.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
