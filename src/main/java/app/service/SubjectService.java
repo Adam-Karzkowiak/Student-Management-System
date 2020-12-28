@@ -1,6 +1,5 @@
 package app.service;
 
-import app.repository.StudentRepository;
 import app.repository.SubjectRepository;
 import app.model.Student;
 import app.model.Subject;

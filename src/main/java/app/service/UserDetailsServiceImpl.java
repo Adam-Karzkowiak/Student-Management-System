@@ -1,7 +1,5 @@
 package app.service;
 
-import app.repository.ProfessorRepository;
-import app.repository.StudentRepository;
 import app.model.Professor;
 import app.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
