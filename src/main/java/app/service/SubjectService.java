@@ -1,22 +1,25 @@
 package app.service;
 
+import app.model.AppUser;
+import app.model.Subject;
+import app.data.AppUserRepository;
+import app.data.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Service
 public class SubjectService {
     private SubjectRepository subjectRepository;
+    private AppUserRepository appUserRepository;
 
     @Autowired
-    public SubjectService(SubjectRepository subjectRepository) {
-
+    public SubjectService(SubjectRepository subjectRepository, AppUserRepository appUserRepository) {
         this.subjectRepository = subjectRepository;
+        this.appUserRepository = appUserRepository;
     }
 
     public Subject createSubject(String subjectName) {
-        HashMap<Student, ArrayList<Integer>> grades = new HashMap<>();
+        HashMap<AppUser, ArrayList<Integer>> grades = new HashMap<>();
         Subject subject = new Subject(subjectName, grades);
         addToSubjectDatabase(subject);
         return subject;
@@ -24,39 +27,34 @@ public class SubjectService {
 
     public List<Subject> removeSubject(String subjectName) {
         subjectRepository.deleteSubject(subjectName);
-        return SubjectRepository.subjectDatabase;
+        return subjectRepository.subjectDatabaseDemo;
     }
 
     public List<Subject> addToSubjectDatabase(Subject subject) {
         subjectRepository.addSubjectToRepository(subject);
-        return SubjectRepository.subjectDatabase;
+        return subjectRepository.subjectDatabaseDemo;
     }
 
     public List<String> showSubjectList() {
         List<String> subNames = new ArrayList<>();
-        for (Subject o : SubjectRepository.subjectDatabase) {
+        for (Subject o : subjectRepository.subjectDatabaseDemo) {
             subNames.add(o.getSubjectName());
         }
         return subNames;
     }
 
-    public void registerToSubject(String pesel, String subjectName) {
+    public void registerToSubject(long id, String subjectName) {
         Subject subject = getSubject(subjectName);
-        Student student = getStudent(pesel);
+        AppUser student = getStudent(id);
         subjectRepository.addStudentToSubject(subject, student);
     }
 
-    public Student getStudent(String pesel) {
-        for (Student obj : StudentRepository.studentDatabase) {
-            if (obj.getPesel().equals(pesel)) {
-                return obj;
-            }
-        }
-        return null;
+    public AppUser getStudent(long id) {
+        return appUserRepository.getOne(id);
     }
 
     public Subject getSubject(String subjectName) {
-        for (Subject obj : SubjectRepository.subjectDatabase) {
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj;
             }
@@ -64,8 +62,8 @@ public class SubjectService {
         return null;
     }
 
-    public Set<Student> showRegisteredToSubject(String subjectName) {
-        for (Subject obj : SubjectRepository.subjectDatabase) {
+    public Set<AppUser> showRegisteredToSubject(String subjectName) {
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj.grades.keySet();
             }
@@ -73,9 +71,9 @@ public class SubjectService {
         return null;
     }
 
-    public void showAllStudentGrades(String pesel) {
-        Student student = getStudent(pesel);
-        for (Subject obj : SubjectRepository.subjectDatabase) {
+    public void showAllStudentGrades(long id) {
+        AppUser student = getStudent(id);
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.grades.containsKey(student)) {
                 System.out.println(obj.getSubjectName() + " : " + obj.grades.get(student));
 
@@ -84,15 +82,15 @@ public class SubjectService {
 
     }
 
-    public void giveAGrade(String subjectName, String studentPesel, int grade) {
+    public void giveAGrade(String subjectName, long id, int grade) {
         Subject subject = getSubject(subjectName);
-        Student student = getStudent(studentPesel);
-        subjectRepository.addAGrade(subject, student, grade);
+        AppUser appUser = getStudent(id);
+        subjectRepository.addAGrade(subject, appUser, grade);
     }
 
-    public double calculateAvgForStudent(String subjectName, String studentPesel) {
+    public double calculateAvgForStudent(String subjectName, long id) {
         Subject subject = getSubject(subjectName);
-        Student student = getStudent(studentPesel);
+        AppUser student = getStudent(id);
         ArrayList<Integer> calculatedAvg = subject.grades.get(student);
         return calculatedAvg.stream().mapToInt(a -> a).average().orElse(0.0);
 
@@ -102,13 +100,12 @@ public class SubjectService {
     public Map<String, Double> calculateAverageForWholeClass(String subjectName) {
         Subject subject = getSubject(subjectName);
         Map<String, Double> avgForClass = new HashMap<>();
-        for (Map.Entry<Student, ArrayList<Integer>> entry : subject.grades.entrySet()) {
+        for (Map.Entry<AppUser, ArrayList<Integer>> entry : subject.grades.entrySet()) {
             ArrayList<Integer> studentGrades = entry.getValue();
             double average = studentGrades.stream().mapToInt(a -> a).average().orElse(0.0);
             avgForClass.put(entry.getKey().getSurname(), average);
         }
         return avgForClass;
     }
-
 
 }

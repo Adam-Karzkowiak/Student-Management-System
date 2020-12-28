@@ -3,7 +3,6 @@ package app.controller;
 
 import app.model.StudentSubjectDTO;
 import app.service.StudentService;
-import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
