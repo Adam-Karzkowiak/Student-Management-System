@@ -1,5 +1,6 @@
 package app.service;
 
+import app.data.AppUserRepository;
 import app.exception.StudentNotFoundException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,15 +17,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService {
     private IdentifierProvider identifierProvider;
-    private StudentRepository studentRepository;
+    private AppUserRepository appUserRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public StudentService(IdentifierProvider identifierProvider,
-                          StudentRepository studentRepository,
+                          AppUserRepository appUserRepository,
                           BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.identifierProvider = identifierProvider;
-        this.studentRepository = studentRepository;
+        this.appUserRepository = appUserRepository;
         this.bCryptPasswordEncoder=bCryptPasswordEncoder;
     }
 

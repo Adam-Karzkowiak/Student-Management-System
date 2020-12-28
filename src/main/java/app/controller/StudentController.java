@@ -37,6 +37,6 @@ public class StudentController {
                 studentSubjectDTO.getSubjectName());
     }
 
-//  TODO subjectService.registerToSubject(LoggedUser.student.getPesel(), subjectName);
+//  TODO showAllStudentGrades 1)Change method in service layer to save data in some collections, create method with GetMapping
 
 }
