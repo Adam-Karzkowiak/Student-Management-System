@@ -1,64 +1,34 @@
 package app.controller;
 
-
-import app.service.ProfessorService;
-import app.service.StudentService;
+import app.model.AppUser;
+import app.appUserDemo.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/admin-home")
 public class AdminController {
-
-    ProfessorService professorService;
-    StudentService studentService;
+    AppUserService appUserService;
 
     @Autowired
-    public AdminController(ProfessorService professorService, StudentService studentService) {
-        this.professorService = professorService;
-        this.studentService = studentService;
+    public AdminController(AppUserService appUserService) {
+        this.appUserService = appUserService;
     }
 
 
-    @PostMapping("/professors")
-    @ResponseStatus(value = HttpStatus.CREATED, reason = "Professor created!")
-    public Professor callCreateProfessor(@RequestBody Professor newProfessor) {
-        return professorService.createProfessor(
-                newProfessor.getLogin(),
-                newProfessor.getPassword(),
-                newProfessor.getName(),
-                newProfessor.getSurname(),
-                newProfessor.getPesel());
+    @PostMapping("/create")
+    @ResponseStatus(value = HttpStatus.CREATED, reason = "Account created!")
+    public AppUser callCreateAccount(@RequestBody AppUser appUser) {
+        return appUserService.createAppUser(appUser);
     }
 
-
-    @PostMapping("/students")
-    @ResponseStatus(value = HttpStatus.CREATED, reason = "Student created!")
-    public Student callCreateStudent(@RequestBody Student newStudent) {
-        return studentService.createStudent(
-                newStudent.getLogin(),
-                newStudent.getPassword(),
-                newStudent.getName(),
-                newStudent.getSurname(),
-                newStudent.getPesel());
-    }
-
-    @DeleteMapping("/professors")
-    public ResponseEntity<String> callRemoveProfessorAccount(@RequestParam String pesel) {
-        professorService.removeProfessorAccount(pesel);
-        return new ResponseEntity<>(pesel, HttpStatus.OK);
+    @DeleteMapping("/delete")
+    public ResponseEntity<Long> callDeleteAppUser(@RequestParam long id) {
+        appUserService.deleteAppUser(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
 
     }
-
-    @DeleteMapping("/students")
-    public ResponseEntity<String> callRemoveStudentAccount(@RequestParam String pesel) {
-        studentService.removeStudentAccount(pesel);
-        return new ResponseEntity<>(pesel, HttpStatus.OK);
-
-    }
-
 
 }

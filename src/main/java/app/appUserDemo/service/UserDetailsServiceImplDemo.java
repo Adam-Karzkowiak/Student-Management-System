@@ -1,7 +1,7 @@
 package app.appUserDemo.service;
 
-import app.appUserDemo.model.AppUser;
-import app.appUserDemo.repository.AppUserRepository;
+import app.model.AppUser;
+import app.data.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
