@@ -3,18 +3,18 @@ package app.appUserDemo.service;
 import app.model.AppUser;
 import app.model.Subject;
 import app.data.AppUserRepository;
-import app.appUserDemo.repository.SubjectRepositoryDemo;
+import app.data.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
 public class SubjectServiceDemo {
-    private SubjectRepositoryDemo subjectRepositoryDemo;
+    private SubjectRepository subjectRepository;
     private AppUserRepository appUserRepository;
 
     @Autowired
-    public SubjectServiceDemo(SubjectRepositoryDemo subjectRepositoryDemo, AppUserRepository appUserRepository) {
-        this.subjectRepositoryDemo = subjectRepositoryDemo;
+    public SubjectServiceDemo(SubjectRepository subjectRepository, AppUserRepository appUserRepository) {
+        this.subjectRepository = subjectRepository;
         this.appUserRepository = appUserRepository;
     }
 
@@ -26,18 +26,18 @@ public class SubjectServiceDemo {
     }
 
     public List<Subject> removeSubject(String subjectName) {
-        subjectRepositoryDemo.deleteSubject(subjectName);
-        return subjectRepositoryDemo.subjectDatabaseDemo;
+        subjectRepository.deleteSubject(subjectName);
+        return subjectRepository.subjectDatabaseDemo;
     }
 
     public List<Subject> addToSubjectDatabase(Subject subject) {
-        subjectRepositoryDemo.addSubjectToRepository(subject);
-        return subjectRepositoryDemo.subjectDatabaseDemo;
+        subjectRepository.addSubjectToRepository(subject);
+        return subjectRepository.subjectDatabaseDemo;
     }
 
     public List<String> showSubjectList() {
         List<String> subNames = new ArrayList<>();
-        for (Subject o : subjectRepositoryDemo.subjectDatabaseDemo) {
+        for (Subject o : subjectRepository.subjectDatabaseDemo) {
             subNames.add(o.getSubjectName());
         }
         return subNames;
@@ -46,7 +46,7 @@ public class SubjectServiceDemo {
     public void registerToSubject(long id, String subjectName) {
         Subject subject = getSubject(subjectName);
         AppUser student = getStudent(id);
-        subjectRepositoryDemo.addStudentToSubject(subject, student);
+        subjectRepository.addStudentToSubject(subject, student);
     }
 
     public AppUser getStudent(long id) {
@@ -54,7 +54,7 @@ public class SubjectServiceDemo {
     }
 
     public Subject getSubject(String subjectName) {
-        for (Subject obj : subjectRepositoryDemo.subjectDatabaseDemo) {
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj;
             }
@@ -63,7 +63,7 @@ public class SubjectServiceDemo {
     }
 
     public Set<AppUser> showRegisteredToSubject(String subjectName) {
-        for (Subject obj : subjectRepositoryDemo.subjectDatabaseDemo) {
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj.grades.keySet();
             }
@@ -73,7 +73,7 @@ public class SubjectServiceDemo {
 
     public void showAllStudentGrades(long id) {
         AppUser student = getStudent(id);
-        for (Subject obj : subjectRepositoryDemo.subjectDatabaseDemo) {
+        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
             if (obj.grades.containsKey(student)) {
                 System.out.println(obj.getSubjectName() + " : " + obj.grades.get(student));
 
@@ -85,7 +85,7 @@ public class SubjectServiceDemo {
     public void giveAGrade(String subjectName, long id, int grade) {
         Subject subject = getSubject(subjectName);
         AppUser appUser = getStudent(id);
-        subjectRepositoryDemo.addAGrade(subject, appUser, grade);
+        subjectRepository.addAGrade(subject, appUser, grade);
     }
 
     public double calculateAvgForStudent(String subjectName, long id) {
