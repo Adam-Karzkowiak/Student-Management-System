@@ -1,8 +1,6 @@
 package app.controller;
 
 
-import app.model.Professor;
-import app.model.Student;
 import app.service.ProfessorService;
 import app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

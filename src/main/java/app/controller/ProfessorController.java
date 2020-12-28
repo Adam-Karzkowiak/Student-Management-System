@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.model.Student;
 import app.model.StudentSubjectGradeDTO;
 import app.model.Subject;
 import app.service.SubjectService;
