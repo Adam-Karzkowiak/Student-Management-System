@@ -1,6 +1,5 @@
 package app.data;
 
-import app.model.Subject;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
