@@ -1,4 +1,4 @@
-package app.appUserDemo.model;
+package app.model;
 
 
 import lombok.Getter;

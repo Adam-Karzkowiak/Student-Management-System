@@ -1,6 +1,6 @@
 package app.security;
 
-import app.appUserDemo.model.AppUser;
+import app.model.AppUser;
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
