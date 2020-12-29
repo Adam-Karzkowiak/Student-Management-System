@@ -1,4 +1,4 @@
 package app.data;
 
-public class AppUserRepositoryImpl {
+public class AppUserRepositoryImpl implements AppUserRepository {
 }
