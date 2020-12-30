@@ -13,7 +13,7 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
     @Override
     public AppUser findByUsername(String username) {
-        for (AppUser appUser :) {
+        for (AppUser appUser : appUserDatabase) {
             if (appUser.getUsername().equals(username)) {
                 return appUser;
             }
