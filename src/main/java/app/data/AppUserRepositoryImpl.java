@@ -29,9 +29,7 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
     @Override
     public void deleteById(long id) {
-        for(AppUser appUser : appUserDatabase){
-            if (appUser.getId() == id)
-        }
+
 
     }
 }
