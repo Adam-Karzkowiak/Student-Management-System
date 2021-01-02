@@ -23,8 +23,9 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
 
     @Override
-    public AppUser save(AppUser appUser) {
-        return null;
+    public void save(AppUser appUser) {
+
+        ;
     }
 
     @Override
