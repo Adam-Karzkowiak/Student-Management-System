@@ -24,8 +24,7 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
     @Override
     public void save(AppUser appUser) {
-
-        ;
+        appUserDatabase.add(appUser);
     }
 
     @Override
