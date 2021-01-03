@@ -36,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/admin-home/**").hasRole("ADMIN")
-                .antMatchers("/h2-console/**").hasRole("ADMIN")
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/professor-home/**").hasRole("PROFESSOR")
                 .antMatchers("/student-home/**").hasRole("STUDENT")
                 .anyRequest().authenticated()
@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().permitAll();
-                 http.headers().frameOptions().disable();
+        http.headers().frameOptions().sameOrigin();
 
     }
 
