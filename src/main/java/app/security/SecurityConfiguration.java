@@ -36,9 +36,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/admin-home/**").hasRole("ADMIN")
+                .antMatchers("/h2-console/**").hasRole("ADMIN")
                 .antMatchers("/professor-home/**").hasRole("PROFESSOR")
                 .antMatchers("/student-home/**").hasRole("STUDENT")
-                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
