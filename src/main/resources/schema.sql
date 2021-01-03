@@ -6,4 +6,4 @@ CREATE TABLE APPUSER (
     surname VARCHAR(80) NOT NULL,
     pesel VARCHAR(11) NOT NULL,
     isProfessor BOOLEAN NOT NULL
-)
+);
