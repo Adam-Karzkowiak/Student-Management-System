@@ -33,5 +33,13 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
     }
 
-
+    @Override
+    public AppUser getOne(long id){
+        for(AppUser appUser : appUserDatabase){
+            if(appUser.getId()==id){
+                return appUser;
+            }
+        }
+        return null;
+    }
 }
