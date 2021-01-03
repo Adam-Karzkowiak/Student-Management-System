@@ -3,11 +3,13 @@ package app.data;
 
 import app.model.AppUser;
 import app.model.Subject;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Qualifier("subjects")
 @Repository
 public class SubjectRepository {
     public static List<Subject> subjectDatabaseDemo = new ArrayList<>();
