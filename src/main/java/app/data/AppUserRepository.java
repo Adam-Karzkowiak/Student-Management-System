@@ -10,4 +10,6 @@ public interface AppUserRepository  {
 
     void deleteById(long id);
 
+    AppUser getOne(long id);
+
 }
