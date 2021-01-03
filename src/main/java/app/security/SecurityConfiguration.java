@@ -38,6 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin-home/**").hasRole("ADMIN")
                 .antMatchers("/professor-home/**").hasRole("PROFESSOR")
                 .antMatchers("/student-home/**").hasRole("STUDENT")
+                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
@@ -48,6 +49,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().permitAll();
+                 http.headers().frameOptions().disable();
+
     }
 
     @Override
