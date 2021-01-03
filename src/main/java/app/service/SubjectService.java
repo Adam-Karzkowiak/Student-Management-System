@@ -2,7 +2,7 @@ package app.service;
 
 import app.model.AppUser;
 import app.model.Subject;
-import app.data.AppUserRepository;
+import app.data.AppUserRepositoryImpl;
 import app.data.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,10 +10,10 @@ import java.util.*;
 
 public class SubjectService {
     private SubjectRepository subjectRepository;
-    private AppUserRepository appUserRepository;
+    private AppUserRepositoryImpl appUserRepository;
 
     @Autowired
-    public SubjectService(SubjectRepository subjectRepository, AppUserRepository appUserRepository) {
+    public SubjectService(SubjectRepository subjectRepository, AppUserRepositoryImpl appUserRepository) {
         this.subjectRepository = subjectRepository;
         this.appUserRepository = appUserRepository;
     }
