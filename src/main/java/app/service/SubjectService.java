@@ -5,9 +5,11 @@ import app.model.Subject;
 import app.data.AppUserRepositoryImpl;
 import app.data.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class SubjectService {
     private SubjectRepository subjectRepository;
     private AppUserRepositoryImpl appUserRepository;
