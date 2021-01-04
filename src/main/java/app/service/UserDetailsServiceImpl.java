@@ -1,5 +1,6 @@
 package app.service;
 
+import app.data.AppUserRepositoryImpl;
 import app.model.AppUser;
 import app.data.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.Collection;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-    AppUserRepository appUserRepository;
+    AppUserRepositoryImpl appUserRepository;
     @Value("${spring.security.user.name}")
     private String adminUserName;
 
@@ -29,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     @Autowired
-    public UserDetailsServiceImpl(AppUserRepository appUserRepository) {
+    public UserDetailsServiceImpl(AppUserRepositoryImpl appUserRepository) {
         this.appUserRepository = appUserRepository;
     }
 
