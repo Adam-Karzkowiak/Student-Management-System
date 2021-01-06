@@ -1,6 +1,7 @@
 package app.model;
 
 
+import app.validation.ValidPassword;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class AppUser {
     @NotBlank(message = "Providing username is obligatory")
     private String username;
 
+    @ValidPassword
     private String password;
 
     @NotBlank(message = "Providing name is obligatory")
