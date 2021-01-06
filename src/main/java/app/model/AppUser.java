@@ -2,6 +2,7 @@ package app.model;
 
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,5 +37,7 @@ public class AppUser {
 
     @PESEL(message = "Invalid PESEL")
     private String pesel;
+
+    @NotNull(message = "User type must be specified")
     private boolean isProfessor;
 }
