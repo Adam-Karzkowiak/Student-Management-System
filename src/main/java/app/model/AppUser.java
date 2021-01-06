@@ -25,8 +25,13 @@ public class AppUser {
     @NotBlank(message = "Providing username is obligatory")
     private String username;
 
+
     private String password;
+
+    @NotBlank(message = "Providing name is obligatory")
     private String name;
+
+    @NotBlank(message = "Providing surname is obligatory")
     private String surname;
 
     @PESEL(message = "Invalid PESEL")
