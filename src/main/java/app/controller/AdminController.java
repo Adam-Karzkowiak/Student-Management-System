@@ -2,6 +2,7 @@ package app.controller;
 
 import app.model.AppUser;
 import app.service.AppUserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class AdminController {
 
     @PostMapping("/create")
     @ResponseStatus(value = HttpStatus.CREATED, reason = "Account created!")
-    public AppUser callCreateAccount(@RequestBody AppUser appUser) {
+    public AppUser callCreateAccount(@Valid @RequestBody AppUser appUser) {
         return appUserService.createAppUser(appUser);
     }
 
