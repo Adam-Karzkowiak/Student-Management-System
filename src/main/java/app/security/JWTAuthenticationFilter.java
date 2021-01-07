@@ -1,9 +1,8 @@
 package app.security;
 
-import app.model.AppUser;
 import com.auth0.jwt.JWT;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -15,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
@@ -35,19 +33,17 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) throws AuthenticationException {
-        try {
-            AppUser credentials = new ObjectMapper()
-                    .readValue(request.getInputStream(), AppUser.class);
-
-            return authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            credentials.getUsername(),
-                            credentials.getPassword(),
-                            new ArrayList<>())
-            );
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (!request.getMethod()
+                .equals("POST")) {
+            throw new AuthenticationServiceException("Method not supported: " + request.getMethod());
         }
+        String username = obtainUsername(request);
+        String password = obtainPassword(request);
+        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+
+        setDetails(request,authRequest);
+        return authenticationManager.authenticate(authRequest);
+
     }
 
     @Override
