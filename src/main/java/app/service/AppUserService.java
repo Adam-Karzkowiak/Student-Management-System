@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AppUserService {
 
-    AppUserRepository appUserRepository;
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    private AppUserRepository appUserRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public AppUserService(AppUserRepository appUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
