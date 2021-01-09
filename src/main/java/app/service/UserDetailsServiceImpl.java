@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser appUser = appUserRepository.findByUsername(username);
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        if (username.equals("admin")) {
+        if (username.equals(adminUserName)) {
             return User.builder().username(adminUserName).password(adminPassword).roles(adminRole).build();
         }
 
