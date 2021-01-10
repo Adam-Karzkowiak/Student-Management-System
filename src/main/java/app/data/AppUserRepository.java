@@ -1,15 +1,9 @@
 package app.data;
 
 import app.model.AppUser;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface AppUserRepository  {
+public interface AppUserRepository extends JpaRepository<AppUser, Long> {
     AppUser findByUsername(String username);
-
-    void save(AppUser appUser);
-
-    void deleteById(long id);
-
-    AppUser getOne(long id);
-
 }
