@@ -22,14 +22,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public SecurityConfiguration(UserDetailsServiceImpl userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public SecurityConfiguration(UserDetailsServiceImpl userDetailsService, BCryptPasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
-
 
 
     @Override
@@ -41,22 +40,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/student-home/**").hasRole("STUDENT")
                 .anyRequest().authenticated()
                 .and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .formLogin().loginPage("/login")
                 .and()
-                .formLogin()
+                .logout()
                 .permitAll()
                 .and()
-                .logout().permitAll();
+                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
         http.headers().frameOptions().sameOrigin();
 
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
+
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
