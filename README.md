@@ -1,2 +1,3 @@
 # Student-Management-System
-Simple console app to manage students.
+Simple app to manage students grades.
+WORK IN PROGRESS 
