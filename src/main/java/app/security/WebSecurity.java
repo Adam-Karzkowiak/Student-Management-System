@@ -37,7 +37,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/student-home/**").hasRole("STUDENT")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login")
+                .formLogin()
                 .and()
                 .logout()
                 .permitAll()
