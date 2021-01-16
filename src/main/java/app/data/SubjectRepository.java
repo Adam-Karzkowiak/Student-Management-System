@@ -27,7 +27,7 @@ public class SubjectRepository {
 
     public void addStudentToSubject(Subject subject, AppUser appUser) {
         if (!subject.grades.containsKey(appUser)) {
-            subject.grades.put(appUser, new ArrayList<Integer>());
+            subject.grades.put(appUser, new ArrayList<>());
         }
     }
 
