@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("/admin-home")
 public class AdminController {
@@ -19,10 +21,10 @@ public class AdminController {
     }
 
 
-    @PostMapping("/create")
-    @ResponseStatus(value = HttpStatus.CREATED, reason = "Account created!")
-    public AppUser callCreateAccount(@Valid @RequestBody AppUser appUser) {
-        return appUserService.createAppUser(appUser);
+    @PostMapping("/")
+    ResponseEntity<AppUser> createAppUser(@RequestBody @Valid AppUser appUser) {
+        AppUser savedAppUser = appUserService.createAppUser(appUser);
+        return ResponseEntity.created(URI.create("/" + savedAppUser.getId())).body(savedAppUser);
     }
 
     @DeleteMapping("/delete")
