@@ -22,7 +22,6 @@ public class ProfessorController {
 
     @Autowired
     public ProfessorController(SubjectService subjectService) {
-
         this.subjectService = subjectService;
     }
 
