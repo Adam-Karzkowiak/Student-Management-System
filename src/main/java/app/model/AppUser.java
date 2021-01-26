@@ -4,9 +4,7 @@ package app.model;
 import app.validation.ValidPassword;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import javax.persistence.Entity;
@@ -16,9 +14,7 @@ import javax.persistence.Id;
 
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
