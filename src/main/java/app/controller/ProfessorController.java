@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,11 +32,15 @@ public class ProfessorController {
         return ResponseEntity.ok(subjectService.showSubjectList());
     }
 
+
     @PostMapping("/subjects")
-    @ResponseStatus(value = HttpStatus.CREATED, reason = "Subject created!")
-    public Subject callCreateSubject(@RequestBody String subjectName) {
-        return subjectService.createSubject(subjectName);
+    ResponseEntity<Subject> callCreateSubject(@RequestBody String subjectName) {
+        Subject createdSubject = subjectService.createSubject(subjectName);
+        return ResponseEntity
+                .created(URI.create("/" + createdSubject.getSubjectName()))
+                .body(createdSubject);
     }
+
 
     @GetMapping("/subjects/{subjectName}")
     public Set<AppUser> callShowRegisteredToSubject(@PathVariable String subjectName) {
