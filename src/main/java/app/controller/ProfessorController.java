@@ -53,8 +53,10 @@ public class ProfessorController {
     }
 
     @PostMapping("/subjects/avg/{subjectName}")
-    public double callCalculateAvgForStudent(@PathVariable String subjectName, @RequestBody long id) {
-        return subjectService.calculateAvgForStudent(subjectName, id);
+    ResponseEntity<Double> callCalculateAvgForStudent(
+            @PathVariable String subjectName,
+            @RequestBody long id) {
+        return ResponseEntity.ok(subjectService.calculateAvgForStudent(subjectName, id));
     }
 
     @PatchMapping("/subjects")
