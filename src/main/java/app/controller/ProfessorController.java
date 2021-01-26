@@ -6,6 +6,7 @@ import app.model.Subject;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +28,8 @@ public class ProfessorController {
 
 
     @GetMapping("/subjects")
-    public List<String> callShowSubjectList() {
-        return subjectService.showSubjectList();
+    ResponseEntity<List<String>> callShowSubjectList() {
+        return ResponseEntity.ok(subjectService.showSubjectList());
     }
 
     @PostMapping("/subjects")
@@ -43,7 +44,7 @@ public class ProfessorController {
     }
 
     @GetMapping("/subjects/avg/{subjectName}")
-    public Map<String,Double> callCalculateAverageForWholeClass(@PathVariable String subjectName) {
+    public Map<String, Double> callCalculateAverageForWholeClass(@PathVariable String subjectName) {
         return subjectService.calculateAverageForWholeClass(subjectName);
     }
 
