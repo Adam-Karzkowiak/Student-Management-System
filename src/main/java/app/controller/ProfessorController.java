@@ -3,6 +3,7 @@ package app.controller;
 import app.model.AppUser;
 import app.model.StudentSubjectGradeDTO;
 import app.model.Subject;
+import app.service.AppUserService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,13 +21,14 @@ import java.util.Set;
 public class ProfessorController {
 
 
-   private SubjectService subjectService;
+    private SubjectService subjectService;
+    private AppUserService appUserService;
 
     @Autowired
-    public ProfessorController(SubjectService subjectService) {
+    ProfessorController(SubjectService subjectService, AppUserService appUserService) {
         this.subjectService = subjectService;
+        this.appUserService = appUserService;
     }
-
 
     @GetMapping("/subjects")
     ResponseEntity<List<String>> callShowSubjectList() {
@@ -72,7 +74,7 @@ public class ProfessorController {
     @Transactional
     @PatchMapping("/tasks/{id}")
     public ResponseEntity<?> toggleTask(@PathVariable int id) {
-        if (!appUser.existsById(id)) {
+        if (!appUserService.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
         repository.findById(id)
