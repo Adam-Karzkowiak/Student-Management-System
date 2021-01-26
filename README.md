@@ -1,4 +1,4 @@
-# Student-Management-System\
+# Student-Management-System
 Simple app to manage students grades.\
 -JAVA 14\
 -THYMELEAF 3.0.12\
