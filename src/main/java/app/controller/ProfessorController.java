@@ -62,23 +62,18 @@ public class ProfessorController {
         return ResponseEntity.ok(subjectService.calculateAvgForStudent(subjectName, id));
     }
 
-    @PatchMapping("/subjects")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Grades updated!")
-    public void callGiveAGrade(@RequestBody StudentSubjectGradeDTO studentSubjectKey) {
-        subjectService.giveAGrade(
-                studentSubjectKey.getSubjectName(),
-                studentSubjectKey.getStudentId(),
-                studentSubjectKey.getGrade());
-    }
 
     @Transactional
-    @PatchMapping("/tasks/{id}")
-    public ResponseEntity<?> toggleTask(@PathVariable int id) {
-        if (!appUserService.existsById(id)) {
+    @PatchMapping("/subjects}")
+    public ResponseEntity<Void> callGiveAGrade(@RequestBody StudentSubjectGradeDTO stuSubGraKey) {
+        if (!appUserService.callExistsById(stuSubGraKey.getStudentId())) {
             return ResponseEntity.notFound().build();
         }
-        repository.findById(id)
-                .ifPresent(task -> task.setDone(!task.isDone()));
+        subjectService.giveAGrade(
+                stuSubGraKey.getSubjectName(),
+                stuSubGraKey.getStudentId(),
+                stuSubGraKey.getGrade()
+        );
         return ResponseEntity.noContent().build();
     }
 }
