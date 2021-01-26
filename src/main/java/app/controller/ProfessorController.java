@@ -7,6 +7,7 @@ import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -19,7 +20,7 @@ import java.util.Set;
 public class ProfessorController {
 
 
-    SubjectService subjectService;
+   private SubjectService subjectService;
 
     @Autowired
     public ProfessorController(SubjectService subjectService) {
@@ -66,5 +67,16 @@ public class ProfessorController {
                 studentSubjectKey.getSubjectName(),
                 studentSubjectKey.getStudentId(),
                 studentSubjectKey.getGrade());
+    }
+
+    @Transactional
+    @PatchMapping("/tasks/{id}")
+    public ResponseEntity<?> toggleTask(@PathVariable int id) {
+        if (!appUser.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        repository.findById(id)
+                .ifPresent(task -> task.setDone(!task.isDone()));
+        return ResponseEntity.noContent().build();
     }
 }
