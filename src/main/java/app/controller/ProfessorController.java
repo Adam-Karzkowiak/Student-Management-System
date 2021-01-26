@@ -43,9 +43,10 @@ public class ProfessorController {
 
 
     @GetMapping("/subjects/{subjectName}")
-    public Set<AppUser> callShowRegisteredToSubject(@PathVariable String subjectName) {
-        return subjectService.showRegisteredToSubject(subjectName);
+    ResponseEntity<Set<AppUser>> callShowRegisteredToSubject(@PathVariable String subjectName) {
+        return ResponseEntity.ok(subjectService.showRegisteredToSubject(subjectName));
     }
+
 
     @GetMapping("/subjects/avg/{subjectName}")
     public Map<String, Double> callCalculateAverageForWholeClass(@PathVariable String subjectName) {
