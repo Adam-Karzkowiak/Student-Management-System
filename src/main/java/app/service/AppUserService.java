@@ -28,4 +28,8 @@ public class AppUserService {
     public void deleteAppUser(long id) {
         appUserRepository.deleteById(id);
     }
+
+    public boolean callExistsById(long id){
+        return appUserRepository.existsById(id);
+    }
 }
