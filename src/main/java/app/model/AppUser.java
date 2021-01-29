@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @NotBlank(message = "Providing username is obligatory")
     private String username;
