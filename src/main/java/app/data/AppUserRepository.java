@@ -7,4 +7,8 @@ public interface AppUserRepository {
     AppUser findByUsername(String username);
 
     boolean existsById(Long id);
+
+    AppUser save(AppUser entity);
+
+    void deleteById(Integer id);
 }
