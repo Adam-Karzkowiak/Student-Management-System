@@ -25,11 +25,11 @@ public class AppUserService {
         return appUser;
     }
 
-    public void deleteAppUser(long id) {
+    public void deleteAppUser(int id) {
         appUserRepository.deleteById(id);
     }
 
-    public boolean callExistsById(long id){
+    public boolean callExistsById(long id) {
         return appUserRepository.existsById(id);
     }
 }

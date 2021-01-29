@@ -28,7 +28,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Long> callDeleteAppUser(@RequestParam long id) {
+    public ResponseEntity<Integer> callDeleteAppUser(@RequestParam int id) {
         appUserService.deleteAppUser(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
 
