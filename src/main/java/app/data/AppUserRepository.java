@@ -11,4 +11,6 @@ public interface AppUserRepository {
     AppUser save(AppUser entity);
 
     void deleteById(Integer id);
+
+    AppUser getOne(int id);
 }
