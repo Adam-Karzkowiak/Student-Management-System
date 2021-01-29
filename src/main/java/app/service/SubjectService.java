@@ -45,13 +45,13 @@ public class SubjectService {
         return subNames;
     }
 
-    public void registerToSubject(long id, String subjectName) {
+    public void registerToSubject(int id, String subjectName) {
         Subject subject = getSubject(subjectName);
         AppUser student = getStudent(id);
         subjectRepository.addStudentToSubject(subject, student);
     }
 
-    public AppUser getStudent(long id) {
+    public AppUser getStudent(int id) {
         return appUserRepository.getOne(id);
     }
 
