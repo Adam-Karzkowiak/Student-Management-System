@@ -9,5 +9,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class StudentSubjectDTO {
     String subjectName;
-    long studentId;
+    int studentId;
 }
