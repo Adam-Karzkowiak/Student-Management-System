@@ -1,24 +1,24 @@
 package app.model;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Map;
 
-@Getter
-@Setter
+@Entity
+@Data
 @NoArgsConstructor
 public class Subject {
-    String subjectName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String subjectName;
     public Map<AppUser, ArrayList<Integer>> grades;
-
-
-    public Subject(String subjectName, Map<AppUser, ArrayList<Integer>> grades) {
-        this.subjectName = subjectName;
-        this.grades = grades;
-    }
 
 
     @Override
