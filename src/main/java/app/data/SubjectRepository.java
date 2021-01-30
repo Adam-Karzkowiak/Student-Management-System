@@ -1,38 +1,18 @@
 package app.data;
 
-
 import app.model.AppUser;
 import app.model.Subject;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
-import java.util.List;
-
-@Qualifier("subjects")
-@Repository
-public class SubjectRepository {
-    public static List<Subject> subjectDatabaseDemo = new ArrayList<>();
 
 
-    public List<Subject> addSubjectToRepository(Subject subject) {
-        subjectDatabaseDemo.add(subject);
-        return subjectDatabaseDemo;
-    }
+public interface SubjectRepository {
 
-    public List<Subject> deleteSubject(String subjectName) {
-        subjectDatabaseDemo.removeIf(subject -> subject.getSubjectName().equals(subjectName));
-        return subjectDatabaseDemo;
-    }
+    Subject save(Subject subject);
 
-    public void addStudentToSubject(Subject subject, AppUser appUser) {
-        if (!subject.grades.containsKey(appUser)) {
-            subject.grades.put(appUser, new ArrayList<>());
-        }
-    }
+    void deleteById(Integer id);
 
-    public void addAGrade(Subject subject, AppUser appUser, int grade) {
-        subject.grades.get(appUser).add(grade);
-    }
+    void addStudentToSubject(Subject subject, AppUser appUser);
+
+    void giveAGrade(Subject subject, AppUser appUser, int grade);
+
 
 }
