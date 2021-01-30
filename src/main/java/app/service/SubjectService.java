@@ -1,9 +1,9 @@
 package app.service;
 
 import app.data.AppUserRepository;
+import app.data.SubjectRepository;
 import app.model.AppUser;
 import app.model.Subject;
-import app.data.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.*;
 
 @Service
 public class SubjectService {
-    private SubjectRepository subjectRepository;
+    private final SubjectRepository subjectRepository;
     private AppUserRepository appUserRepository;
 
     @Autowired
@@ -28,7 +28,7 @@ public class SubjectService {
     }
 
     public List<Subject> removeSubject(String subjectName) {
-        subjectRepository.deleteSubject(subjectName);
+        subjectRepository.deleteById(subjectName);
         return subjectRepository.subjectDatabaseDemo;
     }
 
