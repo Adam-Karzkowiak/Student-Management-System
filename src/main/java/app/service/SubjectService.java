@@ -27,9 +27,9 @@ public class SubjectService {
         return subject;
     }
 
-    public List<Subject> removeSubject(String subjectName) {
-        subjectRepository.deleteById(subjectName);
-        return subjectRepository.subjectDatabaseDemo;
+    public List<Subject> removeSubject(int id) {
+        subjectRepository.deleteById(id);
+        return subjectRepository.findAll();
     }
 
     public List<Subject> addToSubjectDatabase(Subject subject) {
