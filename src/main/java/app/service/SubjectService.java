@@ -70,7 +70,7 @@ public class SubjectService {
 
     public void showAllStudentGrades(int id) {
         AppUser student = getStudent(id);
-        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
+        for (Subject obj : subjectRepository.findAll()) {
             if (obj.grades.containsKey(student)) {
                 System.out.println(obj.getSubjectName() + " : " + obj.grades.get(student));
 
@@ -82,7 +82,7 @@ public class SubjectService {
     public void giveAGrade(String subjectName, int id, int grade) {
         Subject subject = getSubject(subjectName);
         AppUser appUser = getStudent(id);
-        subjectRepository.addAGrade(subject, appUser, grade);
+        subjectRepository.giveAGrade(subject, appUser, grade);
     }
 
     public double calculateAvgForStudent(String subjectName, int id) {
