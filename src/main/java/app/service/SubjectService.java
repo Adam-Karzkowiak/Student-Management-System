@@ -56,16 +56,11 @@ public class SubjectService {
     }
 
     public Subject getSubject(String subjectName) {
-        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
-            if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
-                return obj;
-            }
-        }
-        return null;
+        return subjectRepository.findBySubjectName(subjectName);
     }
 
     public Set<AppUser> showRegisteredToSubject(String subjectName) {
-        for (Subject obj : subjectRepository.subjectDatabaseDemo) {
+        for (Subject obj : subjectRepository.findAll()) {
             if (obj.getSubjectName().equalsIgnoreCase(subjectName)) {
                 return obj.grades.keySet();
             }
