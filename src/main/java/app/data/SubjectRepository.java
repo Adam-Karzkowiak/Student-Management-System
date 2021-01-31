@@ -18,5 +18,6 @@ public interface SubjectRepository {
 
     List<Subject> findAll();
 
+    Subject findBySubjectName(String subjectName);
 
 }
