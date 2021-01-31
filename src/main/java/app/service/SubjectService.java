@@ -32,9 +32,9 @@ public class SubjectService {
         return subjectRepository.findAll();
     }
 
-    public List<Subject> addToSubjectDatabase(Subject subject) {
-        subjectRepository.addSubjectToRepository(subject);
-        return subjectRepository.subjectDatabaseDemo;
+    public List<Subject> addSubject(Subject subject) {
+        subjectRepository.save(subject);
+        return subjectRepository.findAll();
     }
 
     public List<String> showSubjectList() {
