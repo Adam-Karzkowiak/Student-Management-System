@@ -23,7 +23,7 @@ public class SubjectService {
     public Subject createSubject(String subjectName) {
         HashMap<AppUser, ArrayList<Integer>> grades = new HashMap<>();
         Subject subject = new Subject(subjectName, grades);
-        addToSubjectDatabase(subject);
+        addSubject(subject);
         return subject;
     }
 
@@ -39,7 +39,7 @@ public class SubjectService {
 
     public List<String> showSubjectList() {
         List<String> subNames = new ArrayList<>();
-        for (Subject o : subjectRepository.subjectDatabaseDemo) {
+        for (Subject o : subjectRepository.findAll()) {
             subNames.add(o.getSubjectName());
         }
         return subNames;
