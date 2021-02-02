@@ -1,12 +1,11 @@
 package app.controller;
 
 import app.model.AppUser;
-import app.model.StudentSubjectGradeDTO;
+import app.model.dto.StudentSubjectGradeDTO;
 import app.model.Subject;
 import app.service.AppUserService;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
