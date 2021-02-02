@@ -1,7 +1,7 @@
 package app.controller;
 
 
-import app.model.StudentSubjectDTO;
+import app.model.dto.StudentSubjectDTO;
 import app.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

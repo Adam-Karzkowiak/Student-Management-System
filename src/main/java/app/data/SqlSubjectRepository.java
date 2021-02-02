@@ -18,7 +18,7 @@ interface SqlSubjectRepository extends JpaRepository<Subject, Integer>, SubjectR
         }
     }
 
-    public void addAGrade(Subject subject, AppUser appUser, int grade) {
+    public void giveAGrade(Subject subject, AppUser appUser, int grade) {
         subject.grades.get(appUser).add(grade);
     }
 }
