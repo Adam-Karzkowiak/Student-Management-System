@@ -57,7 +57,7 @@ public class ProfessorController {
     @PostMapping("/subjects/avg/{subjectName}")
     ResponseEntity<Double> callCalculateAvgForStudent(
             @PathVariable String subjectName,
-            @RequestBody long id) {
+            @RequestBody int id) {
         return ResponseEntity.ok(subjectService.calculateAvgForStudent(subjectName, id));
     }
 
